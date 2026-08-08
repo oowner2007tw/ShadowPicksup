@@ -6,12 +6,15 @@ Outputs: report.json and public/report.json
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 WINDOWS = (1, 2, 3, 4, 5, 10, 20)
@@ -19,6 +22,7 @@ BASE_URL = "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_{days}.djhtm"
 OUTPUTS = (Path("report.json"), Path("public/report.json"))
 APP_DATA = Path("app/report-data.ts")
 HISTORY_DIR = Path("data/history")
+TELEGRAM_MESSAGE_LIMIT = 3900
 
 # Replace or expand this mock mapping with your preferred industry/concept taxonomy.
 THEME_MAPPING = {
@@ -139,6 +143,47 @@ def print_report(report: dict) -> None:
             print(f"  Tier {stock['tier']} | {stock['code']} {stock['name']} | {', '.join(stock['windows'])} | avg rank {stock['avg_rank']}")
 
 
+def telegram_messages(report: dict) -> list[str]:
+    """Render the report in Telegram-safe plain text chunks."""
+    header = "🔥 台股題材地圖｜每日追蹤"
+    messages = [header]
+    for theme in report["themes"]:
+        lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）"]
+        for stock in theme["stocks"]:
+            lines.append(
+                f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
+                f"{stock['appearances']}x｜平均 #{stock['avg_rank']}｜{', '.join(stock['windows'])}"
+            )
+        section = "\n".join(lines)
+        if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
+            messages.append(f"🔥 台股題材地圖｜續報\n{section.lstrip()}")
+        else:
+            messages[-1] += section
+    return messages
+
+
+def send_telegram_report(report: dict) -> bool:
+    """Send a fresh report only when Telegram credentials are configured."""
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        print("Telegram skipped: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not set.")
+        return False
+
+    endpoint = f"https://api.telegram.org/bot{token}/sendMessage"
+    try:
+        for message in telegram_messages(report):
+            data = urlencode({"chat_id": chat_id, "text": message}).encode("utf-8")
+            request = Request(endpoint, data=data, method="POST")
+            with urlopen(request, timeout=20) as response:
+                response.read()
+    except (HTTPError, URLError, TimeoutError) as error:
+        print(f"Telegram delivery failed: {error}")
+        return False
+    print(f"Telegram delivered: {len(report['themes'])} theme clusters.")
+    return True
+
+
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -157,6 +202,7 @@ def main() -> None:
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     if report["freshness"] == "fresh":
         (HISTORY_DIR / f"{report['generated_at'][:10]}.json").write_text(payload, encoding="utf-8")
+        send_telegram_report(report)
     print_report(report)
 
 
