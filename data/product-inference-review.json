@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "LLM 產品與題材可能性覆核。此檔案的內容不會直接納入正式題材 Tier，必須經人工確認後才移入 product-theme-mapping.json。",
+  "entries": {}
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T01:03:07.445039+08:00",
+  "generated_at": "2026-08-09T01:16:09.061009+08:00",
   "freshness": "fresh",
   "last_error": null,
   "source_urls": {
@@ -44,6 +44,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "S"
         },
         {
@@ -67,6 +68,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "S"
         },
         {
@@ -91,6 +93,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "S"
         },
         {
@@ -114,6 +117,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "A"
         },
         {
@@ -136,6 +140,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "A"
         }
       ],
@@ -173,6 +178,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "S"
         },
         {
@@ -197,6 +203,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "B"
         },
         {
@@ -219,6 +226,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "A"
         },
         {
@@ -240,6 +248,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "A"
         }
       ],
@@ -276,6 +285,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "S"
         },
         {
@@ -299,6 +309,7 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "S"
         },
         {
@@ -320,88 +331,40 @@
           "theme_basis": "人工題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "llm_review": null,
           "tier": "B"
         }
       ],
       "tier": 3
-    },
-    {
-      "name": "伺服器導軌 / 機櫃滑軌",
-      "score": 24,
-      "core_strength": 6.0,
-      "breadth": 1,
-      "early_cluster_count": 0,
-      "mapping_basis": [
-        "產品面推論"
-      ],
-      "stocks": [
-        {
-          "code": "2059",
-          "name": "川湖",
-          "windows": [
-            "1d",
-            "2d",
-            "3d",
-            "4d",
-            "5d",
-            "10d",
-            "20d"
-          ],
-          "appearances": 7,
-          "effective_appearances": 5.65,
-          "continuity": 7,
-          "avg_rank": 5.3,
-          "avg_rank_percentile": 8.8,
-          "signal_score": 6.0,
-          "avg_gain_pct": 27.55,
-          "latest_window": "1d",
-          "theme_basis": "產品面推論",
-          "theme_confidence": "待覆核",
-          "product_label": "伺服器導軌、機櫃滑軌",
-          "tier": "S"
-        }
-      ],
-      "tier": 4
-    },
-    {
-      "name": "軟板材料 / FCCL",
-      "score": 18,
-      "core_strength": 4.47,
-      "breadth": 1,
-      "early_cluster_count": 0,
-      "mapping_basis": [
-        "產品面推論"
-      ],
-      "stocks": [
-        {
-          "code": "8039",
-          "name": "台虹",
-          "windows": [
-            "1d",
-            "2d",
-            "3d",
-            "4d",
-            "5d",
-            "20d"
-          ],
-          "appearances": 6,
-          "effective_appearances": 5.0,
-          "continuity": 5,
-          "avg_rank": 11.5,
-          "avg_rank_percentile": 21.7,
-          "signal_score": 4.47,
-          "avg_gain_pct": 25.41,
-          "latest_window": "1d",
-          "theme_basis": "產品面推論",
-          "theme_confidence": "待覆核",
-          "product_label": "軟板材料、FCCL",
-          "tier": "S"
-        }
-      ],
-      "tier": 5
     }
   ],
   "unmapped_candidates": [
+    {
+      "code": "2059",
+      "name": "川湖",
+      "windows": [
+        "1d",
+        "2d",
+        "3d",
+        "4d",
+        "5d",
+        "10d",
+        "20d"
+      ],
+      "appearances": 7,
+      "effective_appearances": 5.65,
+      "continuity": 7,
+      "avg_rank": 5.3,
+      "avg_rank_percentile": 8.8,
+      "signal_score": 6.0,
+      "avg_gain_pct": 27.55,
+      "latest_window": "1d",
+      "theme_basis": "待產品推論",
+      "theme_confidence": "未映射",
+      "product_label": null,
+      "llm_review": null,
+      "tier": "S"
+    },
     {
       "code": "7610",
       "name": "聯友金屬-創",
@@ -423,6 +386,32 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
+      "tier": "S"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "windows": [
+        "1d",
+        "2d",
+        "3d",
+        "4d",
+        "5d",
+        "20d"
+      ],
+      "appearances": 6,
+      "effective_appearances": 5.0,
+      "continuity": 5,
+      "avg_rank": 11.5,
+      "avg_rank_percentile": 21.7,
+      "signal_score": 4.47,
+      "avg_gain_pct": 25.41,
+      "latest_window": "1d",
+      "theme_basis": "待產品推論",
+      "theme_confidence": "未映射",
+      "product_label": null,
+      "llm_review": null,
       "tier": "S"
     },
     {
@@ -447,6 +436,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -469,6 +459,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -492,6 +483,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -514,6 +506,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -537,6 +530,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -559,6 +553,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -580,6 +575,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -601,6 +597,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "A"
     },
     {
@@ -625,6 +622,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -648,6 +646,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -672,6 +671,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -695,6 +695,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -718,6 +719,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -741,6 +743,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -764,6 +767,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -786,6 +790,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -807,6 +812,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -828,6 +834,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -849,6 +856,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -870,6 +878,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -890,6 +899,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -912,6 +922,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -933,6 +944,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -953,6 +965,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -973,6 +986,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -993,6 +1007,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -1013,6 +1028,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -1033,6 +1049,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -1053,6 +1070,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -1073,6 +1091,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -1093,6 +1112,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     },
     {
@@ -1113,6 +1133,7 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "llm_review": null,
       "tier": "B"
     }
   ]

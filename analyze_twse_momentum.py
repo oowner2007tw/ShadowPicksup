@@ -28,6 +28,7 @@ OUTPUTS = (Path("report.json"), Path("public/report.json"))
 APP_DATA = Path("app/report-data.ts")
 HISTORY_DIR = Path("data/history")
 PRODUCT_MAPPING_FILE = Path("data/product-theme-mapping.json")
+INFERENCE_REVIEW_FILE = Path("data/product-inference-review.json")
 TELEGRAM_MESSAGE_LIMIT = 3900
 
 # Replace or expand this mock mapping with your preferred industry/concept taxonomy.
@@ -51,20 +52,7 @@ THEME_MAPPING = {
 # It lets strong but newly observed names enter the model without claiming that
 # the ranking source itself supplied an industry classification. Review entries
 # periodically and promote them to THEME_MAPPING once the taxonomy is approved.
-PRODUCT_THEME_INFERENCE = {
-    "2059": {
-        "theme": "伺服器導軌 / 機櫃滑軌",
-        "product_label": "伺服器導軌、機櫃滑軌",
-        "basis": "產品面推論",
-        "confidence": "待覆核",
-    },
-    "8039": {
-        "theme": "軟板材料 / FCCL",
-        "product_label": "軟板材料、FCCL",
-        "basis": "產品面推論",
-        "confidence": "待覆核",
-    },
-}
+PRODUCT_THEME_INFERENCE: dict[str, dict] = {}
 WEIGHT = {"S": 4, "A": 3, "B": 2, "C": 1}
 RECENT_WINDOWS = {1, 2, 3}
 EARLY_CLUSTER_MIN = 2
@@ -137,6 +125,13 @@ def load_product_theme_inference() -> dict[str, dict]:
     return mappings
 
 
+def load_inference_reviews() -> dict[str, dict]:
+    """Load LLM hypotheses. These never affect official theme assignment."""
+    if not INFERENCE_REVIEW_FILE.exists():
+        return {}
+    return json.loads(INFERENCE_REVIEW_FILE.read_text(encoding="utf-8")).get("entries", {})
+
+
 def resolve_theme(code: str, product_mappings: dict[str, dict]) -> dict | None:
     """Return a curated theme or an explicitly labelled product inference."""
     if code in THEME_MAPPING:
@@ -162,6 +157,7 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
     early_by_theme: dict[str, list[dict]] = defaultdict(list)
     unmapped_candidates: list[dict] = []
     product_mappings = load_product_theme_inference()
+    inference_reviews = load_inference_reviews()
     for code, observations in seen.items():
         mapping = resolve_theme(code, product_mappings)
         theme = mapping["theme"] if mapping else None
@@ -173,7 +169,7 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         continuity_ratio = continuity / len(days)
         gains = [item["gain_pct"] for item in observations if item["gain_pct"] is not None]
         signal_score = effective_appearances * (1.15 - avg_rank_percentile) * (0.75 + continuity_ratio * 0.25)
-        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None}
+        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None, "llm_review": inference_reviews.get(code)}
         tier = repeated_tier(len(observations), effective_appearances, avg_rank_percentile, continuity)
         if tier:
             record["tier"] = tier
