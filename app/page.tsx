@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Stock = { code: string; name: string; tier: "S" | "A" | "B"; windows: string[]; theme: string };
+type Stock = { code: string; name: string; tier: "S" | "A" | "B" | "C"; windows: string[]; theme: string };
 type Theme = { name: string; score: number; tier: number; stocks: Stock[] };
 
 const fallbackThemes: Theme[] = [
@@ -25,11 +25,11 @@ const fallbackThemes: Theme[] = [
   ]},
 ];
 
-const weights = { S: 3, A: 2, B: 1 };
+const weights = { S: 4, A: 3, B: 2, C: 1 };
 const fugleUrl = (code: string) => `https://www.fugle.tw/ai/${code}`;
 
 export default function Home() {
-  const [tier, setTier] = useState<"all" | "S" | "A" | "B">("all");
+  const [tier, setTier] = useState<"all" | "S" | "A" | "B" | "C">("all");
   const [query, setQuery] = useState("");
   const [themes, setThemes] = useState<Theme[]>(fallbackThemes);
   const [dataDate, setDataDate] = useState("範例資料");
@@ -51,11 +51,11 @@ export default function Home() {
 
     <section className="toolbar" aria-label="報告篩選">
       <div className="window-list"><span>觀測：</span>{["1d","2d","3d","4d","5d","10d","20d"].map((w) => <b key={w}>{w}</b>)}</div>
-      <div className="controls"><div className="tier-tabs" aria-label="標的 Tier 篩選">{(["all","S","A","B"] as const).map((value) => <button className={tier === value ? "active" : ""} onClick={() => setTier(value)} key={value}>{value === "all" ? "全部" : `Tier ${value}`}</button>)}</div><label className="search"><span>⌕</span><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="搜尋代號、名稱或題材" /></label></div>
+      <div className="controls"><div className="tier-tabs" aria-label="標的 Tier 篩選">{(["all","S","A","B","C"] as const).map((value) => <button className={tier === value ? "active" : ""} onClick={() => setTier(value)} key={value}>{value === "all" ? "全部" : `Tier ${value}`}</button>)}</div><label className="search"><span>⌕</span><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="搜尋代號、名稱或題材" /></label></div>
     </section>
 
     <section className="content">
-      <header className="report-title"><div><p className="kicker">CURATED SIGNALS</p><h2>可能性題材與標的 Tier</h2></div><p>僅呈現跨區間出現至少兩次的標的<br />S = 3 分 · A = 2 分 · B = 1 分</p></header>
+      <header className="report-title"><div><p className="kicker">CURATED SIGNALS</p><h2>可能性題材與標的 Tier</h2></div><p>多次高排名優先；近期群聚訊號納入觀察<br />S = 4 分 · A = 3 分 · B = 2 分 · C = 1 分</p></header>
       <div className="theme-list">{visible.map((theme) => <article className="theme-card" key={theme.name}>
         <div className="theme-header"><div className="rank"><span>THEME TIER</span><strong>{String(theme.tier).padStart(2, "0")}</strong></div><div className="theme-name"><h3>{theme.name}</h3><p>{theme.stocks.length} 個高匹配標的 · 跨天期動能同步</p></div><div className="score"><span>總權重</span><strong>{theme.stocks.reduce((total, stock) => total + weights[stock.tier], 0)}<small> pts</small></strong></div></div>
         <div className="stocks">{theme.stocks.map((stock) => <a className="stock-row" href={fugleUrl(stock.code)} target="_blank" rel="noreferrer" key={stock.code} aria-label={`在 Fugle 查看 ${stock.code} ${stock.name}`}>
