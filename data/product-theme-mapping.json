@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "description": "產品面題材映射；每日流程會先將未映射高動能標的列入候選池，再依公開產品資料補入此檔案。",
+  "entries": {
+    "2059": {
+      "theme": "伺服器導軌 / 機櫃滑軌",
+      "product_label": "伺服器導軌、機櫃滑軌",
+      "basis": "產品面推論",
+      "confidence": "待覆核"
+    },
+    "8039": {
+      "theme": "軟板材料 / FCCL",
+      "product_label": "軟板材料、FCCL",
+      "basis": "產品面推論",
+      "confidence": "待覆核"
+    }
+  }
+}

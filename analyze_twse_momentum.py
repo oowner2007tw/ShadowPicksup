@@ -27,6 +27,7 @@ BASE_URL = "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_{days}.djhtm"
 OUTPUTS = (Path("report.json"), Path("public/report.json"))
 APP_DATA = Path("app/report-data.ts")
 HISTORY_DIR = Path("data/history")
+PRODUCT_MAPPING_FILE = Path("data/product-theme-mapping.json")
 TELEGRAM_MESSAGE_LIMIT = 3900
 
 # Replace or expand this mock mapping with your preferred industry/concept taxonomy.
@@ -127,11 +128,20 @@ def longest_continuous_run(days: list[int]) -> int:
     return longest
 
 
-def resolve_theme(code: str) -> dict | None:
+def load_product_theme_inference() -> dict[str, dict]:
+    """Load reviewable product mappings without requiring a source-code edit."""
+    mappings = dict(PRODUCT_THEME_INFERENCE)
+    if PRODUCT_MAPPING_FILE.exists():
+        document = json.loads(PRODUCT_MAPPING_FILE.read_text(encoding="utf-8"))
+        mappings.update(document.get("entries", {}))
+    return mappings
+
+
+def resolve_theme(code: str, product_mappings: dict[str, dict]) -> dict | None:
     """Return a curated theme or an explicitly labelled product inference."""
     if code in THEME_MAPPING:
         return {"theme": THEME_MAPPING[code], "product_label": None, "basis": "人工題材對照", "confidence": "已收錄"}
-    return PRODUCT_THEME_INFERENCE.get(code)
+    return product_mappings.get(code)
 
 
 def repeated_tier(count: int, effective_appearances: float, avg_rank_percentile: float, continuity: int) -> str | None:
@@ -150,10 +160,11 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
 
     candidates: dict[str, list[dict]] = defaultdict(list)
     early_by_theme: dict[str, list[dict]] = defaultdict(list)
+    unmapped_candidates: list[dict] = []
+    product_mappings = load_product_theme_inference()
     for code, observations in seen.items():
-        mapping = resolve_theme(code)
-        if not mapping: continue  # Unknown product relationship remains excluded until reviewed.
-        theme = mapping["theme"]
+        mapping = resolve_theme(code, product_mappings)
+        theme = mapping["theme"] if mapping else None
         days = sorted(item["day"] for item in observations)
         avg_rank = sum(item["rank"] for item in observations) / len(observations)
         avg_rank_percentile = sum(item["rank_percentile"] for item in observations) / len(observations)
@@ -162,13 +173,16 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         continuity_ratio = continuity / len(days)
         gains = [item["gain_pct"] for item in observations if item["gain_pct"] is not None]
         signal_score = effective_appearances * (1.15 - avg_rank_percentile) * (0.75 + continuity_ratio * 0.25)
-        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"], "theme_confidence": mapping["confidence"], "product_label": mapping["product_label"]}
+        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None}
         tier = repeated_tier(len(observations), effective_appearances, avg_rank_percentile, continuity)
         if tier:
             record["tier"] = tier
-            candidates[theme].append(record)
+            if theme:
+                candidates[theme].append(record)
+            else:
+                unmapped_candidates.append(record)
         # Recent single appearances survive only if they form a theme cluster.
-        elif len(observations) == 1 and days[0] in RECENT_WINDOWS and avg_rank_percentile <= 0.30:
+        elif theme and len(observations) == 1 and days[0] in RECENT_WINDOWS and avg_rank_percentile <= 0.30:
             early_by_theme[theme].append(record)
 
     for theme, early_stocks in early_by_theme.items():
@@ -189,7 +203,8 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "mapping_basis": sorted({stock["theme_basis"] for stock in stocks}), "stocks": stocks})
     themes.sort(key=lambda theme: (-theme["score"], theme["name"]))
     for tier, theme in enumerate(themes, 1): theme["tier"] = tier
-    return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes}
+    unmapped_candidates.sort(key=lambda stock: (-WEIGHT[stock["tier"]], -stock["signal_score"], stock["avg_rank"], stock["code"]))
+    return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes, "unmapped_candidates": unmapped_candidates}
 
 
 def print_report(report: dict) -> None:
@@ -213,6 +228,15 @@ def telegram_messages(report: dict) -> list[str]:
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
                 f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{inference_label}"
             )
+    if report.get("unmapped_candidates"):
+        lines = ["\n🧭 待產品推論候選（已符合標的 Tier，尚待映射）"]
+        for stock in report["unmapped_candidates"]:
+            lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
+        section = "\n".join(lines)
+        if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
+            messages.append(f"🔥 台股題材地圖｜續報\n{section.lstrip()}")
+        else:
+            messages[-1] += section
         section = "\n".join(lines)
         if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
             messages.append(f"🔥 台股題材地圖｜續報\n{section.lstrip()}")
