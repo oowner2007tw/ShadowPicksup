@@ -82,6 +82,33 @@
       "source_urls": [],
       "source_status": "待以公司官方產品資料覆核",
       "reviewed_at": "2026-08-09"
+    },
+    "7610": {
+      "product_hypothesis": "疑似金屬材料加工／資源循環相關",
+      "theme_hypotheses": ["金屬材料", "資源循環"],
+      "rationale": "名稱與市場定位僅能形成金屬材料方向的初步假說，尚無足夠產品資料支持更精確分類。",
+      "confidence": "低",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "7788": {
+      "product_hypothesis": "疑似電磁繼電器與電控零組件",
+      "theme_hypotheses": ["繼電器 / 電控零組件", "工業自動化"],
+      "rationale": "產品可能性聚焦於電控與繼電器應用；是否形成工業自動化題材仍需以官方產品與終端應用確認。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "2491": {
+      "product_hypothesis": "疑似電子零組件相關，產品線待確認",
+      "theme_hypotheses": ["電子零組件"],
+      "rationale": "現階段缺乏足以支持特定產品類別的可靠依據，只保留寬泛電子零組件假說，避免過度分類。",
+      "confidence": "低",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
     }
   }
 }

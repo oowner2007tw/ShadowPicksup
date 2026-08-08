@@ -54,6 +54,7 @@ THEME_MAPPING = {
 # periodically and promote them to THEME_MAPPING once the taxonomy is approved.
 PRODUCT_THEME_INFERENCE: dict[str, dict] = {}
 WEIGHT = {"S": 4, "A": 3, "B": 2, "C": 1}
+REVIEW_ORDER = {"S": 0, "A": 1, "B": 2}
 RECENT_WINDOWS = {1, 2, 3}
 EARLY_CLUSTER_MIN = 2
 
@@ -117,11 +118,14 @@ def longest_continuous_run(days: list[int]) -> int:
 
 
 def load_product_theme_inference() -> dict[str, dict]:
-    """Load reviewable product mappings without requiring a source-code edit."""
+    """Load only explicitly approved mappings for the official theme pool."""
     mappings = dict(PRODUCT_THEME_INFERENCE)
     if PRODUCT_MAPPING_FILE.exists():
         document = json.loads(PRODUCT_MAPPING_FILE.read_text(encoding="utf-8"))
-        mappings.update(document.get("entries", {}))
+        mappings.update({
+            code: entry for code, entry in document.get("entries", {}).items()
+            if entry.get("approval_status") == "approved"
+        })
     return mappings
 
 
@@ -137,6 +141,16 @@ def resolve_theme(code: str, product_mappings: dict[str, dict]) -> dict | None:
     if code in THEME_MAPPING:
         return {"theme": THEME_MAPPING[code], "product_label": None, "basis": "人工題材對照", "confidence": "已收錄"}
     return product_mappings.get(code)
+
+
+def candidate_review_state(tier: str, review: dict | None) -> tuple[str, str]:
+    """Return deterministic priority and review state for unmapped strong stocks."""
+    priority = "P1／本輪必覆核" if tier in {"S", "A"} else "P2／依動能排程覆核"
+    if not review:
+        return priority, "等待 LLM 研究"
+    if review.get("source_urls"):
+        return priority, "LLM 假說／來源待人工確認"
+    return priority, "LLM 初步假說／待來源驗證"
 
 
 def repeated_tier(count: int, effective_appearances: float, avg_rank_percentile: float, continuity: int) -> str | None:
@@ -169,13 +183,15 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         continuity_ratio = continuity / len(days)
         gains = [item["gain_pct"] for item in observations if item["gain_pct"] is not None]
         signal_score = effective_appearances * (1.15 - avg_rank_percentile) * (0.75 + continuity_ratio * 0.25)
-        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None, "llm_review": inference_reviews.get(code)}
+        llm_review = inference_reviews.get(code)
+        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None, "llm_review": llm_review}
         tier = repeated_tier(len(observations), effective_appearances, avg_rank_percentile, continuity)
         if tier:
             record["tier"] = tier
             if theme:
                 candidates[theme].append(record)
             else:
+                record["review_priority"], record["review_status"] = candidate_review_state(tier, llm_review)
                 unmapped_candidates.append(record)
         # Recent single appearances survive only if they form a theme cluster.
         elif theme and len(observations) == 1 and days[0] in RECENT_WINDOWS and avg_rank_percentile <= 0.30:
@@ -199,8 +215,13 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "mapping_basis": sorted({stock["theme_basis"] for stock in stocks}), "stocks": stocks})
     themes.sort(key=lambda theme: (-theme["score"], theme["name"]))
     for tier, theme in enumerate(themes, 1): theme["tier"] = tier
-    unmapped_candidates.sort(key=lambda stock: (-WEIGHT[stock["tier"]], -stock["signal_score"], stock["avg_rank"], stock["code"]))
-    return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes, "unmapped_candidates": unmapped_candidates}
+    unmapped_candidates.sort(key=lambda stock: (REVIEW_ORDER[stock["tier"]], -stock["signal_score"], stock["avg_rank"], stock["code"]))
+    review_summary = {
+        "required": sum(stock["tier"] in {"S", "A"} for stock in unmapped_candidates),
+        "reviewed": sum(stock["llm_review"] is not None for stock in unmapped_candidates),
+        "source_verified": sum(bool(stock["llm_review"] and stock["llm_review"].get("source_urls")) for stock in unmapped_candidates),
+    }
+    return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes, "unmapped_candidates": unmapped_candidates, "review_summary": review_summary}
 
 
 def print_report(report: dict) -> None:
