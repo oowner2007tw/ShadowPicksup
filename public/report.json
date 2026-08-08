@@ -1,5 +1,7 @@
 {
-  "generated_at": "2026-08-08T23:52:42.591871+08:00",
+  "generated_at": "2026-08-08T23:56:18.109852+08:00",
+  "freshness": "fresh",
+  "last_error": null,
   "source_urls": {
     "1d": "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_1.djhtm",
     "2d": "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_2.djhtm",
@@ -26,6 +28,7 @@
           ],
           "appearances": 5,
           "avg_rank": 3.4,
+          "avg_gain_pct": 29.55,
           "latest_window": "2d",
           "tier": "S"
         },
@@ -42,6 +45,7 @@
           ],
           "appearances": 6,
           "avg_rank": 6.2,
+          "avg_gain_pct": 23.44,
           "latest_window": "1d",
           "tier": "S"
         },
@@ -58,6 +62,7 @@
           ],
           "appearances": 6,
           "avg_rank": 9.8,
+          "avg_gain_pct": 23.9,
           "latest_window": "2d",
           "tier": "S"
         },
@@ -73,6 +78,7 @@
           ],
           "appearances": 5,
           "avg_rank": 16.4,
+          "avg_gain_pct": 21.56,
           "latest_window": "2d",
           "tier": "S"
         },
@@ -87,6 +93,7 @@
           ],
           "appearances": 4,
           "avg_rank": 15.5,
+          "avg_gain_pct": 27.13,
           "latest_window": "4d",
           "tier": "A"
         },
@@ -100,6 +107,7 @@
           ],
           "appearances": 3,
           "avg_rank": 31.3,
+          "avg_gain_pct": 18.43,
           "latest_window": "3d",
           "tier": "A"
         },
@@ -114,6 +122,7 @@
           ],
           "appearances": 4,
           "avg_rank": 35.8,
+          "avg_gain_pct": 17.53,
           "latest_window": "4d",
           "tier": "A"
         },
@@ -126,6 +135,7 @@
           ],
           "appearances": 2,
           "avg_rank": 38.0,
+          "avg_gain_pct": 19.03,
           "latest_window": "4d",
           "tier": "B"
         },
@@ -138,6 +148,7 @@
           ],
           "appearances": 2,
           "avg_rank": 40.5,
+          "avg_gain_pct": 17.59,
           "latest_window": "5d",
           "tier": "B"
         }
@@ -160,6 +171,7 @@
           ],
           "appearances": 5,
           "avg_rank": 13.0,
+          "avg_gain_pct": 21.44,
           "latest_window": "1d",
           "tier": "S"
         },
@@ -175,6 +187,7 @@
           ],
           "appearances": 5,
           "avg_rank": 15.0,
+          "avg_gain_pct": 24.36,
           "latest_window": "2d",
           "tier": "S"
         },
@@ -188,6 +201,7 @@
           ],
           "appearances": 3,
           "avg_rank": 18.7,
+          "avg_gain_pct": 21.66,
           "latest_window": "4d",
           "tier": "A"
         },
@@ -201,6 +215,7 @@
           ],
           "appearances": 3,
           "avg_rank": 31.7,
+          "avg_gain_pct": 18.67,
           "latest_window": "4d",
           "tier": "A"
         },
@@ -213,6 +228,7 @@
           ],
           "appearances": 2,
           "avg_rank": 33.5,
+          "avg_gain_pct": 20.05,
           "latest_window": "4d",
           "tier": "B"
         },
@@ -225,6 +241,7 @@
           ],
           "appearances": 2,
           "avg_rank": 37.5,
+          "avg_gain_pct": 9.53,
           "latest_window": "2d",
           "tier": "B"
         },
@@ -237,6 +254,7 @@
           ],
           "appearances": 2,
           "avg_rank": 39.5,
+          "avg_gain_pct": 14.83,
           "latest_window": "10d",
           "tier": "B"
         }
@@ -260,6 +278,7 @@
           ],
           "appearances": 6,
           "avg_rank": 13.0,
+          "avg_gain_pct": 18.88,
           "latest_window": "1d",
           "tier": "S"
         },
@@ -276,6 +295,7 @@
           ],
           "appearances": 6,
           "avg_rank": 22.8,
+          "avg_gain_pct": 17.92,
           "latest_window": "1d",
           "tier": "S"
         },
@@ -290,6 +310,7 @@
           ],
           "appearances": 4,
           "avg_rank": 18.0,
+          "avg_gain_pct": 24.11,
           "latest_window": "2d",
           "tier": "A"
         },
@@ -303,6 +324,7 @@
           ],
           "appearances": 3,
           "avg_rank": 19.3,
+          "avg_gain_pct": 21.69,
           "latest_window": "4d",
           "tier": "A"
         },
@@ -315,6 +337,7 @@
           ],
           "appearances": 2,
           "avg_rank": 40.5,
+          "avg_gain_pct": 17.79,
           "latest_window": "5d",
           "tier": "B"
         },
@@ -327,6 +350,7 @@
           ],
           "appearances": 2,
           "avg_rank": 42.5,
+          "avg_gain_pct": 17.31,
           "latest_window": "5d",
           "tier": "B"
         }
