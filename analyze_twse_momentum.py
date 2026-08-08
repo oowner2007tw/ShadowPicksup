@@ -5,6 +5,7 @@ Outputs: report.json and public/report.json
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import re
@@ -18,6 +19,10 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 WINDOWS = (1, 2, 3, 4, 5, 10, 20)
+WINDOW_INDEX = {day: index for index, day in enumerate(WINDOWS)}
+# The windows overlap. Recency weights reduce the false confidence that comes
+# from counting 1d, 2d, 3d… as fully independent observations.
+RECENCY_WEIGHT = {1: 1.00, 2: 0.95, 3: 0.90, 4: 0.85, 5: 0.80, 10: 0.65, 20: 0.50}
 BASE_URL = "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_{days}.djhtm"
 OUTPUTS = (Path("report.json"), Path("public/report.json"))
 APP_DATA = Path("app/report-data.ts")
@@ -86,14 +91,28 @@ def fetch_ranking(days: int) -> dict[str, dict]:
             found[match.group(2)] = {"name": match.group(3), "rank": int(match.group(1)), "gain_pct": gain_pct}
     if not found:
         raise RuntimeError(f"No rankings parsed from {days}d; source layout may have changed.")
+    universe_size = max(len(found), 1)
+    for item in found.values():
+        # 0.0 is the top of this specific list and 1.0 is the bottom.
+        item["rank_percentile"] = round((item["rank"] - 1) / max(universe_size - 1, 1), 4)
     return found
 
 
-def repeated_tier(count: int, avg_rank: float) -> str | None:
-    """Repeated appearance + stronger ranking gives the established momentum tiers."""
-    if count >= 5 and avg_rank <= 30: return "S"
-    if count >= 3 and avg_rank <= 40: return "A"
-    if count >= 2: return "B"
+def longest_continuous_run(days: list[int]) -> int:
+    """Return longest uninterrupted run in the ordered observation windows."""
+    positions = sorted(WINDOW_INDEX[day] for day in days)
+    longest = run = 1
+    for previous, current in zip(positions, positions[1:]):
+        run = run + 1 if current == previous + 1 else 1
+        longest = max(longest, run)
+    return longest
+
+
+def repeated_tier(count: int, effective_appearances: float, avg_rank_percentile: float, continuity: int) -> str | None:
+    """Tier established momentum by quality, recency and continuity—not raw count alone."""
+    if count >= 5 and effective_appearances >= 3.8 and avg_rank_percentile <= 0.30 and continuity >= 4: return "S"
+    if count >= 3 and effective_appearances >= 2.3 and avg_rank_percentile <= 0.45 and continuity >= 2: return "A"
+    if count >= 2 and effective_appearances >= 1.35 and avg_rank_percentile <= 0.60: return "B"
     return None
 
 
@@ -110,26 +129,37 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         if not theme: continue  # Single, unmapped names are not a usable thematic signal.
         days = sorted(item["day"] for item in observations)
         avg_rank = sum(item["rank"] for item in observations) / len(observations)
+        avg_rank_percentile = sum(item["rank_percentile"] for item in observations) / len(observations)
+        effective_appearances = sum(RECENCY_WEIGHT[item["day"]] for item in observations)
+        continuity = longest_continuous_run(days)
+        continuity_ratio = continuity / len(days)
         gains = [item["gain_pct"] for item in observations if item["gain_pct"] is not None]
-        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "avg_rank": round(avg_rank, 1), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d"}
-        tier = repeated_tier(len(observations), avg_rank)
+        signal_score = effective_appearances * (1.15 - avg_rank_percentile) * (0.75 + continuity_ratio * 0.25)
+        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d"}
+        tier = repeated_tier(len(observations), effective_appearances, avg_rank_percentile, continuity)
         if tier:
             record["tier"] = tier
             candidates[theme].append(record)
         # Recent single appearances survive only if they form a theme cluster.
-        elif len(observations) == 1 and days[0] in RECENT_WINDOWS and avg_rank <= 30:
+        elif len(observations) == 1 and days[0] in RECENT_WINDOWS and avg_rank_percentile <= 0.30:
             early_by_theme[theme].append(record)
 
     for theme, early_stocks in early_by_theme.items():
-        if len(early_stocks) >= EARLY_CLUSTER_MIN:
+        early_windows = {stock["latest_window"] for stock in early_stocks}
+        has_immediate_signal = any(stock["latest_window"] in {"1d", "2d"} for stock in early_stocks)
+        # A new theme needs breadth, quality and at least one very recent signal.
+        if len(early_stocks) >= EARLY_CLUSTER_MIN and len(early_windows) >= 2 and has_immediate_signal:
             for record in early_stocks:
                 record["tier"] = "C"  # Theme-confirmed early observation, not a buy signal.
                 candidates[theme].append(record)
 
     themes = []
     for name, stocks in candidates.items():
-        stocks.sort(key=lambda stock: (-WEIGHT[stock["tier"]], stock["avg_rank"], stock["code"]))
-        themes.append({"name": name, "score": sum(WEIGHT[stock["tier"]] for stock in stocks), "stocks": stocks})
+        stocks.sort(key=lambda stock: (-stock["signal_score"], -WEIGHT[stock["tier"]], stock["avg_rank"], stock["code"]))
+        core_strength = sum(stock["signal_score"] for stock in stocks[:3])
+        breadth_bonus = min(len(stocks), 5) * 0.5
+        early_cluster_bonus = 1 if sum(stock["tier"] == "C" for stock in stocks) >= EARLY_CLUSTER_MIN else 0
+        themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "stocks": stocks})
     themes.sort(key=lambda theme: (-theme["score"], theme["name"]))
     for tier, theme in enumerate(themes, 1): theme["tier"] = tier
     return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes}
@@ -152,7 +182,8 @@ def telegram_messages(report: dict) -> list[str]:
         for stock in theme["stocks"]:
             lines.append(
                 f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
-                f"{stock['appearances']}x｜平均 #{stock['avg_rank']}｜{', '.join(stock['windows'])}"
+                f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
+                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}"
             )
         section = "\n".join(lines)
         if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
@@ -185,6 +216,9 @@ def send_telegram_report(report: dict) -> bool:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build the Taiwan stock momentum report.")
+    parser.add_argument("--no-telegram", action="store_true", help="Write the report without sending Telegram notifications.")
+    args = parser.parse_args()
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
@@ -202,7 +236,8 @@ def main() -> None:
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     if report["freshness"] == "fresh":
         (HISTORY_DIR / f"{report['generated_at'][:10]}.json").write_text(payload, encoding="utf-8")
-        send_telegram_report(report)
+        if not args.no_telegram:
+            send_telegram_report(report)
     print_report(report)
 
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T23:56:18.109852+08:00",
+  "generated_at": "2026-08-09T00:50:24.812182+08:00",
   "freshness": "fresh",
   "last_error": null,
   "source_urls": {
@@ -14,24 +14,11 @@
   "themes": [
     {
       "name": "AI 基礎建設 / 高速傳輸",
-      "score": 29,
+      "score": 60,
+      "core_strength": 14.44,
+      "breadth": 5,
+      "early_cluster_count": 0,
       "stocks": [
-        {
-          "code": "6213",
-          "name": "聯茂",
-          "windows": [
-            "2d",
-            "3d",
-            "4d",
-            "5d",
-            "10d"
-          ],
-          "appearances": 5,
-          "avg_rank": 3.4,
-          "avg_gain_pct": 29.55,
-          "latest_window": "2d",
-          "tier": "S"
-        },
         {
           "code": "6426",
           "name": "統新",
@@ -44,9 +31,33 @@
             "10d"
           ],
           "appearances": 6,
+          "effective_appearances": 5.15,
+          "continuity": 6,
           "avg_rank": 6.2,
+          "avg_rank_percentile": 10.7,
+          "signal_score": 5.37,
           "avg_gain_pct": 23.44,
           "latest_window": "1d",
+          "tier": "S"
+        },
+        {
+          "code": "6213",
+          "name": "聯茂",
+          "windows": [
+            "2d",
+            "3d",
+            "4d",
+            "5d",
+            "10d"
+          ],
+          "appearances": 5,
+          "effective_appearances": 4.15,
+          "continuity": 5,
+          "avg_rank": 3.4,
+          "avg_rank_percentile": 5.0,
+          "signal_score": 4.57,
+          "avg_gain_pct": 29.55,
+          "latest_window": "2d",
           "tier": "S"
         },
         {
@@ -61,7 +72,11 @@
             "20d"
           ],
           "appearances": 6,
+          "effective_appearances": 4.65,
+          "continuity": 6,
           "avg_rank": 9.8,
+          "avg_rank_percentile": 18.2,
+          "signal_score": 4.5,
           "avg_gain_pct": 23.9,
           "latest_window": "2d",
           "tier": "S"
@@ -77,10 +92,14 @@
             "10d"
           ],
           "appearances": 5,
+          "effective_appearances": 4.15,
+          "continuity": 5,
           "avg_rank": 16.4,
+          "avg_rank_percentile": 31.8,
+          "signal_score": 3.45,
           "avg_gain_pct": 21.56,
           "latest_window": "2d",
-          "tier": "S"
+          "tier": "A"
         },
         {
           "code": "3653",
@@ -92,178 +111,24 @@
             "20d"
           ],
           "appearances": 4,
+          "effective_appearances": 2.8,
+          "continuity": 4,
           "avg_rank": 15.5,
+          "avg_rank_percentile": 29.6,
+          "signal_score": 2.39,
           "avg_gain_pct": 27.13,
           "latest_window": "4d",
           "tier": "A"
-        },
-        {
-          "code": "3450",
-          "name": "聯鈞",
-          "windows": [
-            "3d",
-            "4d",
-            "5d"
-          ],
-          "appearances": 3,
-          "avg_rank": 31.3,
-          "avg_gain_pct": 18.43,
-          "latest_window": "3d",
-          "tier": "A"
-        },
-        {
-          "code": "6805",
-          "name": "富世達",
-          "windows": [
-            "4d",
-            "5d",
-            "10d",
-            "20d"
-          ],
-          "appearances": 4,
-          "avg_rank": 35.8,
-          "avg_gain_pct": 17.53,
-          "latest_window": "4d",
-          "tier": "A"
-        },
-        {
-          "code": "2455",
-          "name": "全新",
-          "windows": [
-            "4d",
-            "5d"
-          ],
-          "appearances": 2,
-          "avg_rank": 38.0,
-          "avg_gain_pct": 19.03,
-          "latest_window": "4d",
-          "tier": "B"
-        },
-        {
-          "code": "3037",
-          "name": "欣興",
-          "windows": [
-            "5d",
-            "10d"
-          ],
-          "appearances": 2,
-          "avg_rank": 40.5,
-          "avg_gain_pct": 17.59,
-          "latest_window": "5d",
-          "tier": "B"
         }
       ],
       "tier": 1
     },
     {
-      "name": "記憶體 / IC 設計",
-      "score": 20,
-      "stocks": [
-        {
-          "code": "6531",
-          "name": "愛普*",
-          "windows": [
-            "1d",
-            "2d",
-            "3d",
-            "4d",
-            "5d"
-          ],
-          "appearances": 5,
-          "avg_rank": 13.0,
-          "avg_gain_pct": 21.44,
-          "latest_window": "1d",
-          "tier": "S"
-        },
-        {
-          "code": "3006",
-          "name": "晶豪科",
-          "windows": [
-            "2d",
-            "3d",
-            "4d",
-            "5d",
-            "10d"
-          ],
-          "appearances": 5,
-          "avg_rank": 15.0,
-          "avg_gain_pct": 24.36,
-          "latest_window": "2d",
-          "tier": "S"
-        },
-        {
-          "code": "4967",
-          "name": "十銓",
-          "windows": [
-            "4d",
-            "10d",
-            "20d"
-          ],
-          "appearances": 3,
-          "avg_rank": 18.7,
-          "avg_gain_pct": 21.66,
-          "latest_window": "4d",
-          "tier": "A"
-        },
-        {
-          "code": "2408",
-          "name": "南亞科",
-          "windows": [
-            "4d",
-            "5d",
-            "10d"
-          ],
-          "appearances": 3,
-          "avg_rank": 31.7,
-          "avg_gain_pct": 18.67,
-          "latest_window": "4d",
-          "tier": "A"
-        },
-        {
-          "code": "2344",
-          "name": "華邦電",
-          "windows": [
-            "4d",
-            "5d"
-          ],
-          "appearances": 2,
-          "avg_rank": 33.5,
-          "avg_gain_pct": 20.05,
-          "latest_window": "4d",
-          "tier": "B"
-        },
-        {
-          "code": "4961",
-          "name": "天鈺",
-          "windows": [
-            "2d",
-            "3d"
-          ],
-          "appearances": 2,
-          "avg_rank": 37.5,
-          "avg_gain_pct": 9.53,
-          "latest_window": "2d",
-          "tier": "B"
-        },
-        {
-          "code": "2451",
-          "name": "創見",
-          "windows": [
-            "10d",
-            "20d"
-          ],
-          "appearances": 2,
-          "avg_rank": 39.5,
-          "avg_gain_pct": 14.83,
-          "latest_window": "10d",
-          "tier": "B"
-        }
-      ],
-      "tier": 2
-    },
-    {
       "name": "機器人 / 智慧製造",
-      "score": 18,
+      "score": 44,
+      "core_strength": 10.57,
+      "breadth": 4,
+      "early_cluster_count": 0,
       "stocks": [
         {
           "code": "4540",
@@ -277,7 +142,11 @@
             "10d"
           ],
           "appearances": 6,
+          "effective_appearances": 5.15,
+          "continuity": 6,
           "avg_rank": 13.0,
+          "avg_rank_percentile": 24.9,
+          "signal_score": 4.64,
           "avg_gain_pct": 18.88,
           "latest_window": "1d",
           "tier": "S"
@@ -294,10 +163,14 @@
             "20d"
           ],
           "appearances": 6,
+          "effective_appearances": 4.7,
+          "continuity": 5,
           "avg_rank": 22.8,
+          "avg_rank_percentile": 45.2,
+          "signal_score": 3.14,
           "avg_gain_pct": 17.92,
           "latest_window": "1d",
-          "tier": "S"
+          "tier": "B"
         },
         {
           "code": "3167",
@@ -309,7 +182,11 @@
             "5d"
           ],
           "appearances": 4,
+          "effective_appearances": 3.5,
+          "continuity": 4,
           "avg_rank": 18.0,
+          "avg_rank_percentile": 35.2,
+          "signal_score": 2.79,
           "avg_gain_pct": 24.11,
           "latest_window": "2d",
           "tier": "A"
@@ -323,35 +200,81 @@
             "10d"
           ],
           "appearances": 3,
+          "effective_appearances": 2.3,
+          "continuity": 3,
           "avg_rank": 19.3,
+          "avg_rank_percentile": 37.6,
+          "signal_score": 1.78,
           "avg_gain_pct": 21.69,
           "latest_window": "4d",
           "tier": "A"
+        }
+      ],
+      "tier": 2
+    },
+    {
+      "name": "記憶體 / IC 設計",
+      "score": 38,
+      "core_strength": 9.05,
+      "breadth": 3,
+      "early_cluster_count": 0,
+      "stocks": [
+        {
+          "code": "6531",
+          "name": "愛普*",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d"
+          ],
+          "appearances": 5,
+          "effective_appearances": 4.5,
+          "continuity": 5,
+          "avg_rank": 13.0,
+          "avg_rank_percentile": 25.2,
+          "signal_score": 4.04,
+          "avg_gain_pct": 21.44,
+          "latest_window": "1d",
+          "tier": "S"
         },
         {
-          "code": "1597",
-          "name": "直得",
+          "code": "3006",
+          "name": "晶豪科",
           "windows": [
+            "2d",
+            "3d",
+            "4d",
             "5d",
             "10d"
           ],
-          "appearances": 2,
-          "avg_rank": 40.5,
-          "avg_gain_pct": 17.79,
-          "latest_window": "5d",
-          "tier": "B"
+          "appearances": 5,
+          "effective_appearances": 4.15,
+          "continuity": 5,
+          "avg_rank": 15.0,
+          "avg_rank_percentile": 29.0,
+          "signal_score": 3.57,
+          "avg_gain_pct": 24.36,
+          "latest_window": "2d",
+          "tier": "S"
         },
         {
-          "code": "4576",
-          "name": "大銀微系統",
+          "code": "4967",
+          "name": "十銓",
           "windows": [
-            "5d",
-            "10d"
+            "4d",
+            "10d",
+            "20d"
           ],
-          "appearances": 2,
-          "avg_rank": 42.5,
-          "avg_gain_pct": 17.31,
-          "latest_window": "5d",
+          "appearances": 3,
+          "effective_appearances": 2.0,
+          "continuity": 2,
+          "avg_rank": 18.7,
+          "avg_rank_percentile": 36.4,
+          "signal_score": 1.44,
+          "avg_gain_pct": 21.66,
+          "latest_window": "4d",
           "tier": "B"
         }
       ],
