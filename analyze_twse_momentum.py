@@ -45,6 +45,25 @@ THEME_MAPPING = {
     "2337": "記憶體 / IC 設計", "2451": "記憶體 / IC 設計",
     "4967": "記憶體 / IC 設計", "4961": "記憶體 / IC 設計",
 }
+
+# Product-level inference is deliberately separate from the curated mapping.
+# It lets strong but newly observed names enter the model without claiming that
+# the ranking source itself supplied an industry classification. Review entries
+# periodically and promote them to THEME_MAPPING once the taxonomy is approved.
+PRODUCT_THEME_INFERENCE = {
+    "2059": {
+        "theme": "伺服器導軌 / 機櫃滑軌",
+        "product_label": "伺服器導軌、機櫃滑軌",
+        "basis": "產品面推論",
+        "confidence": "待覆核",
+    },
+    "8039": {
+        "theme": "軟板材料 / FCCL",
+        "product_label": "軟板材料、FCCL",
+        "basis": "產品面推論",
+        "confidence": "待覆核",
+    },
+}
 WEIGHT = {"S": 4, "A": 3, "B": 2, "C": 1}
 RECENT_WINDOWS = {1, 2, 3}
 EARLY_CLUSTER_MIN = 2
@@ -108,6 +127,13 @@ def longest_continuous_run(days: list[int]) -> int:
     return longest
 
 
+def resolve_theme(code: str) -> dict | None:
+    """Return a curated theme or an explicitly labelled product inference."""
+    if code in THEME_MAPPING:
+        return {"theme": THEME_MAPPING[code], "product_label": None, "basis": "人工題材對照", "confidence": "已收錄"}
+    return PRODUCT_THEME_INFERENCE.get(code)
+
+
 def repeated_tier(count: int, effective_appearances: float, avg_rank_percentile: float, continuity: int) -> str | None:
     """Tier established momentum by quality, recency and continuity—not raw count alone."""
     if count >= 5 and effective_appearances >= 3.8 and avg_rank_percentile <= 0.30 and continuity >= 4: return "S"
@@ -125,8 +151,9 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
     candidates: dict[str, list[dict]] = defaultdict(list)
     early_by_theme: dict[str, list[dict]] = defaultdict(list)
     for code, observations in seen.items():
-        theme = THEME_MAPPING.get(code)
-        if not theme: continue  # Single, unmapped names are not a usable thematic signal.
+        mapping = resolve_theme(code)
+        if not mapping: continue  # Unknown product relationship remains excluded until reviewed.
+        theme = mapping["theme"]
         days = sorted(item["day"] for item in observations)
         avg_rank = sum(item["rank"] for item in observations) / len(observations)
         avg_rank_percentile = sum(item["rank_percentile"] for item in observations) / len(observations)
@@ -135,7 +162,7 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         continuity_ratio = continuity / len(days)
         gains = [item["gain_pct"] for item in observations if item["gain_pct"] is not None]
         signal_score = effective_appearances * (1.15 - avg_rank_percentile) * (0.75 + continuity_ratio * 0.25)
-        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d"}
+        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"], "theme_confidence": mapping["confidence"], "product_label": mapping["product_label"]}
         tier = repeated_tier(len(observations), effective_appearances, avg_rank_percentile, continuity)
         if tier:
             record["tier"] = tier
@@ -159,7 +186,7 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         core_strength = sum(stock["signal_score"] for stock in stocks[:3])
         breadth_bonus = min(len(stocks), 5) * 0.5
         early_cluster_bonus = 1 if sum(stock["tier"] == "C" for stock in stocks) >= EARLY_CLUSTER_MIN else 0
-        themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "stocks": stocks})
+        themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "mapping_basis": sorted({stock["theme_basis"] for stock in stocks}), "stocks": stocks})
     themes.sort(key=lambda theme: (-theme["score"], theme["name"]))
     for tier, theme in enumerate(themes, 1): theme["tier"] = tier
     return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes}
@@ -180,10 +207,11 @@ def telegram_messages(report: dict) -> list[str]:
     for theme in report["themes"]:
         lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）"]
         for stock in theme["stocks"]:
+            inference_label = "〔產品面推論〕" if stock["theme_basis"] == "產品面推論" else ""
             lines.append(
                 f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
-                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}"
+                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{inference_label}"
             )
         section = "\n".join(lines)
         if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
