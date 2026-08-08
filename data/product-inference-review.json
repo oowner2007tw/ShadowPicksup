@@ -1,5 +1,87 @@
 {
   "schema_version": 1,
   "description": "LLM 產品與題材可能性覆核。此檔案的內容不會直接納入正式題材 Tier，必須經人工確認後才移入 product-theme-mapping.json。",
-  "entries": {}
+  "entries": {
+    "2059": {
+      "product_hypothesis": "高階伺服器導軌與機櫃滑軌",
+      "theme_hypotheses": ["伺服器機櫃零組件", "資料中心基礎設施"],
+      "rationale": "多週期動能極強；產品假說指向高階伺服器與機櫃的滑軌零組件。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "8039": {
+      "product_hypothesis": "軟性銅箔基板（FCCL）與軟板材料",
+      "theme_hypotheses": ["軟板材料 / FCCL", "電子材料"],
+      "rationale": "產品假說指向軟板上游材料；需與公司產品資料核對後才可升格 Mapping。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "1762": {
+      "product_hypothesis": "原料藥與醫藥中間體",
+      "theme_hypotheses": ["原料藥 / 製藥", "生技醫療"],
+      "rationale": "公司名稱與市場既有認知指向製藥供應鏈；仍須以官方產品線確認細分領域。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "2103": {
+      "product_hypothesis": "合成橡膠與高分子材料",
+      "theme_hypotheses": ["合成橡膠", "特用化學材料"],
+      "rationale": "產品可能性聚焦於合成橡膠與材料化工供應鏈。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "3189": {
+      "product_hypothesis": "IC 載板與高階封裝基板",
+      "theme_hypotheses": ["IC 載板", "先進封裝"],
+      "rationale": "產品可能性指向半導體封裝上游基板，與記憶體或高階運算需求可能相關。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "3605": {
+      "product_hypothesis": "連接器與線纜組件",
+      "theme_hypotheses": ["高速傳輸", "連接器 / 線束"],
+      "rationale": "產品可能性聚焦於連接器與線材；是否屬高速傳輸題材須以產品規格與客戶應用確認。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "4722": {
+      "product_hypothesis": "特用化學與電子／工業材料",
+      "theme_hypotheses": ["特用化學", "材料升級"],
+      "rationale": "屬材料化工方向的初步假說，尚不應連結至特定終端題材。",
+      "confidence": "低",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "6533": {
+      "product_hypothesis": "RISC-V CPU IP 與處理器設計服務",
+      "theme_hypotheses": ["RISC-V", "半導體 IP / CPU"],
+      "rationale": "產品可能性指向處理器 IP；是否與特定 AI 運算題材連結，需依產品與營收應用確認。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    },
+    "6781": {
+      "product_hypothesis": "鋰電池模組與儲能系統",
+      "theme_hypotheses": ["儲能", "電池模組"],
+      "rationale": "產品可能性聚焦於鋰電池與儲能應用；需以官方產品資料確認市場別。",
+      "confidence": "中",
+      "source_urls": [],
+      "source_status": "待以公司官方產品資料覆核",
+      "reviewed_at": "2026-08-09"
+    }
+  }
 }
