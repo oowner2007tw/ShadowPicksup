@@ -49,7 +49,9 @@ def parse_json(text: str) -> dict:
 
 
 def ask_model(code: str, name: str, seed_theme: str | None) -> dict:
-    api_key = os.getenv("OPENAI_API_KEY")
+    # GitHub Secrets pasted from a clipboard can contain a trailing newline.
+    # Trim surrounding whitespace before constructing the Authorization header.
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY is not configured")
     seed_context = f"Existing seed theme (unverified): {seed_theme}" if seed_theme else "No existing seed theme."
