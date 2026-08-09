@@ -11,6 +11,7 @@ import os
 import re
 import sys
 from collections import defaultdict
+from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -128,6 +129,9 @@ WEIGHT = {"S": 4, "A": 3, "B": 2, "C": 1}
 REVIEW_ORDER = {"S": 0, "A": 1, "B": 2}
 RECENT_WINDOWS = {1, 2, 3}
 EARLY_CLUSTER_MIN = 2
+GRACE_MISS_LIMIT = 2
+COOLING_SCORE_FACTOR = {1: 0.35, 2: 0.15}
+TIER_ORDER = {"S": 0, "A": 1, "B": 2, "C": 3}
 
 
 class TableTextParser(HTMLParser):
@@ -282,8 +286,8 @@ def report_stock_codes(report: dict) -> set[str]:
     return themed | unmapped
 
 
-def load_previous_stock_codes(reference_day: str | None = None) -> set[str] | None:
-    """Load the latest successful report before today as the NEW-tag baseline."""
+def load_previous_report(reference_day: str | None = None) -> dict | None:
+    """Load the latest successful report before today for lifecycle comparison."""
     reference_day = reference_day or datetime.now(timezone(timedelta(hours=8))).date().isoformat()
     previous_reports: list[tuple[str, dict]] = []
     if HISTORY_DIR.exists():
@@ -298,7 +302,13 @@ def load_previous_stock_codes(reference_day: str | None = None) -> set[str] | No
     if not previous_reports:
         return None
     _, latest_report = max(previous_reports, key=lambda item: item[0])
-    return report_stock_codes(latest_report)
+    return latest_report
+
+
+def load_previous_stock_codes(reference_day: str | None = None) -> set[str] | None:
+    """Load the NEW-tag baseline without treating the first run as all-new."""
+    previous_report = load_previous_report(reference_day)
+    return report_stock_codes(previous_report) if previous_report else None
 
 
 def annotate_new_stocks(report: dict, previous_codes: set[str] | None) -> dict:
@@ -308,6 +318,156 @@ def annotate_new_stocks(report: dict, previous_codes: set[str] | None) -> dict:
             stock["is_new"] = previous_codes is not None and stock["code"] not in previous_codes
     for stock in report.get("unmapped_candidates", []):
         stock["is_new"] = previous_codes is not None and stock["code"] not in previous_codes
+    return report
+
+
+def index_report_stocks(report: dict | None) -> dict[str, tuple[dict, str | None]]:
+    """Index visible stocks together with their current theme, if any."""
+    if not report:
+        return {}
+    indexed: dict[str, tuple[dict, str | None]] = {}
+    for theme in report.get("themes", []):
+        for stock in theme.get("stocks", []):
+            indexed[stock["code"]] = (stock, theme["name"])
+    for stock in report.get("unmapped_candidates", []):
+        indexed[stock["code"]] = (stock, None)
+    return indexed
+
+
+def tier_change(current_tier: str, previous_stock: dict | None, has_baseline: bool) -> str:
+    if not has_baseline:
+        return "baseline"
+    if not previous_stock:
+        return "new"
+    if not previous_stock.get("is_active", True):
+        return "returning"
+    previous_tier = previous_stock.get("tier", current_tier)
+    if TIER_ORDER[current_tier] < TIER_ORDER.get(previous_tier, TIER_ORDER[current_tier]):
+        return "up"
+    if TIER_ORDER[current_tier] > TIER_ORDER.get(previous_tier, TIER_ORDER[current_tier]):
+        return "down"
+    return "same"
+
+
+def apply_market_lifecycle(report: dict, previous_report: dict | None) -> dict:
+    """Apply cross-day stock grace periods, exits, Tier changes and theme lifecycle."""
+    previous_index = index_report_stocks(previous_report)
+    current_index = index_report_stocks(report)
+    has_baseline = previous_report is not None
+    exited_stocks: list[dict] = []
+
+    for code, (stock, _) in current_index.items():
+        previous_stock = previous_index.get(code, (None, None))[0]
+        stock["is_active"] = True
+        stock["miss_streak"] = 0
+        stock["base_score_factor"] = stock.get("score_factor", 1.0)
+        stock["is_new"] = has_baseline and previous_stock is None
+        stock["previous_tier"] = previous_stock.get("tier") if previous_stock else None
+        stock["tier_change"] = tier_change(stock["tier"], previous_stock, has_baseline)
+        stock["lifecycle_status"] = {
+            "new": "新進",
+            "returning": "回溫",
+            "up": "升級",
+            "down": "降級",
+            "same": "持穩",
+            "baseline": "基準",
+        }[stock["tier_change"]]
+
+    themes_by_name = {theme["name"]: theme for theme in report.get("themes", [])}
+    for code, (previous_stock, previous_theme) in previous_index.items():
+        if code in current_index:
+            continue
+        miss_streak = int(previous_stock.get("miss_streak", 0)) + 1
+        if miss_streak > GRACE_MISS_LIMIT:
+            exited_stocks.append({
+                "code": code,
+                "name": previous_stock["name"],
+                "previous_tier": previous_stock.get("tier"),
+                "theme": previous_theme,
+                "miss_streak": miss_streak,
+                "reason": f"連續 {miss_streak} 次未達 Tier／群聚門檻",
+            })
+            continue
+
+        cooling_stock = deepcopy(previous_stock)
+        base_factor = previous_stock.get("base_score_factor", previous_stock.get("score_factor", 1.0))
+        cooling_stock.update({
+            "is_active": False,
+            "is_new": False,
+            "miss_streak": miss_streak,
+            "previous_tier": previous_stock.get("tier"),
+            "tier_change": "cooling",
+            "lifecycle_status": "退潮中" if miss_streak == 1 else "即將剔除",
+            "base_score_factor": base_factor,
+            "score_factor": base_factor * COOLING_SCORE_FACTOR[miss_streak],
+        })
+        if previous_theme:
+            theme = themes_by_name.setdefault(previous_theme, {
+                "name": previous_theme,
+                "stocks": [],
+                "mapping_basis": previous_report and next(
+                    (item.get("mapping_basis", []) for item in previous_report.get("themes", []) if item["name"] == previous_theme),
+                    [],
+                ),
+            })
+            theme["stocks"].append(cooling_stock)
+        else:
+            report.setdefault("unmapped_candidates", []).append(cooling_stock)
+
+    previous_themes = {theme["name"]: theme for theme in (previous_report or {}).get("themes", [])}
+    themes = []
+    for theme in themes_by_name.values():
+        stocks = theme["stocks"]
+        stocks.sort(key=lambda stock: (not stock.get("is_active", True), -stock["signal_score"], -WEIGHT[stock["tier"]], stock["avg_rank"], stock["code"]))
+        active_stocks = [stock for stock in stocks if stock.get("is_active", True)]
+        cooling_count = len(stocks) - len(active_stocks)
+        core_strength = sum(stock["signal_score"] * stock.get("score_factor", 1.0) for stock in stocks[:3])
+        breadth_bonus = min(len(active_stocks), 5) * 0.5
+        early_cluster_count = sum(stock["tier"] == "C" and stock.get("is_active", True) for stock in stocks)
+        early_cluster_bonus = 1 if early_cluster_count >= EARLY_CLUSTER_MIN else 0
+        score = round(core_strength * 4 + breadth_bonus + early_cluster_bonus)
+        previous_theme = previous_themes.get(theme["name"])
+        previous_active = sum(stock.get("is_active", True) for stock in previous_theme.get("stocks", [])) if previous_theme else 0
+        previous_score = previous_theme.get("score", 0) if previous_theme else 0
+        if not has_baseline:
+            lifecycle = "成熟"
+        elif not previous_theme:
+            lifecycle = "啟動"
+        elif active_stocks and (len(active_stocks) > previous_active or score >= previous_score * 1.15) and score > previous_score * 0.8:
+            lifecycle = "擴散"
+        elif not active_stocks or len(active_stocks) < previous_active or score <= previous_score * 0.8:
+            lifecycle = "退潮"
+        else:
+            lifecycle = "成熟"
+        themes.append({
+            **theme,
+            "score": score,
+            "core_strength": round(core_strength, 2),
+            "breadth": len(stocks),
+            "active_breadth": len(active_stocks),
+            "cooling_count": cooling_count,
+            "provisional_count": sum(stock.get("is_provisional", False) for stock in stocks),
+            "early_cluster_count": early_cluster_count,
+            "mapping_basis": sorted({stock.get("theme_basis", "") for stock in stocks if stock.get("theme_basis")}),
+            "lifecycle": lifecycle,
+        })
+
+    themes.sort(key=lambda theme: (-theme["score"], theme["name"]))
+    for theme_rank, theme in enumerate(themes, 1):
+        previous_theme = previous_themes.get(theme["name"])
+        theme["previous_tier"] = previous_theme.get("tier") if previous_theme else None
+        theme["tier_change"] = "new" if not previous_theme else ("up" if theme_rank < previous_theme.get("tier", theme_rank) else "down" if theme_rank > previous_theme.get("tier", theme_rank) else "same")
+        theme["tier"] = theme_rank
+    report["themes"] = themes
+    report["unmapped_candidates"].sort(key=lambda stock: (not stock.get("is_active", True), REVIEW_ORDER.get(stock["tier"], 9), -stock["signal_score"], stock["avg_rank"], stock["code"]))
+    report["exited_stocks"] = sorted(exited_stocks, key=lambda stock: (TIER_ORDER.get(stock.get("previous_tier"), 9), stock["code"]))
+    report["lifecycle_summary"] = {
+        "launching": sum(theme["lifecycle"] == "啟動" for theme in themes),
+        "expanding": sum(theme["lifecycle"] == "擴散" for theme in themes),
+        "mature": sum(theme["lifecycle"] == "成熟" for theme in themes),
+        "cooling": sum(theme["lifecycle"] == "退潮" for theme in themes),
+        "exited": len(exited_stocks),
+    }
     return report
 
 
@@ -394,14 +554,24 @@ def telegram_messages(report: dict) -> list[str]:
             messages[-1] += section
 
     for theme in report["themes"]:
-        lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）"]
+        theme_change = "" if not theme.get("previous_tier") or theme.get("tier_change") == "same" else f"｜昨 {theme['previous_tier']} → 今 {theme['tier']}"
+        lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）〔{theme.get('lifecycle', '成熟')}〕{theme_change}"]
         for stock in theme["stocks"]:
             inference_label = "〔疑似題材／LLM〕" if stock["is_provisional"] else ("〔產品面推論〕" if stock["theme_basis"] == "產品面推論" else "")
             new_label = "〔NEW〕" if stock.get("is_new") else ""
+            if not stock.get("is_active", True):
+                state_label = f"〔{stock['lifecycle_status']} {stock['miss_streak']}/{GRACE_MISS_LIMIT}〕"
+            elif stock.get("tier_change") in {"up", "down"}:
+                direction = "升級" if stock["tier_change"] == "up" else "降級"
+                state_label = f"〔{stock['previous_tier']}→{stock['tier']} {direction}〕"
+            elif stock.get("tier_change") == "returning":
+                state_label = "〔回溫〕"
+            else:
+                state_label = ""
             lines.append(
                 f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
-                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{new_label}{inference_label}"
+                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{new_label}{state_label}{inference_label}"
             )
         append_section("\n".join(lines))
 
@@ -409,7 +579,23 @@ def telegram_messages(report: dict) -> list[str]:
         lines = ["\n🧭 待產品推論候選（已符合標的 Tier，尚待映射）"]
         for stock in report["unmapped_candidates"]:
             new_label = "〔NEW〕" if stock.get("is_new") else ""
-            lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}{new_label}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
+            if not stock.get("is_active", True):
+                state_label = f"〔{stock['lifecycle_status']} {stock['miss_streak']}/{GRACE_MISS_LIMIT}〕"
+            elif stock.get("tier_change") in {"up", "down"}:
+                direction = "升級" if stock["tier_change"] == "up" else "降級"
+                state_label = f"〔{stock['previous_tier']}→{stock['tier']} {direction}〕"
+            elif stock.get("tier_change") == "returning":
+                state_label = "〔回溫〕"
+            else:
+                state_label = ""
+            lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}{new_label}{state_label}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
+        append_section("\n".join(lines))
+
+    if report.get("exited_stocks"):
+        lines = ["\n♻️ 今日正式汰換"]
+        for stock in report["exited_stocks"]:
+            theme = f"｜{stock['theme']}" if stock.get("theme") else "｜尚無題材"
+            lines.append(f"• 前 Tier {stock['previous_tier']}｜{stock['code']} {stock['name']}{theme}｜{stock['reason']}")
         append_section("\n".join(lines))
 
     return messages
@@ -444,10 +630,10 @@ def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
-        previous_stock_codes = load_previous_stock_codes()
-        report = annotate_new_stocks(
+        previous_report = load_previous_report()
+        report = apply_market_lifecycle(
             build_report({day: fetch_ranking(day) for day in WINDOWS}),
-            previous_stock_codes,
+            previous_report,
         )
     except Exception as error:
         if not OUTPUTS[0].exists():

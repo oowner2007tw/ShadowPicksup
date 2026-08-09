@@ -2,13 +2,37 @@ import unittest
 
 from analyze_twse_momentum import (
     THEME_MAPPING,
+    apply_market_lifecycle,
     annotate_new_stocks,
     canonicalize_theme,
     review_theme_mapping,
+    telegram_messages,
 )
 
 
 class ThemeTaxonomyTests(unittest.TestCase):
+    @staticmethod
+    def lifecycle_stock(code="1111", tier="A"):
+        return {
+            "code": code,
+            "name": f"Stock {code}",
+            "tier": tier,
+            "signal_score": 3.0,
+            "score_factor": 1.0,
+            "avg_rank": 5.0,
+            "windows": ["1d", "2d", "3d"],
+            "appearances": 3,
+            "continuity": 3,
+            "is_provisional": False,
+            "theme_basis": "種子題材對照",
+        }
+
+    @classmethod
+    def lifecycle_report(cls, stocks=None, theme_name="Test Theme"):
+        stocks = stocks or []
+        themes = [{"name": theme_name, "tier": 1, "score": 14, "stocks": stocks}] if stocks else []
+        return {"themes": themes, "unmapped_candidates": [], "review_summary": {}}
+
     def test_seed_coverage_is_expanded(self):
         self.assertGreaterEqual(len(THEME_MAPPING), 70)
 
@@ -47,6 +71,41 @@ class ThemeTaxonomyTests(unittest.TestCase):
         report = {"themes": [{"stocks": [{"code": "1111"}]}], "unmapped_candidates": []}
         annotate_new_stocks(report, None)
         self.assertFalse(report["themes"][0]["stocks"][0]["is_new"])
+
+    def test_stock_cools_for_two_reports_then_exits_on_the_third(self):
+        previous = self.lifecycle_report([self.lifecycle_stock()])
+
+        first_miss = apply_market_lifecycle(self.lifecycle_report(), previous)
+        first_stock = first_miss["themes"][0]["stocks"][0]
+        self.assertEqual(first_stock["miss_streak"], 1)
+        self.assertEqual(first_stock["lifecycle_status"], "退潮中")
+        self.assertFalse(first_stock["is_active"])
+        self.assertIn("退潮中 1/2", "\n".join(telegram_messages(first_miss)))
+
+        second_miss = apply_market_lifecycle(self.lifecycle_report(), first_miss)
+        second_stock = second_miss["themes"][0]["stocks"][0]
+        self.assertEqual(second_stock["miss_streak"], 2)
+        self.assertEqual(second_stock["lifecycle_status"], "即將剔除")
+
+        third_miss = apply_market_lifecycle(self.lifecycle_report(), second_miss)
+        self.assertEqual(third_miss["themes"], [])
+        self.assertEqual(third_miss["exited_stocks"][0]["code"], "1111")
+        self.assertIn("今日正式汰換", "\n".join(telegram_messages(third_miss)))
+
+    def test_tier_change_and_theme_launch_are_annotated(self):
+        previous = self.lifecycle_report([self.lifecycle_stock(tier="S")], "Existing Theme")
+        current = self.lifecycle_report([self.lifecycle_stock(tier="B")], "Existing Theme")
+        result = apply_market_lifecycle(current, previous)
+        stock = result["themes"][0]["stocks"][0]
+        self.assertEqual(stock["previous_tier"], "S")
+        self.assertEqual(stock["tier_change"], "down")
+
+        launch = apply_market_lifecycle(
+            self.lifecycle_report([self.lifecycle_stock(code="2222")], "New Theme"),
+            previous,
+        )
+        new_theme = next(theme for theme in launch["themes"] if theme["name"] == "New Theme")
+        self.assertEqual(new_theme["lifecycle"], "啟動")
 
 
 if __name__ == "__main__":

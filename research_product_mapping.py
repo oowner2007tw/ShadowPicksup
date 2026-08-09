@@ -133,7 +133,7 @@ def is_current(entry: dict) -> bool:
 
 
 def research_targets(report: dict, reviews: dict, bootstrap: bool) -> list[dict]:
-    candidates = report.get("unmapped_candidates", [])
+    candidates = [stock for stock in report.get("unmapped_candidates", []) if stock.get("is_active", True)]
     priority = {"S": 0, "A": 1, "B": 2}
     targets = [
         {"code": stock["code"], "name": stock["name"], "seed_theme": THEME_MAPPING.get(stock["code"]), "sort": (0, priority.get(stock["tier"], 9), -stock["signal_score"])}
