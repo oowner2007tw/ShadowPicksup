@@ -19,7 +19,7 @@ from analyze_twse_momentum import THEME_MAPPING
 
 REPORT_FILE = Path("report.json")
 REVIEW_FILE = Path("data/product-inference-review.json")
-MODEL = os.getenv("OPENAI_RESEARCH_MODEL", "gpt-5.6-luna")
+MODEL = os.getenv("GEMINI_RESEARCH_MODEL", "gemini-3.5-flash-lite")
 REVIEW_INTERVAL_DAYS = 90
 
 
@@ -28,16 +28,18 @@ def load_json(path: Path, fallback: dict) -> dict:
 
 
 def response_text(payload: dict) -> tuple[str, list[str]]:
-    text = payload.get("output_text", "")
+    text_parts: list[str] = []
     urls: list[str] = []
-    for item in payload.get("output", []):
-        for content in item.get("content", []):
-            if content.get("type") == "output_text":
-                text += content.get("text", "")
+    for step in payload.get("steps", []):
+        if step.get("type") != "model_output":
+            continue
+        for content in step.get("content", []):
+            if content.get("type") == "text":
+                text_parts.append(content.get("text", ""))
             for annotation in content.get("annotations", []):
                 if annotation.get("type") == "url_citation" and annotation.get("url"):
                     urls.append(annotation["url"])
-    return text, list(dict.fromkeys(urls))
+    return "".join(text_parts), list(dict.fromkeys(urls))
 
 
 def parse_json(text: str) -> dict:
@@ -48,9 +50,9 @@ def parse_json(text: str) -> dict:
 
 
 def ask_model(code: str, name: str, seed_theme: str | None) -> dict:
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is not configured")
+        raise RuntimeError("GEMINI_API_KEY is not configured")
     seed_context = f"Existing seed theme (unverified): {seed_theme}" if seed_theme else "No existing seed theme."
     prompt = f"""Research Taiwan-listed company {code} {name}. {seed_context}
 Use web search. Prefer the company's official product pages, annual reports, investor presentations, or exchange company profile.
@@ -67,24 +69,26 @@ Do not infer from company name alone. Return exactly one JSON object, no markdow
 If official evidence cannot be found, use an empty official_source_urls array and source_status insufficient_evidence."""
     body = json.dumps({
         "model": MODEL,
-        "reasoning": {"effort": "low"},
-        "tools": [{"type": "web_search"}],
-        "max_output_tokens": 700,
+        "tools": [{"type": "google_search"}],
+        "generation_config": {
+            "max_output_tokens": 700,
+            "thinking_level": "minimal",
+        },
         "input": prompt,
     }).encode("utf-8")
     request = Request(
-        "https://api.openai.com/v1/responses",
+        "https://generativelanguage.googleapis.com/v1beta/interactions",
         data=body,
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
         method="POST",
     )
     try:
         with urlopen(request, timeout=90) as response:
             payload = json.loads(response.read().decode("utf-8"))
     except HTTPError as error:
-        raise RuntimeError(f"OpenAI API error {error.code}: {error.read().decode('utf-8', 'replace')[:400]}") from error
+        raise RuntimeError(f"Gemini API error {error.code}: {error.read().decode('utf-8', 'replace')[:400]}") from error
     except URLError as error:
-        raise RuntimeError(f"OpenAI API connection failed: {error}") from error
+        raise RuntimeError(f"Gemini API connection failed: {error}") from error
     text, citation_urls = response_text(payload)
     result = parse_json(text)
     official_urls = result.get("official_source_urls", [])
@@ -122,7 +126,7 @@ def research_targets(report: dict, reviews: dict, bootstrap: bool) -> list[dict]
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Research product/theme hypotheses with OpenAI web search.")
+    parser = argparse.ArgumentParser(description="Research product/theme hypotheses with Gemini Google Search grounding.")
     parser.add_argument("--bootstrap", action="store_true", help="Include all seed mapping and current candidate targets.")
     parser.add_argument("--limit", type=int, default=6, help="Maximum companies per run; protects daily spend.")
     args = parser.parse_args()
