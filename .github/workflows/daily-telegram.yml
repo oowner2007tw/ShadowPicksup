@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: daily-taiwan-stock-tier
@@ -20,6 +20,8 @@ jobs:
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_RESEARCH_MODEL: gpt-5.6-luna
     steps:
       - name: Checkout report logic
         uses: actions/checkout@v4
@@ -29,5 +31,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch rankings and send Telegram report
+      - name: Fetch fresh rankings
+        run: python analyze_twse_momentum.py --no-telegram
+
+      - name: Research new or stale product hypotheses
+        run: python research_product_mapping.py --limit 6
+
+      - name: Refresh report and send Telegram
         run: python analyze_twse_momentum.py
+
+      - name: Save refreshed research data
+        run: |
+          git config user.name "ShadowPicksup Research Bot"
+          git config user.email "shadowpicksup-bot@users.noreply.github.com"
+          git add data/product-inference-review.json data/history report.json public/report.json app/report-data.ts
+          git diff --cached --quiet || git commit -m "Refresh daily momentum research"
+          git push
