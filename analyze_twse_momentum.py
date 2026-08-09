@@ -236,6 +236,13 @@ def telegram_messages(report: dict) -> list[str]:
     """Render the report in Telegram-safe plain text chunks."""
     header = "🔥 台股題材地圖｜每日追蹤"
     messages = [header]
+
+    def append_section(section: str) -> None:
+        if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
+            messages.append(f"🔥 台股題材地圖｜續報\n{section.lstrip()}")
+        else:
+            messages[-1] += section
+
     for theme in report["themes"]:
         lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）"]
         for stock in theme["stocks"]:
@@ -245,20 +252,14 @@ def telegram_messages(report: dict) -> list[str]:
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
                 f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{inference_label}"
             )
+        append_section("\n".join(lines))
+
     if report.get("unmapped_candidates"):
         lines = ["\n🧭 待產品推論候選（已符合標的 Tier，尚待映射）"]
         for stock in report["unmapped_candidates"]:
             lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
-        section = "\n".join(lines)
-        if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
-            messages.append(f"🔥 台股題材地圖｜續報\n{section.lstrip()}")
-        else:
-            messages[-1] += section
-        section = "\n".join(lines)
-        if len(messages[-1]) + len(section) > TELEGRAM_MESSAGE_LIMIT:
-            messages.append(f"🔥 台股題材地圖｜續報\n{section.lstrip()}")
-        else:
-            messages[-1] += section
+        append_section("\n".join(lines))
+
     return messages
 
 
