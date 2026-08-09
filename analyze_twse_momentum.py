@@ -6,6 +6,7 @@ Outputs: report.json and public/report.json
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -129,8 +130,9 @@ WEIGHT = {"S": 4, "A": 3, "B": 2, "C": 1}
 REVIEW_ORDER = {"S": 0, "A": 1, "B": 2}
 RECENT_WINDOWS = {1, 2, 3}
 EARLY_CLUSTER_MIN = 2
-GRACE_MISS_LIMIT = 2
-COOLING_SCORE_FACTOR = {1: 0.35, 2: 0.15}
+C_STAGNATION_LIMIT = 5
+NATURAL_DOWNGRADE = {"S": "A", "A": "B", "B": "C", "C": "C"}
+COOLING_TIER_FACTOR = {"A": 0.65, "B": 0.40, "C": 0.20}
 TIER_ORDER = {"S": 0, "A": 1, "B": 2, "C": 3}
 
 
@@ -350,56 +352,122 @@ def tier_change(current_tier: str, previous_stock: dict | None, has_baseline: bo
 
 
 def apply_market_lifecycle(report: dict, previous_report: dict | None) -> dict:
-    """Apply cross-day stock grace periods, exits, Tier changes and theme lifecycle."""
+    """Apply stepwise demotion and a five-session Tier C observation period."""
     previous_index = index_report_stocks(previous_report)
     current_index = index_report_stocks(report)
     has_baseline = previous_report is not None
+    previous_signature = (previous_report or {}).get("market_signature")
+    current_signature = report.get("market_signature")
+    advances_session = not has_baseline or not previous_signature or not current_signature or previous_signature != current_signature
+    report["new_trading_session"] = advances_session
     exited_stocks: list[dict] = []
+    terminal_codes: set[str] = set()
 
-    for code, (stock, _) in current_index.items():
+    for code, (stock, current_theme) in list(current_index.items()):
         previous_stock = previous_index.get(code, (None, None))[0]
+        previous_tier = previous_stock.get("tier") if previous_stock else None
+        raw_tier = stock["tier"]
+        displayed_tier = raw_tier
+        if previous_stock and advances_session:
+            previous_position = TIER_ORDER.get(previous_tier, TIER_ORDER[raw_tier])
+            raw_position = TIER_ORDER[raw_tier]
+            if raw_position > previous_position + 1:
+                displayed_tier = NATURAL_DOWNGRADE[previous_tier]
+
+        previous_c_days = int(previous_stock.get("c_stagnant_days", 0)) if previous_stock else 0
+        if displayed_tier == "C":
+            c_stagnant_days = previous_c_days + 1 if advances_session and previous_tier == "C" else previous_c_days if not advances_session and previous_tier == "C" else 1
+        else:
+            c_stagnant_days = 0
+
+        if displayed_tier == "C" and c_stagnant_days > C_STAGNATION_LIMIT:
+            exited_stocks.append({
+                "code": code,
+                "name": stock["name"],
+                "previous_tier": previous_tier or "C",
+                "theme": current_theme,
+                "c_stagnant_days": c_stagnant_days,
+                "reason": f"Tier C 已完整觀察 {C_STAGNATION_LIMIT} 個交易日仍未轉強",
+            })
+            terminal_codes.add(code)
+            continue
+
+        stock["raw_tier"] = raw_tier
+        stock["tier"] = displayed_tier
         stock["is_active"] = True
         stock["miss_streak"] = 0
+        stock["c_stagnant_days"] = c_stagnant_days
         stock["base_score_factor"] = stock.get("score_factor", 1.0)
         stock["is_new"] = has_baseline and previous_stock is None
-        stock["previous_tier"] = previous_stock.get("tier") if previous_stock else None
-        stock["tier_change"] = tier_change(stock["tier"], previous_stock, has_baseline)
-        stock["lifecycle_status"] = {
-            "new": "新進",
-            "returning": "回溫",
-            "up": "升級",
-            "down": "降級",
-            "same": "持穩",
-            "baseline": "基準",
-        }[stock["tier_change"]]
+        stock["previous_tier"] = previous_tier
+        stock["tier_change"] = tier_change(displayed_tier, previous_stock, has_baseline)
+        if displayed_tier == "C":
+            stock["lifecycle_status"] = f"C 觀察 {c_stagnant_days}/{C_STAGNATION_LIMIT}"
+        else:
+            stock["lifecycle_status"] = {
+                "new": "新進",
+                "returning": "回溫",
+                "up": "升級",
+                "down": "自然降級",
+                "same": "持穩",
+                "baseline": "基準",
+            }[stock["tier_change"]]
+
+    if terminal_codes:
+        for theme in report.get("themes", []):
+            theme["stocks"] = [stock for stock in theme.get("stocks", []) if stock["code"] not in terminal_codes]
+        report["unmapped_candidates"] = [
+            stock for stock in report.get("unmapped_candidates", []) if stock["code"] not in terminal_codes
+        ]
+        for code in terminal_codes:
+            current_index.pop(code, None)
 
     themes_by_name = {theme["name"]: theme for theme in report.get("themes", [])}
     for code, (previous_stock, previous_theme) in previous_index.items():
-        if code in current_index:
+        if code in current_index or code in terminal_codes:
             continue
-        miss_streak = int(previous_stock.get("miss_streak", 0)) + 1
-        if miss_streak > GRACE_MISS_LIMIT:
+
+        previous_tier = previous_stock.get("tier", "C")
+        previous_c_days = int(previous_stock.get("c_stagnant_days", 0))
+        if advances_session:
+            displayed_tier = NATURAL_DOWNGRADE[previous_tier]
+            c_stagnant_days = previous_c_days + 1 if previous_tier == "C" else 1 if displayed_tier == "C" else 0
+        else:
+            displayed_tier = previous_tier
+            c_stagnant_days = previous_c_days
+
+        if displayed_tier == "C" and c_stagnant_days > C_STAGNATION_LIMIT:
             exited_stocks.append({
                 "code": code,
                 "name": previous_stock["name"],
-                "previous_tier": previous_stock.get("tier"),
+                "previous_tier": previous_tier,
                 "theme": previous_theme,
-                "miss_streak": miss_streak,
-                "reason": f"連續 {miss_streak} 次未達 Tier／群聚門檻",
+                "c_stagnant_days": c_stagnant_days,
+                "reason": f"Tier C 已完整觀察 {C_STAGNATION_LIMIT} 個交易日仍未轉強",
             })
             continue
 
         cooling_stock = deepcopy(previous_stock)
         base_factor = previous_stock.get("base_score_factor", previous_stock.get("score_factor", 1.0))
+        tier_changed = displayed_tier != previous_tier
+        if tier_changed:
+            lifecycle_status = "自然降級"
+        elif displayed_tier == "C":
+            lifecycle_status = f"C 觀察 {c_stagnant_days}/{C_STAGNATION_LIMIT}"
+        else:
+            lifecycle_status = previous_stock.get("lifecycle_status", "持穩")
         cooling_stock.update({
+            "tier": displayed_tier,
+            "raw_tier": None,
             "is_active": False,
             "is_new": False,
-            "miss_streak": miss_streak,
-            "previous_tier": previous_stock.get("tier"),
-            "tier_change": "cooling",
-            "lifecycle_status": "退潮中" if miss_streak == 1 else "即將剔除",
+            "miss_streak": int(previous_stock.get("miss_streak", 0)) + (1 if advances_session else 0),
+            "c_stagnant_days": c_stagnant_days,
+            "previous_tier": previous_tier,
+            "tier_change": "down" if tier_changed else previous_stock.get("tier_change", "same"),
+            "lifecycle_status": lifecycle_status,
             "base_score_factor": base_factor,
-            "score_factor": base_factor * COOLING_SCORE_FACTOR[miss_streak],
+            "score_factor": base_factor * COOLING_TIER_FACTOR.get(displayed_tier, 1.0),
         })
         if previous_theme:
             theme = themes_by_name.setdefault(previous_theme, {
@@ -418,6 +486,8 @@ def apply_market_lifecycle(report: dict, previous_report: dict | None) -> dict:
     themes = []
     for theme in themes_by_name.values():
         stocks = theme["stocks"]
+        if not stocks:
+            continue
         stocks.sort(key=lambda stock: (not stock.get("is_active", True), -stock["signal_score"], -WEIGHT[stock["tier"]], stock["avg_rank"], stock["code"]))
         active_stocks = [stock for stock in stocks if stock.get("is_active", True)]
         cooling_count = len(stocks) - len(active_stocks)
@@ -472,6 +542,16 @@ def apply_market_lifecycle(report: dict, previous_report: dict | None) -> dict:
 
 
 def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
+    signature_payload = {
+        str(day): [
+            [code, stock.get("rank"), stock.get("gain_pct")]
+            for code, stock in sorted(stocks.items())
+        ]
+        for day, stocks in sorted(rankings.items())
+    }
+    market_signature = hashlib.sha256(
+        json.dumps(signature_payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()[:20]
     seen: dict[str, list[dict]] = defaultdict(list)
     for day, stocks in rankings.items():
         for code, data in stocks.items():
@@ -531,7 +611,7 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         "reviewed": sum(stock["llm_review"] is not None for stock in unmapped_candidates),
         "source_verified": sum(bool(stock["llm_review"] and stock["llm_review"].get("source_urls")) for stock in unmapped_candidates),
     }
-    return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes, "unmapped_candidates": unmapped_candidates, "review_summary": review_summary}
+    return {"generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(), "market_signature": market_signature, "freshness": "fresh", "last_error": None, "source_urls": {f"{day}d": BASE_URL.format(days=day) for day in WINDOWS}, "themes": themes, "unmapped_candidates": unmapped_candidates, "review_summary": review_summary}
 
 
 def print_report(report: dict) -> None:
@@ -553,21 +633,25 @@ def telegram_messages(report: dict) -> list[str]:
         else:
             messages[-1] += section
 
+    def stock_state_label(stock: dict) -> str:
+        c_watch = f"〔C 觀察 {stock.get('c_stagnant_days', 0)}/{C_STAGNATION_LIMIT}〕" if stock.get("tier") == "C" else ""
+        if stock.get("tier_change") == "down":
+            return f"〔{stock.get('previous_tier')}→{stock['tier']} 自然降級〕{c_watch}"
+        if stock.get("tier_change") == "up":
+            return f"〔{stock.get('previous_tier')}→{stock['tier']} 升級〕"
+        if stock.get("tier_change") == "returning":
+            return "〔回溫〕"
+        if c_watch:
+            return c_watch
+        return f"〔{stock['lifecycle_status']}〕" if not stock.get("is_active", True) else ""
+
     for theme in report["themes"]:
         theme_change = "" if not theme.get("previous_tier") or theme.get("tier_change") == "same" else f"｜昨 {theme['previous_tier']} → 今 {theme['tier']}"
         lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）〔{theme.get('lifecycle', '成熟')}〕{theme_change}"]
         for stock in theme["stocks"]:
             inference_label = "〔疑似題材／LLM〕" if stock["is_provisional"] else ("〔產品面推論〕" if stock["theme_basis"] == "產品面推論" else "")
             new_label = "〔NEW〕" if stock.get("is_new") else ""
-            if not stock.get("is_active", True):
-                state_label = f"〔{stock['lifecycle_status']} {stock['miss_streak']}/{GRACE_MISS_LIMIT}〕"
-            elif stock.get("tier_change") in {"up", "down"}:
-                direction = "升級" if stock["tier_change"] == "up" else "降級"
-                state_label = f"〔{stock['previous_tier']}→{stock['tier']} {direction}〕"
-            elif stock.get("tier_change") == "returning":
-                state_label = "〔回溫〕"
-            else:
-                state_label = ""
+            state_label = stock_state_label(stock)
             lines.append(
                 f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
@@ -579,15 +663,7 @@ def telegram_messages(report: dict) -> list[str]:
         lines = ["\n🧭 待產品推論候選（已符合標的 Tier，尚待映射）"]
         for stock in report["unmapped_candidates"]:
             new_label = "〔NEW〕" if stock.get("is_new") else ""
-            if not stock.get("is_active", True):
-                state_label = f"〔{stock['lifecycle_status']} {stock['miss_streak']}/{GRACE_MISS_LIMIT}〕"
-            elif stock.get("tier_change") in {"up", "down"}:
-                direction = "升級" if stock["tier_change"] == "up" else "降級"
-                state_label = f"〔{stock['previous_tier']}→{stock['tier']} {direction}〕"
-            elif stock.get("tier_change") == "returning":
-                state_label = "〔回溫〕"
-            else:
-                state_label = ""
+            state_label = stock_state_label(stock)
             lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}{new_label}{state_label}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
         append_section("\n".join(lines))
 

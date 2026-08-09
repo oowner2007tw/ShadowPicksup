@@ -28,10 +28,10 @@ class ThemeTaxonomyTests(unittest.TestCase):
         }
 
     @classmethod
-    def lifecycle_report(cls, stocks=None, theme_name="Test Theme"):
+    def lifecycle_report(cls, stocks=None, theme_name="Test Theme", signature=None):
         stocks = stocks or []
         themes = [{"name": theme_name, "tier": 1, "score": 14, "stocks": stocks}] if stocks else []
-        return {"themes": themes, "unmapped_candidates": [], "review_summary": {}}
+        return {"themes": themes, "unmapped_candidates": [], "review_summary": {}, "market_signature": signature}
 
     def test_seed_coverage_is_expanded(self):
         self.assertGreaterEqual(len(THEME_MAPPING), 70)
@@ -72,25 +72,39 @@ class ThemeTaxonomyTests(unittest.TestCase):
         annotate_new_stocks(report, None)
         self.assertFalse(report["themes"][0]["stocks"][0]["is_new"])
 
-    def test_stock_cools_for_two_reports_then_exits_on_the_third(self):
-        previous = self.lifecycle_report([self.lifecycle_stock()])
+    def test_stock_demotes_stepwise_then_observes_tier_c_for_five_sessions(self):
+        report = self.lifecycle_report([self.lifecycle_stock(tier="S")], signature="session-0")
+        expected = [
+            ("A", 0),
+            ("B", 0),
+            ("C", 1),
+            ("C", 2),
+            ("C", 3),
+            ("C", 4),
+            ("C", 5),
+        ]
+        for session, (tier, c_days) in enumerate(expected, 1):
+            report = apply_market_lifecycle(
+                self.lifecycle_report(signature=f"session-{session}"),
+                report,
+            )
+            stock = report["themes"][0]["stocks"][0]
+            self.assertEqual(stock["tier"], tier)
+            self.assertEqual(stock["c_stagnant_days"], c_days)
+            self.assertFalse(stock["is_active"])
 
-        first_miss = apply_market_lifecycle(self.lifecycle_report(), previous)
-        first_stock = first_miss["themes"][0]["stocks"][0]
-        self.assertEqual(first_stock["miss_streak"], 1)
-        self.assertEqual(first_stock["lifecycle_status"], "退潮中")
-        self.assertFalse(first_stock["is_active"])
-        self.assertIn("退潮中 1/2", "\n".join(telegram_messages(first_miss)))
+        self.assertIn("C 觀察 5/5", "\n".join(telegram_messages(report)))
+        exited = apply_market_lifecycle(self.lifecycle_report(signature="session-8"), report)
+        self.assertEqual(exited["themes"], [])
+        self.assertEqual(exited["exited_stocks"][0]["code"], "1111")
+        self.assertIn("今日正式汰換", "\n".join(telegram_messages(exited)))
 
-        second_miss = apply_market_lifecycle(self.lifecycle_report(), first_miss)
-        second_stock = second_miss["themes"][0]["stocks"][0]
-        self.assertEqual(second_stock["miss_streak"], 2)
-        self.assertEqual(second_stock["lifecycle_status"], "即將剔除")
-
-        third_miss = apply_market_lifecycle(self.lifecycle_report(), second_miss)
-        self.assertEqual(third_miss["themes"], [])
-        self.assertEqual(third_miss["exited_stocks"][0]["code"], "1111")
-        self.assertIn("今日正式汰換", "\n".join(telegram_messages(third_miss)))
+    def test_same_market_signature_does_not_advance_demotion(self):
+        previous = self.lifecycle_report([self.lifecycle_stock(tier="S")], signature="same-session")
+        unchanged = apply_market_lifecycle(self.lifecycle_report(signature="same-session"), previous)
+        stock = unchanged["themes"][0]["stocks"][0]
+        self.assertEqual(stock["tier"], "S")
+        self.assertFalse(unchanged["new_trading_session"])
 
     def test_tier_change_and_theme_launch_are_annotated(self):
         previous = self.lifecycle_report([self.lifecycle_stock(tier="S")], "Existing Theme")
@@ -98,6 +112,7 @@ class ThemeTaxonomyTests(unittest.TestCase):
         result = apply_market_lifecycle(current, previous)
         stock = result["themes"][0]["stocks"][0]
         self.assertEqual(stock["previous_tier"], "S")
+        self.assertEqual(stock["tier"], "A")
         self.assertEqual(stock["tier_change"], "down")
 
         launch = apply_market_lifecycle(
