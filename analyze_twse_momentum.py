@@ -336,6 +336,20 @@ def index_report_stocks(report: dict | None) -> dict[str, tuple[dict, str | None
     return indexed
 
 
+def normalize_legacy_stock_metrics(stock: dict) -> dict:
+    """Fill lifecycle metrics absent from reports created before momentum scoring existed."""
+    normalized = deepcopy(stock)
+    avg_rank = float(normalized.get("avg_rank", 50.0))
+    appearances = float(normalized.get("appearances", WEIGHT.get(normalized.get("tier"), 1)))
+    if normalized.get("signal_score") is None:
+        rank_quality = max(0.15, 1.15 - min(avg_rank / 50.0, 1.0))
+        normalized["signal_score"] = round(appearances * rank_quality * 0.75, 2)
+    normalized.setdefault("avg_rank", avg_rank)
+    normalized.setdefault("score_factor", 1.0)
+    normalized.setdefault("windows", [])
+    return normalized
+
+
 def tier_change(current_tier: str, previous_stock: dict | None, has_baseline: bool) -> str:
     if not has_baseline:
         return "baseline"
@@ -447,7 +461,7 @@ def apply_market_lifecycle(report: dict, previous_report: dict | None) -> dict:
             })
             continue
 
-        cooling_stock = deepcopy(previous_stock)
+        cooling_stock = normalize_legacy_stock_metrics(previous_stock)
         base_factor = previous_stock.get("base_score_factor", previous_stock.get("score_factor", 1.0))
         tier_changed = displayed_tier != previous_tier
         if tier_changed:

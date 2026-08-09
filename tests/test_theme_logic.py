@@ -106,6 +106,22 @@ class ThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(stock["tier"], "S")
         self.assertFalse(unchanged["new_trading_session"])
 
+    def test_legacy_report_without_signal_score_can_enter_cooling(self):
+        legacy_stock = self.lifecycle_stock(tier="S")
+        legacy_stock.pop("signal_score")
+        legacy_stock.pop("score_factor")
+        previous = self.lifecycle_report([legacy_stock], signature="legacy-session")
+
+        result = apply_market_lifecycle(
+            self.lifecycle_report(signature="new-session"),
+            previous,
+        )
+
+        stock = result["themes"][0]["stocks"][0]
+        self.assertEqual(stock["tier"], "A")
+        self.assertGreater(stock["signal_score"], 0)
+        self.assertFalse(stock["is_active"])
+
     def test_tier_change_and_theme_launch_are_annotated(self):
         previous = self.lifecycle_report([self.lifecycle_stock(tier="S")], "Existing Theme")
         current = self.lifecycle_report([self.lifecycle_stock(tier="B")], "Existing Theme")
