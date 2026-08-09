@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-09T11:08:01.214226+08:00",
-  "freshness": "fresh",
-  "last_error": null,
+  "freshness": "stale",
+  "last_error": "'signal_score'",
   "source_urls": {
     "1d": "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_1.djhtm",
     "2d": "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_2.djhtm",
