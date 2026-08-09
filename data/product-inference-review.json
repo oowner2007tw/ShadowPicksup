@@ -7,8 +7,8 @@
       "theme_hypotheses": ["伺服器機櫃零組件", "資料中心基礎設施"],
       "rationale": "多週期動能極強；產品假說指向高階伺服器與機櫃的滑軌零組件。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.kingslide.com/investor_stockholderservice_basicinfo?___from_store=default&___store=chinese", "https://www.kingslide.com/about_intro?___from_store=japanese&___store=chinese"],
+      "source_status": "已取得公司官方產品與投資人資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "8039": {
@@ -16,8 +16,8 @@
       "theme_hypotheses": ["軟板材料 / FCCL", "電子材料"],
       "rationale": "產品假說指向軟板上游材料；需與公司產品資料核對後才可升格 Mapping。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.taiflex.com.tw/ESG/Pro_Quality", "https://www.taiflex.com.tw/ESG/Pro_Market"],
+      "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "1762": {
@@ -25,8 +25,8 @@
       "theme_hypotheses": ["原料藥 / 製藥", "生技醫療"],
       "rationale": "公司名稱與市場既有認知指向製藥供應鏈；仍須以官方產品線確認細分領域。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.ccsb.com.tw/upfiles/ADUpload/tw_ir2366714228.pdf", "https://www.ccsb.com.tw/upfiles/ADUpload/tw_be_ir1mul2_3397525592.pdf"],
+      "source_status": "已取得公司官方投資人資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "2103": {
@@ -34,8 +34,8 @@
       "theme_hypotheses": ["合成橡膠", "特用化學材料"],
       "rationale": "產品可能性聚焦於合成橡膠與材料化工供應鏈。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.tsrc.com.tw/tw/products-services/", "https://www.tsrc.com.tw/tw/products-services/product-finder/"],
+      "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "3189": {
@@ -43,8 +43,8 @@
       "theme_hypotheses": ["IC 載板", "先進封裝"],
       "rationale": "產品可能性指向半導體封裝上游基板，與記憶體或高階運算需求可能相關。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.kinsus.com.tw/zh-TW/Product/product", "https://www.kinsus.com.tw/zh-TW/Product/product/Detail/tw_sip"],
+      "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "3605": {
@@ -52,8 +52,8 @@
       "theme_hypotheses": ["高速傳輸", "連接器 / 線束"],
       "rationale": "產品可能性聚焦於連接器與線材；是否屬高速傳輸題材須以產品規格與客戶應用確認。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.acesconn.com/tw/news_detail?id=62"],
+      "source_status": "已取得公司官方應用資料，待補第二項官方產品／投資人來源後人工確認",
       "reviewed_at": "2026-08-09"
     },
     "4722": {
@@ -61,8 +61,8 @@
       "theme_hypotheses": ["特用化學", "材料升級"],
       "rationale": "屬材料化工方向的初步假說，尚不應連結至特定終端題材。",
       "confidence": "低",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.qualipoly.com/zh-tw/product.html", "https://www.qualipoly.com/zh-tw/news-c2293/%E5%85%AC%E5%8F%B8%E7%9B%B8%E9%97%9C%E5%A0%B1%E5%B0%8E.html"],
+      "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "6533": {
@@ -70,8 +70,8 @@
       "theme_hypotheses": ["RISC-V", "半導體 IP / CPU"],
       "rationale": "產品可能性指向處理器 IP；是否與特定 AI 運算題材連結，需依產品與營收應用確認。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.andestech.com/tw/", "https://www.sipa.gov.tw/home.jsp?contlink=ap%2Fmanufacturers_3_1.jsp&dataserno=202101080001&level2=Y&menudata=ChineseMenu&mserno=201001210001&serno=2010012002"],
+      "source_status": "已取得公司官方產品資料與園區資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "6781": {
@@ -84,30 +84,30 @@
       "reviewed_at": "2026-08-09"
     },
     "7610": {
-      "product_hypothesis": "疑似金屬材料加工／資源循環相關",
+      "product_hypothesis": "鎢、鈷關鍵金屬回收、純化與材料",
       "theme_hypotheses": ["金屬材料", "資源循環"],
-      "rationale": "名稱與市場定位僅能形成金屬材料方向的初步假說，尚無足夠產品資料支持更精確分類。",
-      "confidence": "低",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "rationale": "公司官方資料指出其回收二次硬質合金及鎢、鈷資源，製造高純度鈷產品與相關化合物；仍不直接納入正式題材。",
+      "confidence": "中",
+      "source_urls": ["https://www.lianyoucorp.com/TW", "https://wwwc.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f01992763eeec04c9"],
+      "source_status": "已取得公司官方產品資料與交易所公司介紹，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "7788": {
-      "product_hypothesis": "疑似電磁繼電器與電控零組件",
+      "product_hypothesis": "電磁繼電器、接觸器與高壓直流繼電器",
       "theme_hypotheses": ["繼電器 / 電控零組件", "工業自動化"],
       "rationale": "產品可能性聚焦於電控與繼電器應用；是否形成工業自動化題材仍需以官方產品與終端應用確認。",
       "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "source_urls": ["https://www.songchuan.com/sc/", "https://www.songchuan.com/sc/wp-content/uploads/2024/12/3-1-%E6%B3%95%E4%BA%BA%E8%AA%AA%E6%98%8E%E6%9C%83%E7%B0%A1%E5%A0%B1_%E4%B8%AD%E6%96%8720241022.pdf"],
+      "source_status": "已取得公司官方產品與法說資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "2491": {
-      "product_hypothesis": "疑似電子零組件相關，產品線待確認",
-      "theme_hypotheses": ["電子零組件"],
-      "rationale": "現階段缺乏足以支持特定產品類別的可靠依據，只保留寬泛電子零組件假說，避免過度分類。",
-      "confidence": "低",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
+      "product_hypothesis": "光電照明應用產品、電子零組件與資訊產品",
+      "theme_hypotheses": ["光電照明", "電子零組件"],
+      "rationale": "公司永續報告列示光電照明應用產品、電子應用產品與零組件；終端動能題材仍不足以直接升格。",
+      "confidence": "中",
+      "source_urls": ["https://www.focl.com.tw/investor.php?PID=8", "https://www.focl.com.tw/userfiles/files/%E6%B0%B8%E7%BA%8C%E7%99%BC%E5%B1%95/FOCL_Sustainability%20Report.pdf"],
+      "source_status": "已取得公司官方投資人與永續資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     }
   }
