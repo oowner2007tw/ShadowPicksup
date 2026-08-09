@@ -19,7 +19,7 @@ from analyze_twse_momentum import THEME_MAPPING
 
 REPORT_FILE = Path("report.json")
 REVIEW_FILE = Path("data/product-inference-review.json")
-MODEL = os.getenv("GEMINI_RESEARCH_MODEL", "gemini-3.5-flash-lite")
+MODEL = os.getenv("GEMINI_RESEARCH_MODEL", "gemini-2.5-flash-lite")
 REVIEW_INTERVAL_DAYS = 90
 
 
