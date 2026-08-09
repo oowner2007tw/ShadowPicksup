@@ -2,6 +2,7 @@ import unittest
 
 from analyze_twse_momentum import (
     THEME_MAPPING,
+    annotate_new_stocks,
     canonicalize_theme,
     review_theme_mapping,
 )
@@ -29,6 +30,23 @@ class ThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(mapping["theme"], "PCB / 高階材料")
         self.assertTrue(mapping["provisional"])
         self.assertLess(mapping["score_factor"], 1.0)
+
+    def test_new_tag_compares_all_visible_stocks_with_previous_report(self):
+        report = {
+            "themes": [{"stocks": [{"code": "1111"}, {"code": "2222"}]}],
+            "unmapped_candidates": [{"code": "3333"}],
+        }
+
+        annotate_new_stocks(report, {"1111", "3333"})
+
+        self.assertFalse(report["themes"][0]["stocks"][0]["is_new"])
+        self.assertTrue(report["themes"][0]["stocks"][1]["is_new"])
+        self.assertFalse(report["unmapped_candidates"][0]["is_new"])
+
+    def test_new_tag_stays_off_without_a_previous_report(self):
+        report = {"themes": [{"stocks": [{"code": "1111"}]}], "unmapped_candidates": []}
+        annotate_new_stocks(report, None)
+        self.assertFalse(report["themes"][0]["stocks"][0]["is_new"])
 
 
 if __name__ == "__main__":

@@ -271,6 +271,46 @@ def repeated_tier(count: int, effective_appearances: float, avg_rank_percentile:
     return None
 
 
+def report_stock_codes(report: dict) -> set[str]:
+    """Return every stock currently visible in a theme or review pool."""
+    themed = {
+        stock["code"]
+        for theme in report.get("themes", [])
+        for stock in theme.get("stocks", [])
+    }
+    unmapped = {stock["code"] for stock in report.get("unmapped_candidates", [])}
+    return themed | unmapped
+
+
+def load_previous_stock_codes(reference_day: str | None = None) -> set[str] | None:
+    """Load the latest successful report before today as the NEW-tag baseline."""
+    reference_day = reference_day or datetime.now(timezone(timedelta(hours=8))).date().isoformat()
+    previous_reports: list[tuple[str, dict]] = []
+    if HISTORY_DIR.exists():
+        for path in HISTORY_DIR.glob("*.json"):
+            try:
+                report = json.loads(path.read_text(encoding="utf-8"))
+                report_day = str(report.get("generated_at", path.stem))[:10]
+                if report_day < reference_day and report.get("freshness", "fresh") == "fresh":
+                    previous_reports.append((report_day, report))
+            except (OSError, ValueError, TypeError):
+                continue
+    if not previous_reports:
+        return None
+    _, latest_report = max(previous_reports, key=lambda item: item[0])
+    return report_stock_codes(latest_report)
+
+
+def annotate_new_stocks(report: dict, previous_codes: set[str] | None) -> dict:
+    """Mark stocks absent from the prior successful report; no baseline means no false NEW tags."""
+    for theme in report.get("themes", []):
+        for stock in theme.get("stocks", []):
+            stock["is_new"] = previous_codes is not None and stock["code"] not in previous_codes
+    for stock in report.get("unmapped_candidates", []):
+        stock["is_new"] = previous_codes is not None and stock["code"] not in previous_codes
+    return report
+
+
 def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
     seen: dict[str, list[dict]] = defaultdict(list)
     for day, stocks in rankings.items():
@@ -357,17 +397,19 @@ def telegram_messages(report: dict) -> list[str]:
         lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）"]
         for stock in theme["stocks"]:
             inference_label = "〔疑似題材／LLM〕" if stock["is_provisional"] else ("〔產品面推論〕" if stock["theme_basis"] == "產品面推論" else "")
+            new_label = "〔NEW〕" if stock.get("is_new") else ""
             lines.append(
                 f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
-                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{inference_label}"
+                f"動能 {stock['signal_score']}｜{', '.join(stock['windows'])}{new_label}{inference_label}"
             )
         append_section("\n".join(lines))
 
     if report.get("unmapped_candidates"):
         lines = ["\n🧭 待產品推論候選（已符合標的 Tier，尚待映射）"]
         for stock in report["unmapped_candidates"]:
-            lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
+            new_label = "〔NEW〕" if stock.get("is_new") else ""
+            lines.append(f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}{new_label}｜動能 {stock['signal_score']}｜{', '.join(stock['windows'])}")
         append_section("\n".join(lines))
 
     return messages
@@ -402,7 +444,11 @@ def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
-        report = build_report({day: fetch_ranking(day) for day in WINDOWS})
+        previous_stock_codes = load_previous_stock_codes()
+        report = annotate_new_stocks(
+            build_report({day: fetch_ranking(day) for day in WINDOWS}),
+            previous_stock_codes,
+        )
     except Exception as error:
         if not OUTPUTS[0].exists():
             raise
