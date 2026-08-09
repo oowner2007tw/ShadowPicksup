@@ -1,114 +1,1401 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "description": "LLM 產品與題材可能性覆核。此檔案的內容不會直接納入正式題材 Tier，必須經人工確認後才移入 product-theme-mapping.json。",
   "entries": {
     "2059": {
       "product_hypothesis": "高階伺服器導軌與機櫃滑軌",
-      "theme_hypotheses": ["伺服器機櫃零組件", "資料中心基礎設施"],
+      "theme_hypotheses": [
+        "伺服器機櫃零組件",
+        "資料中心基礎設施"
+      ],
       "rationale": "多週期動能極強；產品假說指向高階伺服器與機櫃的滑軌零組件。",
       "confidence": "中",
-      "source_urls": ["https://www.kingslide.com/investor_stockholderservice_basicinfo?___from_store=default&___store=chinese", "https://www.kingslide.com/about_intro?___from_store=japanese&___store=chinese"],
+      "source_urls": [
+        "https://www.kingslide.com/investor_stockholderservice_basicinfo?___from_store=default&___store=chinese",
+        "https://www.kingslide.com/about_intro?___from_store=japanese&___store=chinese"
+      ],
       "source_status": "已取得公司官方產品與投資人資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "8039": {
       "product_hypothesis": "軟性銅箔基板（FCCL）與軟板材料",
-      "theme_hypotheses": ["軟板材料 / FCCL", "電子材料"],
+      "theme_hypotheses": [
+        "軟板材料 / FCCL",
+        "電子材料"
+      ],
       "rationale": "產品假說指向軟板上游材料；需與公司產品資料核對後才可升格 Mapping。",
       "confidence": "中",
-      "source_urls": ["https://www.taiflex.com.tw/ESG/Pro_Quality", "https://www.taiflex.com.tw/ESG/Pro_Market"],
+      "source_urls": [
+        "https://www.taiflex.com.tw/ESG/Pro_Quality",
+        "https://www.taiflex.com.tw/ESG/Pro_Market"
+      ],
       "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "1762": {
       "product_hypothesis": "原料藥與醫藥中間體",
-      "theme_hypotheses": ["原料藥 / 製藥", "生技醫療"],
+      "theme_hypotheses": [
+        "原料藥 / 製藥",
+        "生技醫療"
+      ],
       "rationale": "公司名稱與市場既有認知指向製藥供應鏈；仍須以官方產品線確認細分領域。",
       "confidence": "中",
-      "source_urls": ["https://www.ccsb.com.tw/upfiles/ADUpload/tw_ir2366714228.pdf", "https://www.ccsb.com.tw/upfiles/ADUpload/tw_be_ir1mul2_3397525592.pdf"],
+      "source_urls": [
+        "https://www.ccsb.com.tw/upfiles/ADUpload/tw_ir2366714228.pdf",
+        "https://www.ccsb.com.tw/upfiles/ADUpload/tw_be_ir1mul2_3397525592.pdf"
+      ],
       "source_status": "已取得公司官方投資人資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "2103": {
       "product_hypothesis": "合成橡膠與高分子材料",
-      "theme_hypotheses": ["合成橡膠", "特用化學材料"],
+      "theme_hypotheses": [
+        "合成橡膠",
+        "特用化學材料"
+      ],
       "rationale": "產品可能性聚焦於合成橡膠與材料化工供應鏈。",
       "confidence": "中",
-      "source_urls": ["https://www.tsrc.com.tw/tw/products-services/", "https://www.tsrc.com.tw/tw/products-services/product-finder/"],
+      "source_urls": [
+        "https://www.tsrc.com.tw/tw/products-services/",
+        "https://www.tsrc.com.tw/tw/products-services/product-finder/"
+      ],
       "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "3189": {
       "product_hypothesis": "IC 載板與高階封裝基板",
-      "theme_hypotheses": ["IC 載板", "先進封裝"],
+      "theme_hypotheses": [
+        "IC 載板",
+        "先進封裝"
+      ],
       "rationale": "產品可能性指向半導體封裝上游基板，與記憶體或高階運算需求可能相關。",
       "confidence": "中",
-      "source_urls": ["https://www.kinsus.com.tw/zh-TW/Product/product", "https://www.kinsus.com.tw/zh-TW/Product/product/Detail/tw_sip"],
+      "source_urls": [
+        "https://www.kinsus.com.tw/zh-TW/Product/product",
+        "https://www.kinsus.com.tw/zh-TW/Product/product/Detail/tw_sip"
+      ],
       "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "3605": {
       "product_hypothesis": "連接器與線纜組件",
-      "theme_hypotheses": ["高速傳輸", "連接器 / 線束"],
+      "theme_hypotheses": [
+        "高速傳輸",
+        "連接器 / 線束"
+      ],
       "rationale": "產品可能性聚焦於連接器與線材；是否屬高速傳輸題材須以產品規格與客戶應用確認。",
       "confidence": "中",
-      "source_urls": ["https://www.acesconn.com/tw/news_detail?id=62"],
+      "source_urls": [
+        "https://www.acesconn.com/tw/news_detail?id=62"
+      ],
       "source_status": "已取得公司官方應用資料，待補第二項官方產品／投資人來源後人工確認",
       "reviewed_at": "2026-08-09"
     },
     "4722": {
       "product_hypothesis": "特用化學與電子／工業材料",
-      "theme_hypotheses": ["特用化學", "材料升級"],
+      "theme_hypotheses": [
+        "特用化學",
+        "材料升級"
+      ],
       "rationale": "屬材料化工方向的初步假說，尚不應連結至特定終端題材。",
       "confidence": "低",
-      "source_urls": ["https://www.qualipoly.com/zh-tw/product.html", "https://www.qualipoly.com/zh-tw/news-c2293/%E5%85%AC%E5%8F%B8%E7%9B%B8%E9%97%9C%E5%A0%B1%E5%B0%8E.html"],
+      "source_urls": [
+        "https://www.qualipoly.com/zh-tw/product.html",
+        "https://www.qualipoly.com/zh-tw/news-c2293/%E5%85%AC%E5%8F%B8%E7%9B%B8%E9%97%9C%E5%A0%B1%E5%B0%8E.html"
+      ],
       "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "6533": {
       "product_hypothesis": "RISC-V CPU IP 與處理器設計服務",
-      "theme_hypotheses": ["RISC-V", "半導體 IP / CPU"],
+      "theme_hypotheses": [
+        "RISC-V",
+        "半導體 IP / CPU"
+      ],
       "rationale": "產品可能性指向處理器 IP；是否與特定 AI 運算題材連結，需依產品與營收應用確認。",
       "confidence": "中",
-      "source_urls": ["https://www.andestech.com/tw/", "https://www.sipa.gov.tw/home.jsp?contlink=ap%2Fmanufacturers_3_1.jsp&dataserno=202101080001&level2=Y&menudata=ChineseMenu&mserno=201001210001&serno=2010012002"],
+      "source_urls": [
+        "https://www.andestech.com/tw/",
+        "https://www.sipa.gov.tw/home.jsp?contlink=ap%2Fmanufacturers_3_1.jsp&dataserno=202101080001&level2=Y&menudata=ChineseMenu&mserno=201001210001&serno=2010012002"
+      ],
       "source_status": "已取得公司官方產品資料與園區資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "6781": {
-      "product_hypothesis": "鋰電池模組與儲能系統",
-      "theme_hypotheses": ["儲能", "電池模組"],
-      "rationale": "產品可能性聚焦於鋰電池與儲能應用；需以官方產品資料確認市場別。",
-      "confidence": "中",
-      "source_urls": [],
-      "source_status": "待以公司官方產品資料覆核",
-      "reviewed_at": "2026-08-09"
+      "product_hypothesis": "動力與儲能鋰電池模組，供輕量電動載具及資料中心／工業備援儲能系統使用",
+      "supply_chain_tags": [
+        "鋰電池模組",
+        "電池管理系統（BMS）",
+        "熱管理",
+        "工業備援儲能"
+      ],
+      "theme_hypotheses": [
+        "電動二輪車",
+        "資料中心備援電力",
+        "儲能系統"
+      ],
+      "rationale": "官網明示產品為動力及儲能鋰電池模組，應用於電動自行車、電動機車與資料中心備用電池；上述市場主題為依應用場景所作推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.advancedenergysolution.com.tw/article.php?cid=172&lang=tw&tb=3",
+        "https://www.advancedenergysolution.com.tw/article.php?lang=tw&tb=1",
+        "https://www.twse.com.tw/staticFiles/news/news/tsecnews/ff80808174fce5b301754a6b8210013a.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
     },
     "7610": {
       "product_hypothesis": "鎢、鈷關鍵金屬回收、純化與材料",
-      "theme_hypotheses": ["金屬材料", "資源循環"],
+      "theme_hypotheses": [
+        "金屬材料",
+        "資源循環"
+      ],
       "rationale": "公司官方資料指出其回收二次硬質合金及鎢、鈷資源，製造高純度鈷產品與相關化合物；仍不直接納入正式題材。",
       "confidence": "中",
-      "source_urls": ["https://www.lianyoucorp.com/TW", "https://wwwc.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f01992763eeec04c9"],
+      "source_urls": [
+        "https://www.lianyoucorp.com/TW",
+        "https://wwwc.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f01992763eeec04c9"
+      ],
       "source_status": "已取得公司官方產品資料與交易所公司介紹，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "7788": {
       "product_hypothesis": "電磁繼電器、接觸器與高壓直流繼電器",
-      "theme_hypotheses": ["繼電器 / 電控零組件", "工業自動化"],
+      "theme_hypotheses": [
+        "繼電器 / 電控零組件",
+        "工業自動化"
+      ],
       "rationale": "產品可能性聚焦於電控與繼電器應用；是否形成工業自動化題材仍需以官方產品與終端應用確認。",
       "confidence": "中",
-      "source_urls": ["https://www.songchuan.com/sc/", "https://www.songchuan.com/sc/wp-content/uploads/2024/12/3-1-%E6%B3%95%E4%BA%BA%E8%AA%AA%E6%98%8E%E6%9C%83%E7%B0%A1%E5%A0%B1_%E4%B8%AD%E6%96%8720241022.pdf"],
+      "source_urls": [
+        "https://www.songchuan.com/sc/",
+        "https://www.songchuan.com/sc/wp-content/uploads/2024/12/3-1-%E6%B3%95%E4%BA%BA%E8%AA%AA%E6%98%8E%E6%9C%83%E7%B0%A1%E5%A0%B1_%E4%B8%AD%E6%96%8720241022.pdf"
+      ],
       "source_status": "已取得公司官方產品與法說資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
     },
     "2491": {
       "product_hypothesis": "光電照明應用產品、電子零組件與資訊產品",
-      "theme_hypotheses": ["光電照明", "電子零組件"],
+      "theme_hypotheses": [
+        "光電照明",
+        "電子零組件"
+      ],
       "rationale": "公司永續報告列示光電照明應用產品、電子應用產品與零組件；終端動能題材仍不足以直接升格。",
       "confidence": "中",
-      "source_urls": ["https://www.focl.com.tw/investor.php?PID=8", "https://www.focl.com.tw/userfiles/files/%E6%B0%B8%E7%BA%8C%E7%99%BC%E5%B1%95/FOCL_Sustainability%20Report.pdf"],
+      "source_urls": [
+        "https://www.focl.com.tw/investor.php?PID=8",
+        "https://www.focl.com.tw/userfiles/files/%E6%B0%B8%E7%BA%8C%E7%99%BC%E5%B1%95/FOCL_Sustainability%20Report.pdf"
+      ],
       "source_status": "已取得公司官方投資人與永續資料，待人工確認是否升格 Mapping",
       "reviewed_at": "2026-08-09"
+    },
+    "2031": {
+      "product_hypothesis": "鋼材通路、裁剪加工與鋼結構製造服務，供應中厚板、熱冷軋、鍍鋅、不鏽鋼及特殊鋼。",
+      "supply_chain_tags": [
+        "鋼材通路",
+        "鋼材裁剪加工",
+        "鋼結構製造",
+        "鋼品物流"
+      ],
+      "theme_hypotheses": [
+        "公共工程與基礎建設",
+        "半導體與科技廠房建設"
+      ],
+      "rationale": "官方證實其供應多類鋼材並提供裁剪、供料及BOX/BH鋼構製造；公共工程與科技廠房為已揭露案例，相關市場主題屬合理推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hkssteel.com.tw/",
+        "https://www.hkssteel.com.tw/abo_bus.html",
+        "https://www.hkssteel.com.tw/ser_page02.html",
+        "https://www.hkssteel.com.tw/ser_page03.html"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2426": {
+      "product_hypothesis": "LED、紅外線與光纖通訊用化合物半導體及矽光電晶片",
+      "supply_chain_tags": [
+        "LED晶粒",
+        "紅外線LED晶粒",
+        "矽光電感測晶片",
+        "光通訊晶片"
+      ],
+      "theme_hypotheses": [
+        "紅外線感測",
+        "光纖通訊",
+        "LED照明／顯示"
+      ],
+      "rationale": "官網列示可見光與紅外線LED、矽光感測及InP基光通訊晶片；照明／顯示與感測終端應用屬產品組合推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.tyntek.com.tw/en/products.php",
+        "https://www.tyntek.com.tw/en/products_02.php",
+        "https://www.tyntek.com.tw/en/products04.php"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3550": {
+      "product_hypothesis": "高速訊號傳輸線材、線束與連接組件，應用於伺服器、車用、工控及醫療設備。",
+      "supply_chain_tags": [
+        "高速傳輸線材",
+        "線束組裝",
+        "車用線束",
+        "伺服器互連"
+      ],
+      "theme_hypotheses": [
+        "AI伺服器與雲端互連",
+        "電動車與車用電子",
+        "工業自動化"
+      ],
+      "rationale": "證據：官網與年報列有SFP、SAS、EV、HSD、工控及醫療線材線束。推論：伺服器、車電與自動化為主要成長題材。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.copartner.com.tw/tw/about/company",
+        "https://www.copartner.com.tw/uploads/images/ir/annual-report/2023/tw_ir_manual1130620001.pdf",
+        "https://www.twse.com.tw/pdf/ch/3550_ch.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6782": {
+      "product_hypothesis": "矽水膠拋棄式隱形眼鏡，涵蓋近遠視、老花、散光、抗藍光及彩色款",
+      "supply_chain_tags": [
+        "矽水膠隱形眼鏡",
+        "拋棄式隱形眼鏡製造",
+        "視力矯正產品",
+        "彩色隱形眼鏡"
+      ],
+      "theme_hypotheses": [
+        "視力矯正需求",
+        "矽水膠隱形眼鏡升級",
+        "彩色隱形眼鏡"
+      ],
+      "rationale": "證據：官網列示全系列矽水膠隱形眼鏡，含近遠視、老花、散光、抗藍光與彩色款；推論：可對應視力矯正及彩片需求主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.visco.com.tw/tw/business_overview.html",
+        "https://visco.com.tw/en/about_history.html",
+        "https://wwwc.twse.com.tw/pdf/ch/6782_ch.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "4566": {
+      "product_hypothesis": "AI伺服器與高效能運算液冷系統用無滴漏快插式快速接頭（UQD）",
+      "supply_chain_tags": [
+        "精密金屬零組件",
+        "液冷快速接頭",
+        "AI伺服器液冷"
+      ],
+      "theme_hypotheses": [
+        "AI資料中心液冷",
+        "高效能運算基礎設施"
+      ],
+      "rationale": "證據：官網明載UQD用於AI伺服器、超級電腦及資料中心液冷，符合OCP標準。推論：可受惠AI／HPC液冷擴建；未證實營收占比。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.globaltekww.com/tw/universal-quick-disconnect",
+        "https://www.globaltekww.com/tw/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "8454": {
+      "product_hypothesis": "以momo購物網、行動App、電視購物及商城提供商品銷售與配送服務的全通路電商平台。",
+      "supply_chain_tags": [
+        "B2C電商",
+        "第三方賣家平台",
+        "自動化物流",
+        "電視購物"
+      ],
+      "theme_hypotheses": [
+        "台灣電商",
+        "平台經濟",
+        "物流自動化"
+      ],
+      "rationale": "證據：官方列示購物網、電視購物、商城與App，並展示自動化物流系統。推論：3P擴張可望強化平台電商與物流效率主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://corp.momo.com.tw/investor/faq",
+        "https://corp.momo.com.tw/",
+        "https://corp.momo.com.tw/investor/investorActivity"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2397": {
+      "product_hypothesis": "工業嵌入式主機板、邊緣運算系統與工業級觸控電腦",
+      "supply_chain_tags": [
+        "工業電腦",
+        "嵌入式主機板",
+        "邊緣AI運算",
+        "工業觸控電腦"
+      ],
+      "theme_hypotheses": [
+        "工業自動化",
+        "邊緣AI／AIoT",
+        "智慧交通與智慧醫療"
+      ],
+      "rationale": "證據：年報明載公司研發製造嵌入式主機板、邊緣運算系統及工業觸控電腦。推論：其垂直應用布局可受惠工業自動化與邊緣AI需求。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.dfi.com/Uploads/InvestorRelation/3027b8ad-4ff4-49da-a05b-b22db8f1c169/%E5%8F%8B%E9%80%9A%E8%B3%87%E8%A8%8A115%E5%B8%B8%E6%9C%83-%E4%B8%AD%E6%96%87%E5%B9%B4%E5%A0%B1.pdf?timestamp=1778140593.72025",
+        "https://blog.dfi.com/zh-tw/dfi-ec600-rps-premium-edge-ai-platform-featured-in-intel-partner-spotlight"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "7722": {
+      "product_hypothesis": "提供消費者付款、轉帳與生活繳費，以及商家線上、POS、QR收款與點數行銷的行動支付平台",
+      "supply_chain_tags": [
+        "第三方支付",
+        "電子支付",
+        "商戶收款",
+        "行銷科技"
+      ],
+      "theme_hypotheses": [
+        "金融科技",
+        "無現金支付",
+        "商戶數位轉型"
+      ],
+      "rationale": "官網證實其涵蓋商家收款串接、LINE Pay Money儲值轉帳與生活繳費、點數／優惠券行銷；金融科技與商戶數位轉型為據此延伸之主題歸類。",
+      "confidence": "high",
+      "source_urls": [
+        "https://pay.line.me/portal/tw/business/payment-service?locale=zh_TW",
+        "https://pay.line.me/portal/tw-lpm/",
+        "https://pay.line.me/portal/tw/business/marketing"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2006": {
+      "product_hypothesis": "建築用鋼材製造與加工服務商，主力為鋼筋、H型鋼等型鋼、熱軋鋼板，並提供鋼筋裁剪彎曲、鋼筋網及組合H型鋼加工。",
+      "supply_chain_tags": [
+        "建築鋼筋",
+        "結構型鋼",
+        "熱軋鋼板",
+        "鋼材加工配送"
+      ],
+      "theme_hypotheses": [
+        "耐震建築",
+        "公共工程與營建",
+        "營建鋼材一站式供應"
+      ],
+      "rationale": "官方產品頁列鋼筋、型鋼、鋼板及加工服務，並指向建築、橋梁等用途；耐震建築與一站式供應為依產品規格及加工內容所作推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.tunghosteel.com/Product/Intro/1",
+        "https://www.tunghosteel.com/Product/Intro/2",
+        "https://www.tunghosteel.com/Product/Intro/3",
+        "https://www.tunghosteel.com/Product/Intro/4"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "5484": {
+      "product_hypothesis": "以工業電腦、NVIDIA邊緣AI Box、CCTV監控與車載DVR為核心的AI視覺與影像處理解決方案",
+      "supply_chain_tags": [
+        "工業電腦",
+        "邊緣AI運算",
+        "機器視覺",
+        "安防與車載影像"
+      ],
+      "theme_hypotheses": [
+        "AIoT與邊緣AI",
+        "智慧製造與視覺檢測",
+        "智慧交通與智慧安防"
+      ],
+      "rationale": "證據：官方報告列工業電腦、CCTV及車載DVR，產品頁有Jetson AI Box；推論：主軸為邊緣AI視覺方案。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.everfocus.com/tw/upload/download_files/77e2a82332667420d65130e55f719ef0.pdf",
+        "https://www.everfocus.com/tw/products-detail/EAC-10N1-N2/",
+        "https://www.everfocus.com/tw/application-industries/smart_manufacturing/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6152": {
+      "product_hypothesis": "數位電視機上盒、衛星射頻通訊及家庭寬頻網通設備的OEM／ODM／JDM供應商",
+      "supply_chain_tags": [
+        "機上盒",
+        "家庭閘道器",
+        "Wi‑Fi 7／XGS-PON",
+        "衛星射頻設備"
+      ],
+      "theme_hypotheses": [
+        "家庭寬頻升級",
+        "智慧家庭聯網",
+        "衛星通訊"
+      ],
+      "rationale": "官網明列STB、LNB／多路開關、家庭網路及寬頻閘道器，並稱提供客製合作；Wi‑Fi 7與XGS-PON帶出家庭寬頻升級主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.pesi.com.tw/en",
+        "https://www.pesi.com.tw/en/8",
+        "https://www.pesi.com.tw/en/7",
+        "https://wwwc.twse.com.tw/pdf/ch/6152_ch.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3518": {
+      "product_hypothesis": "以PVD真空濺鍍為核心，提供半導體先進封裝、散熱／功能鍍膜、碳化矽基板加工及技術服務。",
+      "supply_chain_tags": [
+        "PVD真空濺鍍",
+        "半導體先進封裝",
+        "散熱材料",
+        "碳化矽加工"
+      ],
+      "theme_hypotheses": [
+        "AI伺服器散熱",
+        "先進封裝",
+        "第三代半導體"
+      ],
+      "rationale": "證據：官網列示先進封裝、散熱／功能鍍膜與SiC加工；推論：產品可連結AI散熱、先進封裝及第三代半導體需求。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.pttech.com.tw/",
+        "https://www.pttech.com.tw/portfolio-item/advanced-semiconductor-packaging/",
+        "https://www.pttech.com.tw/portfolio-item/heat-dissipation-coating/",
+        "https://www.pttech.com.tw/portfolio-item/silicon-carbide-machining/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2425": {
+      "product_hypothesis": "顯示卡、主機板、電競一體機及AI／通用伺服器軟硬體整合解決方案",
+      "supply_chain_tags": [
+        "顯示卡",
+        "主機板",
+        "AI伺服器",
+        "系統整合"
+      ],
+      "theme_hypotheses": [
+        "AI伺服器與HPC",
+        "電競硬體",
+        "生成式AI基礎設施"
+      ],
+      "rationale": "官網列示顯示卡、主機板、電競一體機、通用與AI伺服器；並稱具AI開發管理平台。推論其受惠主題為AI算力建置與電競硬體需求。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.chaintech.com.tw/",
+        "https://www.chaintech.com.tw/AiServer.aspx?cid=3264"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3652": {
+      "product_hypothesis": "自動資料收集（AIDC）設備與軟體整合方案，主力為強固型PDA、條碼掃描器、RFID讀取器及行動裝置管理平台。",
+      "supply_chain_tags": [
+        "AIDC自動資料收集",
+        "強固型行動電腦",
+        "條碼掃描",
+        "RFID讀取器"
+      ],
+      "theme_hypotheses": [
+        "智慧物流與倉儲數位化",
+        "智慧製造與工業自動化",
+        "零售與醫療行動化管理"
+      ],
+      "rationale": "官方明示三大產品與軟硬體整合，並列物流、倉儲、製造、零售及醫療應用；上述市場主題為依其應用場景所作推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ute.com/tw/about",
+        "https://www.ute-cn.com/tw/ir/shareholder/meeting"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3716": {
+      "product_hypothesis": "處方藥、特殊製劑與學名藥製造，結合OTC／保健、動物健康及銀髮照護服務",
+      "supply_chain_tags": [
+        "藥品製造",
+        "CDMO委託開發製造",
+        "處方藥與OTC通路",
+        "長照服務"
+      ],
+      "theme_hypotheses": [
+        "高門檻學名藥與特殊製劑CDMO",
+        "消費者健康與OTC數位通路",
+        "高齡照護"
+      ],
+      "rationale": "證據：年報列示藥品、OTC、動藥及銀髮照護，並規劃高門檻製劑CDMO。推論：成長主題為CDMO、消費健康與高齡照護。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.cenra.com/tw/about/company",
+        "https://www.cenra.com/tw/financial/annual",
+        "https://www.cenra.com/uploads/images/Invester/annual-report/2025.pdf",
+        "https://www.cenra-pharma.com/tw/financial-reports"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2010": {
+      "product_hypothesis": "鋼板、特殊鋼與矽鋼材料加工，製造馬達積層鐵芯、沖壓零件、自動倉儲設備及鋼結構工程。",
+      "supply_chain_tags": [
+        "鋼板／特殊鋼加工",
+        "矽鋼捲與馬達積層鐵芯",
+        "汽車與家電沖壓零件",
+        "自動倉儲系統"
+      ],
+      "theme_hypotheses": [
+        "電動車與高效率馬達",
+        "工業自動化與機器人",
+        "智慧物流倉儲"
+      ],
+      "rationale": "證據：官網列示矽鋼捲、馬達積層鐵芯、沖壓零件及自動倉儲系統。推論：可對應電動車／工控馬達與物流自動化主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.cysco.com.tw/product",
+        "https://www.cysco.com.tw/businessdepartmentintroduction-03-page70",
+        "https://www.cysco.com.tw/product-04-page78",
+        "https://www.cysco.com.tw/product-05-page79"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2536": {
+      "product_hypothesis": "大台北住宅、商辦及廠辦電梯大樓之開發、興建、出售與租賃",
+      "supply_chain_tags": [
+        "不動產開發",
+        "住宅大樓",
+        "商辦大樓",
+        "廠辦大樓"
+      ],
+      "theme_hypotheses": [
+        "大台北都會區不動產開發",
+        "都市更新與聯合開發",
+        "綠色建築與永續營造"
+      ],
+      "rationale": "官方報告明示主業為住宅、商辦及廠辦大樓興建與租賃，內銷為主；都市更新及永續營造為依官網業務與ESG內容延伸之主題推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hong-pu.com.tw/tw/esg/report",
+        "https://www.hong-pu.com.tw/uploads/images/esg/%E5%AE%8F%E6%99%AE%E5%BB%BA%E8%A8%AD2024ESG%E5%A0%B1%E5%91%8A%E6%9B%B8.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2527": {
+      "product_hypothesis": "住宅、商業大樓及智慧型工業廠辦之開發、出租與銷售，並經營社區型商場",
+      "supply_chain_tags": [
+        "住宅開發",
+        "商業不動產",
+        "工業廠辦",
+        "商場營運"
+      ],
+      "theme_hypotheses": [
+        "台灣不動產開發",
+        "智慧綠建築",
+        "工業廠辦開發"
+      ],
+      "rationale": "證據：官網稱業務涵蓋住商廠辦、租賃及商場，並開發綠建築與智慧型工業廠辦；推論：主題聚焦不動產與廠辦開發。",
+      "confidence": "high",
+      "source_urls": [
+        "https://mis281.wixsite.com/asehcc/about",
+        "https://wwwc.twse.com.tw/pdf/ch/2527_ch.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3543": {
+      "product_hypothesis": "TFT-LCD顯示器精密沖壓件、家具金屬零組件及醫療輔具（含電動輪椅）",
+      "supply_chain_tags": [
+        "TFT-LCD零組件",
+        "精密金屬沖壓",
+        "家具金屬零組件",
+        "醫療輔具"
+      ],
+      "theme_hypotheses": [
+        "顯示器供應鏈",
+        "居家家具與收納",
+        "高齡照護與行動輔具"
+      ],
+      "rationale": "證據：櫃買中心產業價值鏈平台列示TFT-LCD沖壓件、家具金屬製品及醫療輔具。推論：對應顯示、居家與高齡照護終端市場。",
+      "confidence": "high",
+      "source_urls": [
+        "https://ic.tpex.org.tw/company_list.php?stk=3543&stkName=%E5%B7%9E%E5%B7%A7&t=company_product",
+        "https://wwwc.twse.com.tw/pdf/ch/3543_ch.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2354": {
+      "product_hypothesis": "遊戲機與周邊系統組裝、金屬機構件及散熱模組製造",
+      "supply_chain_tags": [
+        "遊戲機ODM",
+        "系統組裝",
+        "金屬機構件",
+        "散熱模組"
+      ],
+      "theme_hypotheses": [
+        "遊戲主機",
+        "AI伺服器與邊緣AI散熱",
+        "電動車與機器人結構件"
+      ],
+      "rationale": "證據：公司年報列示遊戲機、散熱模組、燒結與輕金屬技術，並稱以遊戲機為基礎拓展新事業；推論：散熱及輕金屬可切入AI、車用與機器人應用。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.foxconntech.com.tw/about/group-profile/",
+        "https://www.foxconntech.com.tw/media/annual_reports/2024_2354_20250529F04_20250612_100748.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "9921": {
+      "product_hypothesis": "自行車整車、電動輔助自行車及高階自行車零組件",
+      "supply_chain_tags": [
+        "自行車整車製造",
+        "自行車品牌通路",
+        "電動輔助自行車",
+        "自行車零組件"
+      ],
+      "theme_hypotheses": [
+        "電動自行車",
+        "運動健康",
+        "永續移動"
+      ],
+      "rationale": "官方年報及公司資料證實其製造與銷售自行車、零件，經營Giant、Liv、Momentum、CADEX；電動化與永續移動為產品組合延伸推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.giantgroup-cycling.com/ir-financial",
+        "https://origin.giantgroup-cycling.com/files/images/iroverview/Annual%20report/Eng/114_Annual_Report_EN.pdf",
+        "https://origin.giantgroup-cycling.com/news/894zmE4rJ3pW0Wy5"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6243": {
+      "product_hypothesis": "筆電嵌入式控制器、MCU與USB-C PD控制IC，並提供巡檢、偵察、測繪等無人機系統解決方案",
+      "supply_chain_tags": [
+        "筆電嵌入式控制器",
+        "微控制器MCU",
+        "USB-C PD控制IC",
+        "無人機系統整合"
+      ],
+      "theme_hypotheses": [
+        "AI無人機與邊緣運算",
+        "非紅供應鏈",
+        "USB-C快充"
+      ],
+      "rationale": "證據：官網列有EC、MCU、USB-C PD及自有無人機產品。推論：營運主題同時涵蓋PC控制晶片、快充與AI無人機系統。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ene.com.tw/products/114/151/",
+        "https://www.ene.com.tw/products/113/153/",
+        "https://www.ene.com.tw/products/uav/Inspection_Reconnaissance_Mapping/",
+        "https://www.ene.com.tw/download/49/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6505": {
+      "product_hypothesis": "煉製汽油、柴油、航空燃油及LPG等油品，並以輕油裂解產製乙烯、丙烯、丁二烯等石化基本原料。",
+      "supply_chain_tags": [
+        "原油煉製",
+        "成品油",
+        "輕油裂解",
+        "烯烴原料"
+      ],
+      "theme_hypotheses": [
+        "石化上游原料",
+        "交通與工業燃料",
+        "低硫油品與減碳"
+      ],
+      "rationale": "證據：官方頁列油品及乙烯、丙烯、丁二烯等裂解原料，交易所列石油化工原料製造。推論：受石化循環、燃料需求與低硫減碳趨勢影響。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.fpg.com.tw/tw/group/1",
+        "https://www.twse.com.tw/pdf/ch/6505_ch.pdf",
+        "https://www.fpcc.com.tw/tc/products1.php",
+        "https://www.fpcc.com.tw/tc/products6.php"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "1597": {
+      "product_hypothesis": "精密線性運動元件、伺服驅控、多軸模組、微型六軸機械手臂與軟體PLC整合方案",
+      "supply_chain_tags": [
+        "線性滑軌",
+        "伺服馬達與驅動器",
+        "多軸運動模組",
+        "工業機器人"
+      ],
+      "theme_hypotheses": [
+        "機器人",
+        "智慧製造",
+        "工業自動化"
+      ],
+      "rationale": "證據：官網列有線性滑軌、伺服驅控、多軸模組、微型六軸手臂及軟體PLC；推論：可切入機器人與智慧製造自動化應用。",
+      "confidence": "high",
+      "source_urls": [
+        "https://chieftek.com/zh-hant/products/",
+        "https://chieftek.com/zh-hant/",
+        "https://chieftek.com/zh-hant/stakeholder/shareholder-services/key-informaiton/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2049": {
+      "product_hypothesis": "精密傳動與運動控制元件、工業／半導體機器人及智慧自動化系統",
+      "supply_chain_tags": [
+        "精密傳動元件",
+        "線性滑軌與滾珠螺桿",
+        "工業機器人",
+        "半導體設備次系統"
+      ],
+      "theme_hypotheses": [
+        "機器人",
+        "智慧製造",
+        "半導體設備"
+      ],
+      "rationale": "官網列有滾珠螺桿、線性滑軌、單／多軸機器人、諧波減速機與半導體次系統；智慧螺桿具感測、預診與潤滑功能。機器人及智慧製造主題具直接產品佐證。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hiwin.tw/",
+        "https://www.hiwin.tw/products/ballscrew/i40bs.aspx",
+        "https://www.hiwin.tw/products/single_axis_robot/single_axis_robot_list.aspx",
+        "https://esg.hiwin.tw/en/ch3/ch3_1.aspx"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2313": {
+      "product_hypothesis": "高密度、高層次、軟板與軟硬結合PCB及PCB組裝服務",
+      "supply_chain_tags": [
+        "PCB",
+        "HDI",
+        "高層次板(HLC)",
+        "軟硬結合板"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速傳輸",
+        "資料中心"
+      ],
+      "rationale": "官方年報列AI Server、高速網通與光模組為資料中心及高速傳輸開發方向；推論其PCB供應可受惠相關基建需求。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.compeq.com.tw/doc/res_shareholder/79ad2ceb-03a0-11ef-a9ba-005056a9c86d/20250508_160621_cn_4.pdf",
+        "https://www.compeq.com.tw/relationship.php",
+        "https://www.compeq.com.tw/product_view.php?gid=f7b2917a-9a04-11ec-89fb-005056a9caf8"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2337": {
+      "product_hypothesis": "非揮發性記憶體IDM，主要提供NOR Flash、NAND Flash、e.MMC與客製化ROM，並經營特殊製程晶圓代工。",
+      "supply_chain_tags": [
+        "非揮發性記憶體",
+        "NOR Flash",
+        "NAND Flash／e.MMC",
+        "晶圓製造／特殊製程代工"
+      ],
+      "theme_hypotheses": [
+        "車用電子記憶體",
+        "物聯網與低功耗裝置",
+        "嵌入式系統儲存"
+      ],
+      "rationale": "官方年報證實其設計、製造及銷售記憶體與代工服務，2024年營收以Flash為主；車用、物聯網等為依產品應用所作推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.macronix.com/en-us/about/investor-relations/Documents/annualreport_2024_en.pdf",
+        "https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx",
+        "https://www.macronix.com/en-us/products/foundry-service/Pages/default.aspx"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2344": {
+      "product_hypothesis": "記憶體IC設計與製造：Code Storage Flash（NOR／NAND、安全Flash）、利基型與行動DRAM、客製化記憶體方案。",
+      "supply_chain_tags": [
+        "記憶體IC",
+        "NOR Flash",
+        "利基型DRAM",
+        "晶圓製造"
+      ],
+      "theme_hypotheses": [
+        "車用電子",
+        "工業自動化／物聯網",
+        "硬體資安／信任根"
+      ],
+      "rationale": "官方資料確認其Flash、安全Flash、利基／行動DRAM與自有晶圓廠；車用、工業及資安主題係依官方列示應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.winbond.com/hq/about-winbond/company-profile/overview/?__locale=tw",
+        "https://www.winbond.com/hq/product/code-storage-flash/?__locale=en",
+        "https://www.winbond.com/hq/product/customized-memory-solution/ddr-sdr/?__locale=en"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2368": {
+      "product_hypothesis": "雙面與高多層印刷電路板，應用於AI／高階伺服器及通訊網路設備",
+      "supply_chain_tags": [
+        "印刷電路板",
+        "高多層板",
+        "HDI",
+        "低損耗材料"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速傳輸",
+        "雲端伺服器"
+      ],
+      "rationale": "官方產品頁明列AI／高階伺服器與通訊網路PCB，並載明低損耗材料及阻抗控制；據此推論可歸入AI基礎建設與高速傳輸。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.gce.com.tw/product.html",
+        "https://www.gce.com.tw/technology.html",
+        "https://www.gce.com.tw/file/%E9%87%91%E5%83%8FESG2025.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2408": {
+      "product_hypothesis": "DRAM記憶體設計、製造與銷售，產品含標準型／低功耗DRAM、KGD、MCP及記憶體模組",
+      "supply_chain_tags": [
+        "DRAM",
+        "低功耗DRAM",
+        "記憶體模組",
+        "半導體IDM"
+      ],
+      "theme_hypotheses": [
+        "AI伺服器與資料中心記憶體",
+        "車用電子記憶體",
+        "工業物聯網"
+      ],
+      "rationale": "官網明列DRAM設計、製造與銷售，並列DDR5、LPDDR、KGD、MCP及模組；AI伺服器、車用與工業應用為可驗證延伸主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.nanya.com/en/Product/",
+        "https://www.nanya.com/en/Application",
+        "https://www.nanya.com/en/About/31/Sales%20Support",
+        "https://www.nanya.com/ESG/storage/file/967508ca-aad4-41bd-b337-12c56638caf1"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2451": {
+      "product_hypothesis": "記憶體模組、快閃儲存與工業級嵌入式儲存產品品牌商",
+      "supply_chain_tags": [
+        "DRAM記憶體模組",
+        "NAND快閃儲存",
+        "SSD／記憶卡／USB儲存",
+        "工業級嵌入式儲存"
+      ],
+      "theme_hypotheses": [
+        "記憶體",
+        "工業電腦",
+        "AI邊緣運算"
+      ],
+      "rationale": "證據：官網列記憶體、SSD及工業用產品，並稱工控應用為重要營收來源；AI邊緣屬工業儲存應用延伸，非IC設計商。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.transcend.com.tw/about/company",
+        "https://tw.transcend-info.com/support/product/dram-module",
+        "https://www.transcend.com.tw/About/press/12500",
+        "https://transcend.com.tw/about/press"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2455": {
+      "product_hypothesis": "Ⅲ-Ⅴ族化合物半導體磊晶片，供無線通訊與光纖通訊元件使用",
+      "supply_chain_tags": [
+        "化合物半導體磊晶",
+        "GaAs／InP磊晶片",
+        "光通訊接收元件",
+        "射頻通訊元件"
+      ],
+      "theme_hypotheses": [
+        "高速光通訊／傳輸",
+        "5G與Wi‑Fi無線通訊"
+      ],
+      "rationale": "官方資料證實其以MOCVD生產GaAs、InP等磊晶片，應用於光纖通訊、短距離光接收及RF元件；AI基礎建設僅可由高速傳輸需求延伸推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.vpec.com.tw/vpec/homeweb/about.php?level=2&menu1=M100001&menu2=M200019",
+        "https://www.vpec.com.tw/vpec/homeweb/about.php?level=3&menu1=M100002&menu2=M200010&menu3=M300019",
+        "https://www.vpec.com.tw/vpec/homeweb/about.php?level=3&menu1=M100002&menu2=M200021&menu3=M300021"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "2464": {
+      "product_hypothesis": "工業智慧自動化與半導體廠內搬送系統，並布局AMR、AI人形及足式機器人平台",
+      "supply_chain_tags": [
+        "工廠自動化系統整合",
+        "半導體AMHS／EFEM",
+        "AGV／AMR自主搬運",
+        "機器人關節與減速機"
+      ],
+      "theme_hypotheses": [
+        "機器人／具身智能",
+        "智慧製造",
+        "半導體自動化"
+      ],
+      "rationale": "官方產品頁列示半導體搬送、AGV/AMR與AI機器人；具身智能與智慧製造為其已揭露布局，商業化規模仍屬推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.mirle.com.tw/product_introduction/",
+        "https://www.mirle.com.tw/product_introduction/115/",
+        "https://www.mirle.com.tw/news-detail/661/",
+        "https://www.mirle.com.tw/product_introduction-detail/209/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3006": {
+      "product_hypothesis": "利基型記憶體及類比／混合訊號IC設計，涵蓋DRAM、Flash、MCP、PSRAM與電源／音訊等產品",
+      "supply_chain_tags": [
+        "IC設計",
+        "利基型DRAM",
+        "NOR／NAND Flash",
+        "多晶片封裝MCP"
+      ],
+      "theme_hypotheses": [
+        "利基型記憶體",
+        "車用電子",
+        "AI邊緣運算／記憶體內運算"
+      ],
+      "rationale": "證據：官網列示DRAM、Flash、MCP、PSRAM及類比產品，並標示工控、車用與AI邊緣應用；據此歸納為利基型記憶體IC設計商。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.esmt.com.tw/tw",
+        "https://www.esmt.com.tw/zh-tw/Products",
+        "https://www.esmt.com.tw/zh-tw/Applications",
+        "https://www.esmt.com.tw/tw/about/introduction"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3037": {
+      "product_hypothesis": "印刷電路板、HDI高密度板、高層數高速板與IC封裝載板製造商",
+      "supply_chain_tags": [
+        "PCB",
+        "HDI",
+        "高層數高速板",
+        "IC封裝載板"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速傳輸",
+        "先進封裝"
+      ],
+      "rationale": "官網列示PCB、HDI與載板，並開發伺服器、交換器及路由器用高層數高速板；AI基建屬由高效能運算應用延伸之推論。",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.twse.com.tw/pdf/ch/3037_ch.pdf",
+        "https://www.uniflex.com.tw/esg/ch/company02.html",
+        "https://www.uniflex.com.tw/esg/ch/Product02.html",
+        "https://www.uniflex.com.tw/product_Multilayer.html"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3167": {
+      "product_hypothesis": "PCB鑽孔與成型設備、半導體先進封裝AOI／量測及自動化設備製造商",
+      "supply_chain_tags": [
+        "PCB製程設備",
+        "半導體先進封裝檢測",
+        "AOI與量測設備",
+        "製造自動化"
+      ],
+      "theme_hypotheses": [
+        "智慧製造",
+        "先進封裝",
+        "AI伺服器PCB"
+      ],
+      "rationale": "官方產品頁列PCB加工、CMP與封裝AOI／量測及搬運自動化設備；智慧製造有MES監控與AGV佐證。機器人僅可視為自動化延伸，非主產品。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.tlhome.com.tw/",
+        "https://www.tlhome.com.tw/category/5",
+        "https://www.tlhome.com.tw/category/1",
+        "https://www.tlhome.com.tw/about/11"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3450": {
+      "product_hypothesis": "光資訊與光通訊雷射封裝、高速傳輸光模組（含矽光子）及功率半導體封裝測試",
+      "supply_chain_tags": [
+        "高速光模組",
+        "矽光子",
+        "光通訊雷射封裝",
+        "功率半導體封測"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速傳輸",
+        "矽光子"
+      ],
+      "rationale": "官方投資人頁提供年報與法說資料，官方財報揭露光通訊／光資訊及功率半導體封測業務；高速光模組與矽光子對AI基建的關聯屬應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.elaser.com.tw/sp1-6.htm",
+        "https://www.elaser.com.tw/sp1-5.htm",
+        "https://www.elaser.com.tw/sp3.htm"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "3653": {
+      "product_hypothesis": "高效能運算與半導體封裝用散熱解決方案，涵蓋液冷冷板、先進氣冷、均熱／封裝散熱零組件。",
+      "supply_chain_tags": [
+        "液冷冷板",
+        "氣冷散熱模組",
+        "半導體封裝散熱",
+        "精密金屬加工"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "AI資料中心散熱",
+        "高效能運算（HPC）"
+      ],
+      "rationale": "官網列示HPC之AI資料中心液冷冷板與先進氣冷、封裝散熱件；據此可驗證AI基建散熱，未見高速傳輸為主力的官方證據。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.jentech.com.tw/zh",
+        "https://www.jentech.com.tw/zh/heatspreader",
+        "https://www.jentech.com.tw/_files/ugd/e8883b_076092e6ca854d298bdd715fabfabf51.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "4540": {
+      "product_hypothesis": "精密線性傳動元件與單軸機器人製造商，主力為滾珠螺桿、線性滑軌及滾珠花鍵。",
+      "supply_chain_tags": [
+        "滾珠螺桿",
+        "線性滑軌",
+        "精密傳動元件",
+        "單軸機器人"
+      ],
+      "theme_hypotheses": [
+        "機器人",
+        "智慧製造",
+        "工業自動化"
+      ],
+      "rationale": "公司年報揭露主力營收為滾珠螺桿及線性滑軌；官網列有單軸機器人，並標示應用於自動化、半導體與工具機。智慧製造屬應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.tbimotion.com.tw/zh-TW/",
+        "https://www.tbimotion.com.tw/category/single-axis-actuator",
+        "https://i0528.tbimotion.com.tw/storage/technical-services/%E5%85%A8%E7%90%83%E5%82%B3%E5%8B%95113%E5%B9%B4%E5%A0%B1-%E4%B8%AD.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "4576": {
+      "product_hypothesis": "精密運動控制與直驅傳動系統，涵蓋線性／直驅／伺服馬達、驅動控制器及奈米定位平台",
+      "supply_chain_tags": [
+        "精密運動控制",
+        "直驅馬達",
+        "伺服驅動器",
+        "定位平台"
+      ],
+      "theme_hypotheses": [
+        "機器人",
+        "智慧製造",
+        "半導體設備"
+      ],
+      "rationale": "官方列示單軸機器人、控制器與驅動器及多軸奈米定位平台，並應用於自動化、機器人與半導體；相關主題具直接產品佐證。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hiwinmikro.tw/zh/product/overview",
+        "https://www.hiwinmikro.tw/zh/product/linear-motor-system",
+        "https://www.hiwinmikro.tw/zh/product/linear-motor-system/nano-positioning-stage",
+        "https://www.hiwinmikro.tw/zh/product/controller-drive"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "4961": {
+      "product_hypothesis": "顯示器驅動與電源管理IC設計，涵蓋LCD／LED顯示驅動、時序控制、背光LED及馬達驅動晶片。",
+      "supply_chain_tags": [
+        "IC設計",
+        "顯示驅動IC",
+        "電源管理IC",
+        "背光LED驅動"
+      ],
+      "theme_hypotheses": [
+        "顯示器面板",
+        "Mini LED顯示",
+        "低功耗AIoT"
+      ],
+      "rationale": "官方產品頁證實其主力為顯示驅動、時序控制與電源管理IC；Mini LED及低功耗AIoT為依公開產品與公司技術方向歸納。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.fitipower.com/product/display-ic",
+        "https://www.fitipower.com/product/power-ic",
+        "https://www.fitipower.com/application/display-ic",
+        "https://www.fitipower.com/about/vision"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "4967": {
+      "product_hypothesis": "自有品牌DRAM記憶體模組、SSD固態硬碟、記憶卡與工業級嵌入式儲存產品",
+      "supply_chain_tags": [
+        "DRAM記憶體模組",
+        "NAND Flash／SSD",
+        "消費性儲存品牌",
+        "工業級嵌入式儲存"
+      ],
+      "theme_hypotheses": [
+        "記憶體與快閃儲存",
+        "工業電腦／邊緣AI",
+        "電競與創作者高效能儲存"
+      ],
+      "rationale": "官方產品與年報證實主力為記憶體模組、SSD、記憶卡及工控儲存；AI邊緣與工控自動化為公司研發布局，非IC設計公司。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.teamgroupinc.com/tw/about/vision/",
+        "https://www.teamgroupinc.com/tw/product-brand/memory/TEAMGROUP/",
+        "https://industrial.teamgroupinc.com/products/",
+        "https://file.teamgroupinc.com/about/shareholders-meeting-information/114/annual-report.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6213": {
+      "product_hypothesis": "印刷電路板用銅箔基板（CCL）與黏合片（PP），含低損耗、超低損耗及低CTE高速材料",
+      "supply_chain_tags": [
+        "銅箔基板CCL",
+        "黏合片PP",
+        "PCB上游材料",
+        "高速低損耗材料"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速傳輸",
+        "資料中心／網通交換器"
+      ],
+      "rationale": "官方年報列CCL、PP為主產品，並開發AI伺服器超低損耗材料；官網稱支援800G／1.6T交換器與PCIe Gen6/7。AI基建屬應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.iteqcorp.com/wp-content/uploads/2016/10/112-annual-report-en.pdf",
+        "https://www.iteqcorp.com/investor-relations/letter-to-shareholders/?lang=en",
+        "https://www.iteqcorp.com/about-iteq/company-profile/?lang=en"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6269": {
+      "product_hypothesis": "軟性印刷電路板（FPC）及高頻高速傳輸模組，涵蓋電／光訊號互連應用",
+      "supply_chain_tags": [
+        "軟性印刷電路板",
+        "高頻高速互連",
+        "光電傳輸模組",
+        "通訊模組"
+      ],
+      "theme_hypotheses": [
+        "AI高速傳輸",
+        "光通訊",
+        "5G／毫米波通訊"
+      ],
+      "rationale": "官方揭露主力為FPC，並開發高速電／光傳輸與高頻模組；AI基礎建設屬其高速互連技術的延伸推論，非已揭露主要營收終端。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.flexium.com.tw/ProductAndTech/ProductApplication?lang=",
+        "https://www.flexium.com.tw/UploadFiles/2025-05-09/202559151121472.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6426": {
+      "product_hypothesis": "光通訊薄膜濾光片與光學鍍膜元件，涵蓋DWDM、CWDM、PON及資料中心400G／800G／1.6T應用",
+      "supply_chain_tags": [
+        "光通訊被動元件",
+        "薄膜濾光片（TFF）",
+        "WDM／DWDM",
+        "資料中心光互連"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速光傳輸",
+        "矽光子／共同封裝光學（CPO）"
+      ],
+      "rationale": "官網列示資料中心400G、800G、1.6T及DWDM等產品；公司以TFF為核心。AI與CPO屬資料中心高速互連及公司開發策略之推論，非已揭露營收來源。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.nextapogee.com.tw/ch/products.php",
+        "https://www.nextapogee.com.tw/ch/about.php",
+        "https://www.nextapogee.com.tw/cn/investors3-6.php?DownSn=24&opp=download"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6531": {
+      "product_hypothesis": "無晶圓廠客製化記憶體與IP解決方案商，提供IoTRAM（PSRAM、LPDDR）、S-SiCap矽電容及VHM 3D高頻寬記憶體方案。",
+      "supply_chain_tags": [
+        "無晶圓廠IC設計",
+        "利基型記憶體",
+        "矽電容/IP授權",
+        "3D異質整合"
+      ],
+      "theme_hypotheses": [
+        "物聯網與低功耗終端記憶體",
+        "邊緣AI與高效能運算",
+        "Chiplet／3D堆疊記憶體"
+      ],
+      "rationale": "官方明示其為客製化記憶體設計及IP公司，產品涵蓋PSRAM、LPDDR、矽電容與VHM；IoT、AI/HPC及Chiplet為產品應用與延伸主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.apmemory.com/tw/about/company",
+        "https://www.apmemory.com/tw/product/iotram",
+        "https://www.apmemory.com/tw/product/SiCap",
+        "https://www.apmemory.com/tw/solution/VHM"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "6805": {
+      "product_hypothesis": "摺疊手機、筆電與平板轉軸；伺服器滑軌及接頭模組",
+      "supply_chain_tags": [
+        "精密轉軸",
+        "金屬機構件",
+        "伺服器滑軌",
+        "液冷接頭"
+      ],
+      "theme_hypotheses": [
+        "摺疊式終端裝置",
+        "AI伺服器基礎設施",
+        "液冷散熱"
+      ],
+      "rationale": "年報明列現有伺服器滑軌、接頭模組及規劃水冷接頭；AI基建與液冷屬依伺服器零件布局推論，非已揭露營收主力。",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.fositek.com/Portals/0/FileUpload/Shareholders/2025/2025AnnualReport.pdf",
+        "https://www.fositek.com/zh-tw/ProductTechnology/%E8%BD%89%E8%BB%B8",
+        "https://www.fositek.com/Product-Technology/Cooling"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "7711": {
+      "product_hypothesis": "伺服器主機板、整機伺服器及AI GPU高密度液冷伺服器解決方案",
+      "supply_chain_tags": [
+        "伺服器主機板",
+        "AI GPU伺服器",
+        "液冷散熱",
+        "800Gb/s高速網通"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "高速傳輸",
+        "資料中心液冷"
+      ],
+      "rationale": "證交所列主要業務為伺服器主機板及系統；官網產品涵蓋HGX GPU液冷伺服器與800Gb/s OSFP網路。AI基建與高速傳輸為產品應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.twse.com.tw/market_insights/zh/detail/8a8216d69a3d6cf9019a8fec866101a9",
+        "https://www.asrockrack.com/general/2026Q2_GPU_Server.pdf",
+        "https://www.asrockrack.com/general/news.cn.asp?id=280"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "8021": {
+      "product_hypothesis": "PCB精密微型鑽針、銑刀及機械／雷射鑽孔加工服務商，服務IC載板、HDI等板類製程",
+      "supply_chain_tags": [
+        "PCB製程耗材",
+        "精密鑽針與銑刀",
+        "PCB鑽孔服務",
+        "IC載板／HDI加工"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設",
+        "AI伺服器PCB",
+        "先進PCB製造"
+      ],
+      "rationale": "官方列出IC載板、HDI鑽孔服務，並展示高效能AI伺服器微型鑽孔方案；AI基建屬終端需求連結推論，非直接供應伺服器。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.topoint.tw/tw/pcb/",
+        "https://www.topoint.tw/tw/service",
+        "https://www.topoint.tw/tw/news/2026/%E5%8F%83%E5%B1%95%E8%B3%87%E8%A8%8A/826"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
+    },
+    "8996": {
+      "product_hypothesis": "硬銲／組合式板式熱交換器、資料中心液冷散熱系統與SOFC燃料電池關鍵零組件",
+      "supply_chain_tags": [
+        "板式熱交換器",
+        "資料中心液冷散熱",
+        "熱管理系統",
+        "燃料電池關鍵零組件"
+      ],
+      "theme_hypotheses": [
+        "AI基礎建設／資料中心液冷",
+        "氫能與固態氧化物燃料電池",
+        "節能熱管理"
+      ],
+      "rationale": "官方明載板式熱交換器、SOFC關鍵零組件及資料中心液冷系統OEM/ODM；AI基建與氫能為具產品對應的主題推論，未見高速傳輸產品證據。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.kaori.com.tw/tw/modules/about/values",
+        "https://www.kaori.com.tw/tw/modules/news/article.php?storyid=66",
+        "https://www.kaori.com.tw/tw/modules/news/article.php?storyid=201",
+        "https://www.kaori.com.tw/tw/modules/nc_product/index.php/p/view/89"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-09",
+      "model": "gpt-5.6-terra"
     }
   }
 }
