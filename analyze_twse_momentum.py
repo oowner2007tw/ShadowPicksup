@@ -339,14 +339,19 @@ def index_report_stocks(report: dict | None) -> dict[str, tuple[dict, str | None
 def normalize_legacy_stock_metrics(stock: dict) -> dict:
     """Fill lifecycle metrics absent from reports created before momentum scoring existed."""
     normalized = deepcopy(stock)
+    windows = normalized.get("windows", [])
     avg_rank = float(normalized.get("avg_rank", 50.0))
-    appearances = float(normalized.get("appearances", WEIGHT.get(normalized.get("tier"), 1)))
+    appearances = float(normalized.get("appearances", len(windows) or WEIGHT.get(normalized.get("tier"), 1)))
     if normalized.get("signal_score") is None:
         rank_quality = max(0.15, 1.15 - min(avg_rank / 50.0, 1.0))
         normalized["signal_score"] = round(appearances * rank_quality * 0.75, 2)
     normalized.setdefault("avg_rank", avg_rank)
+    normalized.setdefault("appearances", int(appearances))
+    normalized.setdefault("continuity", 0)
     normalized.setdefault("score_factor", 1.0)
-    normalized.setdefault("windows", [])
+    normalized.setdefault("windows", windows)
+    normalized.setdefault("is_provisional", False)
+    normalized.setdefault("theme_basis", "歷史題材對照")
     return normalized
 
 

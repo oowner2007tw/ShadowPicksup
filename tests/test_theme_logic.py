@@ -121,6 +121,7 @@ class ThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(stock["tier"], "A")
         self.assertGreater(stock["signal_score"], 0)
         self.assertFalse(stock["is_active"])
+        self.assertIn("1111", "\n".join(telegram_messages(result)))
 
     def test_tier_change_and_theme_launch_are_annotated(self):
         previous = self.lifecycle_report([self.lifecycle_stock(tier="S")], "Existing Theme")
