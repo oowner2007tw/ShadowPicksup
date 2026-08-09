@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build-and-notify:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 120
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -36,8 +36,8 @@ jobs:
 
       - name: Research new or stale product hypotheses
         id: research
-        run: python research_product_mapping.py --limit 6
-        # A depleted API balance must not suppress the daily ranking report.
+        run: python research_product_mapping.py --limit 0
+        # An unavailable research provider must not suppress the daily ranking report.
         # The final step still marks the run failed so the cause is visible.
         continue-on-error: true
 

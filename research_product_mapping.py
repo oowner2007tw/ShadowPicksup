@@ -128,17 +128,19 @@ def research_targets(report: dict, reviews: dict, bootstrap: bool) -> list[dict]
 def main() -> None:
     parser = argparse.ArgumentParser(description="Research product/theme hypotheses with Gemini Google Search grounding.")
     parser.add_argument("--bootstrap", action="store_true", help="Include all seed mapping and current candidate targets.")
-    parser.add_argument("--limit", type=int, default=6, help="Maximum companies per run; protects daily spend.")
+    parser.add_argument("--limit", type=int, default=0, help="Maximum companies per run; 0 processes the entire pending queue.")
     args = parser.parse_args()
-    if args.limit < 1:
-        raise SystemExit("--limit must be at least 1")
+    if args.limit < 0:
+        raise SystemExit("--limit cannot be negative")
     report = load_json(REPORT_FILE, {})
     if report.get("freshness") != "fresh":
         raise SystemExit("Research skipped because report.json is not fresh")
     reviews = load_json(REVIEW_FILE, {"schema_version": 2, "description": "LLM product/theme research; not approved mappings.", "entries": {}})
     reviews["schema_version"] = 2
     reviews.setdefault("entries", {})
-    targets = research_targets(report, reviews, args.bootstrap)[:args.limit]
+    targets = research_targets(report, reviews, args.bootstrap)
+    if args.limit:
+        targets = targets[:args.limit]
     for target in targets:
         result = ask_model(target["code"], target["name"], target["seed_theme"])
         official = result.get("official_source_urls", [])
@@ -154,6 +156,9 @@ def main() -> None:
             "reviewed_at": date.today().isoformat(),
             "model": MODEL,
         }
+        # Checkpoint each completed company so a later API/rate-limit failure
+        # does not discard earlier research from the same full-queue run.
+        REVIEW_FILE.write_text(json.dumps(reviews, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"Researched {target['code']} {target['name'] or 'seed mapping'}")
     REVIEW_FILE.write_text(json.dumps(reviews, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Research queue completed: {len(targets)} companies using {MODEL}.")

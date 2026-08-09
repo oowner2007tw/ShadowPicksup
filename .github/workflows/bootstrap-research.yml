@@ -13,7 +13,7 @@ concurrency:
 jobs:
   research-batch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 120
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_RESEARCH_MODEL: gemini-3.5-flash-lite
@@ -23,8 +23,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Research next baseline batch
-        run: python research_product_mapping.py --bootstrap --limit 12
+        run: python research_product_mapping.py --bootstrap --limit 0
       - name: Commit research hypotheses
+        if: always()
         run: |
           git config user.name "ShadowPicksup Research Bot"
           git config user.email "shadowpicksup-bot@users.noreply.github.com"
