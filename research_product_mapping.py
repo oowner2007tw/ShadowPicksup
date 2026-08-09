@@ -72,7 +72,7 @@ If official evidence cannot be found, use an empty official_source_urls array an
         "tools": [{"type": "google_search"}],
         "generation_config": {
             "max_output_tokens": 700,
-            "thinking_level": "minimal",
+            "thinking_level": "low",
         },
         "input": prompt,
     }).encode("utf-8")
