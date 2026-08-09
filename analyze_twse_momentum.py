@@ -306,7 +306,8 @@ def main() -> None:
     if report["freshness"] == "fresh":
         (HISTORY_DIR / f"{report['generated_at'][:10]}.json").write_text(payload, encoding="utf-8")
         if not args.no_telegram:
-            send_telegram_report(report)
+            if not send_telegram_report(report):
+                raise SystemExit("Telegram delivery failed.")
     print_report(report)
 
 
