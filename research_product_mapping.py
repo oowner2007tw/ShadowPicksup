@@ -72,7 +72,31 @@ If official evidence cannot be found, use an empty official_source_urls array an
         "model": MODEL,
         "reasoning": {"effort": "low"},
         "tools": [{"type": "web_search"}],
-        "max_output_tokens": 700,
+        "max_output_tokens": 3000,
+        "text": {
+            "format": {
+                "type": "json_schema",
+                "name": "product_theme_research",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "product_hypothesis": {"type": "string"},
+                        "supply_chain_tags": {"type": "array", "items": {"type": "string"}},
+                        "theme_hypotheses": {"type": "array", "items": {"type": "string"}},
+                        "rationale": {"type": "string"},
+                        "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+                        "official_source_urls": {"type": "array", "items": {"type": "string"}},
+                        "source_status": {"type": "string", "enum": ["verified_candidate", "insufficient_evidence"]},
+                    },
+                    "required": [
+                        "product_hypothesis", "supply_chain_tags", "theme_hypotheses",
+                        "rationale", "confidence", "official_source_urls", "source_status",
+                    ],
+                    "additionalProperties": False,
+                },
+            },
+        },
         "input": prompt,
     }).encode("utf-8")
     request = Request(
