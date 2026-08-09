@@ -20,7 +20,7 @@ from analyze_twse_momentum import THEME_CATALOG, THEME_MAPPING
 REPORT_FILE = Path("report.json")
 REVIEW_FILE = Path("data/product-inference-review.json")
 MODEL = os.getenv("OPENAI_RESEARCH_MODEL", "gpt-5.6-terra")
-REVIEW_INTERVAL_DAYS = 90
+REVIEW_INTERVAL_DAYS = 45
 
 
 def load_json(path: Path, fallback: dict) -> dict:
