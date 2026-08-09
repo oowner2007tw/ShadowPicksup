@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T09:19:38.529842+08:00",
+  "generated_at": "2026-08-09T11:04:36.981317+08:00",
   "freshness": "fresh",
   "last_error": null,
   "source_urls": {
@@ -14,14 +14,58 @@
   "themes": [
     {
       "name": "AI 基礎建設 / 高速傳輸",
-      "score": 60,
-      "core_strength": 14.44,
-      "breadth": 5,
+      "score": 55,
+      "core_strength": 13.24,
+      "breadth": 7,
+      "provisional_count": 2,
       "early_cluster_count": 0,
       "mapping_basis": [
-        "人工題材對照"
+        "LLM 題材假說",
+        "種子題材對照"
       ],
       "stocks": [
+        {
+          "code": "2059",
+          "name": "川湖",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d",
+            "10d",
+            "20d"
+          ],
+          "appearances": 7,
+          "effective_appearances": 5.65,
+          "continuity": 7,
+          "avg_rank": 5.3,
+          "avg_rank_percentile": 8.8,
+          "signal_score": 6.0,
+          "avg_gain_pct": 27.55,
+          "latest_window": "1d",
+          "theme_basis": "LLM 題材假說",
+          "theme_confidence": "中",
+          "product_label": "疑似 高階伺服器導軌與機櫃滑軌",
+          "is_provisional": true,
+          "score_factor": 0.55,
+          "llm_review": {
+            "product_hypothesis": "高階伺服器導軌與機櫃滑軌",
+            "theme_hypotheses": [
+              "伺服器機櫃零組件",
+              "資料中心基礎設施"
+            ],
+            "rationale": "多週期動能極強；產品假說指向高階伺服器與機櫃的滑軌零組件。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.kingslide.com/investor_stockholderservice_basicinfo?___from_store=default&___store=chinese",
+              "https://www.kingslide.com/about_intro?___from_store=japanese&___store=chinese"
+            ],
+            "source_status": "已取得公司官方產品與投資人資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "S"
+        },
         {
           "code": "6426",
           "name": "統新",
@@ -41,9 +85,11 @@
           "signal_score": 5.37,
           "avg_gain_pct": 23.44,
           "latest_window": "1d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "S"
         },
@@ -65,9 +111,11 @@
           "signal_score": 4.57,
           "avg_gain_pct": 29.55,
           "latest_window": "2d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "S"
         },
@@ -90,9 +138,11 @@
           "signal_score": 4.5,
           "avg_gain_pct": 23.9,
           "latest_window": "2d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "S"
         },
@@ -114,10 +164,51 @@
           "signal_score": 3.45,
           "avg_gain_pct": 21.56,
           "latest_window": "2d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
+          "tier": "A"
+        },
+        {
+          "code": "3605",
+          "name": "宏致",
+          "windows": [
+            "3d",
+            "4d",
+            "5d",
+            "10d",
+            "20d"
+          ],
+          "appearances": 5,
+          "effective_appearances": 3.7,
+          "continuity": 5,
+          "avg_rank": 17.0,
+          "avg_rank_percentile": 33.1,
+          "signal_score": 3.03,
+          "avg_gain_pct": 23.17,
+          "latest_window": "3d",
+          "theme_basis": "LLM 題材假說",
+          "theme_confidence": "中",
+          "product_label": "疑似 連接器與線纜組件",
+          "is_provisional": true,
+          "score_factor": 0.55,
+          "llm_review": {
+            "product_hypothesis": "連接器與線纜組件",
+            "theme_hypotheses": [
+              "高速傳輸",
+              "連接器 / 線束"
+            ],
+            "rationale": "產品可能性聚焦於連接器與線材；是否屬高速傳輸題材須以產品規格與客戶應用確認。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.acesconn.com/tw/news_detail?id=62"
+            ],
+            "source_status": "已取得公司官方應用資料，待補第二項官方產品／投資人來源後人工確認",
+            "reviewed_at": "2026-08-09"
+          },
           "tier": "A"
         },
         {
@@ -137,9 +228,11 @@
           "signal_score": 2.39,
           "avg_gain_pct": 27.13,
           "latest_window": "4d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "A"
         }
@@ -151,9 +244,10 @@
       "score": 44,
       "core_strength": 10.57,
       "breadth": 4,
+      "provisional_count": 0,
       "early_cluster_count": 0,
       "mapping_basis": [
-        "人工題材對照"
+        "種子題材對照"
       ],
       "stocks": [
         {
@@ -175,9 +269,11 @@
           "signal_score": 4.64,
           "avg_gain_pct": 18.88,
           "latest_window": "1d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "S"
         },
@@ -200,9 +296,11 @@
           "signal_score": 3.14,
           "avg_gain_pct": 17.92,
           "latest_window": "1d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "B"
         },
@@ -223,9 +321,11 @@
           "signal_score": 2.79,
           "avg_gain_pct": 24.11,
           "latest_window": "2d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "A"
         },
@@ -245,9 +345,11 @@
           "signal_score": 1.78,
           "avg_gain_pct": 21.69,
           "latest_window": "4d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "A"
         }
@@ -259,9 +361,10 @@
       "score": 38,
       "core_strength": 9.05,
       "breadth": 3,
+      "provisional_count": 0,
       "early_cluster_count": 0,
       "mapping_basis": [
-        "人工題材對照"
+        "種子題材對照"
       ],
       "stocks": [
         {
@@ -282,9 +385,11 @@
           "signal_score": 4.04,
           "avg_gain_pct": 21.44,
           "latest_window": "1d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "S"
         },
@@ -306,9 +411,11 @@
           "signal_score": 3.57,
           "avg_gain_pct": 24.36,
           "latest_window": "2d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "S"
         },
@@ -328,544 +435,591 @@
           "signal_score": 1.44,
           "avg_gain_pct": 21.66,
           "latest_window": "4d",
-          "theme_basis": "人工題材對照",
+          "theme_basis": "種子題材對照",
           "theme_confidence": "已收錄",
           "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
           "llm_review": null,
           "tier": "B"
         }
       ],
       "tier": 3
+    },
+    {
+      "name": "金屬材料 / 資源循環",
+      "score": 32,
+      "core_strength": 7.63,
+      "breadth": 2,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "7610",
+          "name": "聯友金屬-創",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d"
+          ],
+          "appearances": 5,
+          "effective_appearances": 4.5,
+          "continuity": 5,
+          "avg_rank": 7.6,
+          "avg_rank_percentile": 14.0,
+          "signal_score": 4.54,
+          "avg_gain_pct": 28.72,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "鎢、鈷關鍵金屬回收、純化與材料",
+            "theme_hypotheses": [
+              "金屬材料",
+              "資源循環"
+            ],
+            "rationale": "公司官方資料指出其回收二次硬質合金及鎢、鈷資源，製造高純度鈷產品與相關化合物；仍不直接納入正式題材。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.lianyoucorp.com/TW",
+              "https://wwwc.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f01992763eeec04c9"
+            ],
+            "source_status": "已取得公司官方產品資料與交易所公司介紹，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "S"
+        },
+        {
+          "code": "2031",
+          "name": "新光鋼",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "10d",
+            "20d"
+          ],
+          "appearances": 6,
+          "effective_appearances": 4.85,
+          "continuity": 4,
+          "avg_rank": 23.0,
+          "avg_rank_percentile": 45.6,
+          "signal_score": 3.09,
+          "avg_gain_pct": 14.67,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": null,
+          "tier": "B"
+        }
+      ],
+      "tier": 4
+    },
+    {
+      "name": "光電 / 電子零組件",
+      "score": 27,
+      "core_strength": 6.49,
+      "breadth": 2,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "2491",
+          "name": "吉祥全",
+          "windows": [
+            "2d",
+            "3d",
+            "4d",
+            "5d"
+          ],
+          "appearances": 4,
+          "effective_appearances": 3.5,
+          "continuity": 4,
+          "avg_rank": 8.8,
+          "avg_rank_percentile": 16.0,
+          "signal_score": 3.46,
+          "avg_gain_pct": 24.92,
+          "latest_window": "2d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "光電照明應用產品、電子零組件與資訊產品",
+            "theme_hypotheses": [
+              "光電照明",
+              "電子零組件"
+            ],
+            "rationale": "公司永續報告列示光電照明應用產品、電子應用產品與零組件；終端動能題材仍不足以直接升格。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.focl.com.tw/investor.php?PID=8",
+              "https://www.focl.com.tw/userfiles/files/%E6%B0%B8%E7%BA%8C%E7%99%BC%E5%B1%95/FOCL_Sustainability%20Report.pdf"
+            ],
+            "source_status": "已取得公司官方投資人與永續資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        },
+        {
+          "code": "2426",
+          "name": "鼎元",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d"
+          ],
+          "appearances": 5,
+          "effective_appearances": 4.5,
+          "continuity": 5,
+          "avg_rank": 24.0,
+          "avg_rank_percentile": 47.6,
+          "signal_score": 3.03,
+          "avg_gain_pct": 16.7,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": null,
+          "tier": "B"
+        }
+      ],
+      "tier": 5
+    },
+    {
+      "name": "特用化學 / 高階材料",
+      "score": 23,
+      "core_strength": 5.62,
+      "breadth": 2,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "2103",
+          "name": "台橡",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d"
+          ],
+          "appearances": 4,
+          "effective_appearances": 3.7,
+          "continuity": 4,
+          "avg_rank": 15.8,
+          "avg_rank_percentile": 30.4,
+          "signal_score": 3.13,
+          "avg_gain_pct": 13.53,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "合成橡膠與高分子材料",
+            "theme_hypotheses": [
+              "合成橡膠",
+              "特用化學材料"
+            ],
+            "rationale": "產品可能性聚焦於合成橡膠與材料化工供應鏈。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.tsrc.com.tw/tw/products-services/",
+              "https://www.tsrc.com.tw/tw/products-services/product-finder/"
+            ],
+            "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        },
+        {
+          "code": "4722",
+          "name": "國精化",
+          "windows": [
+            "3d",
+            "4d",
+            "5d",
+            "10d"
+          ],
+          "appearances": 4,
+          "effective_appearances": 3.2,
+          "continuity": 4,
+          "avg_rank": 19.0,
+          "avg_rank_percentile": 37.1,
+          "signal_score": 2.49,
+          "avg_gain_pct": 22.16,
+          "latest_window": "3d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "特用化學與電子／工業材料",
+            "theme_hypotheses": [
+              "特用化學",
+              "材料升級"
+            ],
+            "rationale": "屬材料化工方向的初步假說，尚不應連結至特定終端題材。",
+            "confidence": "低",
+            "source_urls": [
+              "https://www.qualipoly.com/zh-tw/product.html",
+              "https://www.qualipoly.com/zh-tw/news-c2293/%E5%85%AC%E5%8F%B8%E7%9B%B8%E9%97%9C%E5%A0%B1%E5%B0%8E.html"
+            ],
+            "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        }
+      ],
+      "tier": 6
+    },
+    {
+      "name": "電力控制 / 工業自動化",
+      "score": 15,
+      "core_strength": 3.74,
+      "breadth": 1,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "7788",
+          "name": "松川精密",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d",
+            "10d"
+          ],
+          "appearances": 6,
+          "effective_appearances": 5.15,
+          "continuity": 6,
+          "avg_rank": 21.5,
+          "avg_rank_percentile": 42.4,
+          "signal_score": 3.74,
+          "avg_gain_pct": 15.8,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "電磁繼電器、接觸器與高壓直流繼電器",
+            "theme_hypotheses": [
+              "繼電器 / 電控零組件",
+              "工業自動化"
+            ],
+            "rationale": "產品可能性聚焦於電控與繼電器應用；是否形成工業自動化題材仍需以官方產品與終端應用確認。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.songchuan.com/sc/",
+              "https://www.songchuan.com/sc/wp-content/uploads/2024/12/3-1-%E6%B3%95%E4%BA%BA%E8%AA%AA%E6%98%8E%E6%9C%83%E7%B0%A1%E5%A0%B1_%E4%B8%AD%E6%96%8720241022.pdf"
+            ],
+            "source_status": "已取得公司官方產品與法說資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        }
+      ],
+      "tier": 7
+    },
+    {
+      "name": "半導體 IP / RISC-V",
+      "score": 13,
+      "core_strength": 3.21,
+      "breadth": 1,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "6533",
+          "name": "晶心科",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "10d",
+            "20d"
+          ],
+          "appearances": 5,
+          "effective_appearances": 4.0,
+          "continuity": 3,
+          "avg_rank": 13.4,
+          "avg_rank_percentile": 25.8,
+          "signal_score": 3.21,
+          "avg_gain_pct": 17.42,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "RISC-V CPU IP 與處理器設計服務",
+            "theme_hypotheses": [
+              "RISC-V",
+              "半導體 IP / CPU"
+            ],
+            "rationale": "產品可能性指向處理器 IP；是否與特定 AI 運算題材連結，需依產品與營收應用確認。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.andestech.com/tw/",
+              "https://www.sipa.gov.tw/home.jsp?contlink=ap%2Fmanufacturers_3_1.jsp&dataserno=202101080001&level2=Y&menudata=ChineseMenu&mserno=201001210001&serno=2010012002"
+            ],
+            "source_status": "已取得公司官方產品資料與園區資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        }
+      ],
+      "tier": 8
+    },
+    {
+      "name": "儲能 / 電池",
+      "score": 12,
+      "core_strength": 2.89,
+      "breadth": 1,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "6781",
+          "name": "AES-KY",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d",
+            "10d"
+          ],
+          "appearances": 6,
+          "effective_appearances": 5.15,
+          "continuity": 6,
+          "avg_rank": 29.3,
+          "avg_rank_percentile": 58.8,
+          "signal_score": 2.89,
+          "avg_gain_pct": 14.25,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "鋰電池模組與儲能系統",
+            "theme_hypotheses": [
+              "儲能",
+              "電池模組"
+            ],
+            "rationale": "產品可能性聚焦於鋰電池與儲能應用；需以官方產品資料確認市場別。",
+            "confidence": "中",
+            "source_urls": [],
+            "source_status": "待以公司官方產品資料覆核",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "B"
+        }
+      ],
+      "tier": 9
+    },
+    {
+      "name": "PCB / 高階材料",
+      "score": 10,
+      "core_strength": 2.46,
+      "breadth": 1,
+      "provisional_count": 1,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "LLM 題材假說"
+      ],
+      "stocks": [
+        {
+          "code": "8039",
+          "name": "台虹",
+          "windows": [
+            "1d",
+            "2d",
+            "3d",
+            "4d",
+            "5d",
+            "20d"
+          ],
+          "appearances": 6,
+          "effective_appearances": 5.0,
+          "continuity": 5,
+          "avg_rank": 11.5,
+          "avg_rank_percentile": 21.7,
+          "signal_score": 4.47,
+          "avg_gain_pct": 25.41,
+          "latest_window": "1d",
+          "theme_basis": "LLM 題材假說",
+          "theme_confidence": "中",
+          "product_label": "疑似 軟性銅箔基板（FCCL）與軟板材料",
+          "is_provisional": true,
+          "score_factor": 0.55,
+          "llm_review": {
+            "product_hypothesis": "軟性銅箔基板（FCCL）與軟板材料",
+            "theme_hypotheses": [
+              "軟板材料 / FCCL",
+              "電子材料"
+            ],
+            "rationale": "產品假說指向軟板上游材料；需與公司產品資料核對後才可升格 Mapping。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.taiflex.com.tw/ESG/Pro_Quality",
+              "https://www.taiflex.com.tw/ESG/Pro_Market"
+            ],
+            "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "S"
+        }
+      ],
+      "tier": 10
+    },
+    {
+      "name": "生技醫療 / 製藥",
+      "score": 9,
+      "core_strength": 2.24,
+      "breadth": 1,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "1762",
+          "name": "中化生",
+          "windows": [
+            "1d",
+            "2d",
+            "3d"
+          ],
+          "appearances": 3,
+          "effective_appearances": 2.85,
+          "continuity": 3,
+          "avg_rank": 18.7,
+          "avg_rank_percentile": 36.3,
+          "signal_score": 2.24,
+          "avg_gain_pct": 10.57,
+          "latest_window": "1d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "原料藥與醫藥中間體",
+            "theme_hypotheses": [
+              "原料藥 / 製藥",
+              "生技醫療"
+            ],
+            "rationale": "公司名稱與市場既有認知指向製藥供應鏈；仍須以官方產品線確認細分領域。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.ccsb.com.tw/upfiles/ADUpload/tw_ir2366714228.pdf",
+              "https://www.ccsb.com.tw/upfiles/ADUpload/tw_be_ir1mul2_3397525592.pdf"
+            ],
+            "source_status": "已取得公司官方投資人資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        }
+      ],
+      "tier": 11
+    },
+    {
+      "name": "先進封裝 / IC 載板",
+      "score": 7,
+      "core_strength": 1.67,
+      "breadth": 1,
+      "provisional_count": 0,
+      "early_cluster_count": 0,
+      "mapping_basis": [
+        "種子題材對照"
+      ],
+      "stocks": [
+        {
+          "code": "3189",
+          "name": "景碩",
+          "windows": [
+            "4d",
+            "5d",
+            "10d"
+          ],
+          "appearances": 3,
+          "effective_appearances": 2.3,
+          "continuity": 3,
+          "avg_rank": 21.7,
+          "avg_rank_percentile": 42.5,
+          "signal_score": 1.67,
+          "avg_gain_pct": 21.09,
+          "latest_window": "4d",
+          "theme_basis": "種子題材對照",
+          "theme_confidence": "已收錄",
+          "product_label": null,
+          "is_provisional": false,
+          "score_factor": 1.0,
+          "llm_review": {
+            "product_hypothesis": "IC 載板與高階封裝基板",
+            "theme_hypotheses": [
+              "IC 載板",
+              "先進封裝"
+            ],
+            "rationale": "產品可能性指向半導體封裝上游基板，與記憶體或高階運算需求可能相關。",
+            "confidence": "中",
+            "source_urls": [
+              "https://www.kinsus.com.tw/zh-TW/Product/product",
+              "https://www.kinsus.com.tw/zh-TW/Product/product/Detail/tw_sip"
+            ],
+            "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
+            "reviewed_at": "2026-08-09"
+          },
+          "tier": "A"
+        }
+      ],
+      "tier": 12
     }
   ],
   "unmapped_candidates": [
-    {
-      "code": "2059",
-      "name": "川湖",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "5d",
-        "10d",
-        "20d"
-      ],
-      "appearances": 7,
-      "effective_appearances": 5.65,
-      "continuity": 7,
-      "avg_rank": 5.3,
-      "avg_rank_percentile": 8.8,
-      "signal_score": 6.0,
-      "avg_gain_pct": 27.55,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "高階伺服器導軌與機櫃滑軌",
-        "theme_hypotheses": [
-          "伺服器機櫃零組件",
-          "資料中心基礎設施"
-        ],
-        "rationale": "多週期動能極強；產品假說指向高階伺服器與機櫃的滑軌零組件。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.kingslide.com/investor_stockholderservice_basicinfo?___from_store=default&___store=chinese",
-          "https://www.kingslide.com/about_intro?___from_store=japanese&___store=chinese"
-        ],
-        "source_status": "已取得公司官方產品與投資人資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "S",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "7610",
-      "name": "聯友金屬-創",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "5d"
-      ],
-      "appearances": 5,
-      "effective_appearances": 4.5,
-      "continuity": 5,
-      "avg_rank": 7.6,
-      "avg_rank_percentile": 14.0,
-      "signal_score": 4.54,
-      "avg_gain_pct": 28.72,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "鎢、鈷關鍵金屬回收、純化與材料",
-        "theme_hypotheses": [
-          "金屬材料",
-          "資源循環"
-        ],
-        "rationale": "公司官方資料指出其回收二次硬質合金及鎢、鈷資源，製造高純度鈷產品與相關化合物；仍不直接納入正式題材。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.lianyoucorp.com/TW",
-          "https://wwwc.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f01992763eeec04c9"
-        ],
-        "source_status": "已取得公司官方產品資料與交易所公司介紹，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "S",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "8039",
-      "name": "台虹",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "5d",
-        "20d"
-      ],
-      "appearances": 6,
-      "effective_appearances": 5.0,
-      "continuity": 5,
-      "avg_rank": 11.5,
-      "avg_rank_percentile": 21.7,
-      "signal_score": 4.47,
-      "avg_gain_pct": 25.41,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "軟性銅箔基板（FCCL）與軟板材料",
-        "theme_hypotheses": [
-          "軟板材料 / FCCL",
-          "電子材料"
-        ],
-        "rationale": "產品假說指向軟板上游材料；需與公司產品資料核對後才可升格 Mapping。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.taiflex.com.tw/ESG/Pro_Quality",
-          "https://www.taiflex.com.tw/ESG/Pro_Market"
-        ],
-        "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "S",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "7788",
-      "name": "松川精密",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "5d",
-        "10d"
-      ],
-      "appearances": 6,
-      "effective_appearances": 5.15,
-      "continuity": 6,
-      "avg_rank": 21.5,
-      "avg_rank_percentile": 42.4,
-      "signal_score": 3.74,
-      "avg_gain_pct": 15.8,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "電磁繼電器、接觸器與高壓直流繼電器",
-        "theme_hypotheses": [
-          "繼電器 / 電控零組件",
-          "工業自動化"
-        ],
-        "rationale": "產品可能性聚焦於電控與繼電器應用；是否形成工業自動化題材仍需以官方產品與終端應用確認。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.songchuan.com/sc/",
-          "https://www.songchuan.com/sc/wp-content/uploads/2024/12/3-1-%E6%B3%95%E4%BA%BA%E8%AA%AA%E6%98%8E%E6%9C%83%E7%B0%A1%E5%A0%B1_%E4%B8%AD%E6%96%8720241022.pdf"
-        ],
-        "source_status": "已取得公司官方產品與法說資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "2491",
-      "name": "吉祥全",
-      "windows": [
-        "2d",
-        "3d",
-        "4d",
-        "5d"
-      ],
-      "appearances": 4,
-      "effective_appearances": 3.5,
-      "continuity": 4,
-      "avg_rank": 8.8,
-      "avg_rank_percentile": 16.0,
-      "signal_score": 3.46,
-      "avg_gain_pct": 24.92,
-      "latest_window": "2d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "光電照明應用產品、電子零組件與資訊產品",
-        "theme_hypotheses": [
-          "光電照明",
-          "電子零組件"
-        ],
-        "rationale": "公司永續報告列示光電照明應用產品、電子應用產品與零組件；終端動能題材仍不足以直接升格。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.focl.com.tw/investor.php?PID=8",
-          "https://www.focl.com.tw/userfiles/files/%E6%B0%B8%E7%BA%8C%E7%99%BC%E5%B1%95/FOCL_Sustainability%20Report.pdf"
-        ],
-        "source_status": "已取得公司官方投資人與永續資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "6533",
-      "name": "晶心科",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "10d",
-        "20d"
-      ],
-      "appearances": 5,
-      "effective_appearances": 4.0,
-      "continuity": 3,
-      "avg_rank": 13.4,
-      "avg_rank_percentile": 25.8,
-      "signal_score": 3.21,
-      "avg_gain_pct": 17.42,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "RISC-V CPU IP 與處理器設計服務",
-        "theme_hypotheses": [
-          "RISC-V",
-          "半導體 IP / CPU"
-        ],
-        "rationale": "產品可能性指向處理器 IP；是否與特定 AI 運算題材連結，需依產品與營收應用確認。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.andestech.com/tw/",
-          "https://www.sipa.gov.tw/home.jsp?contlink=ap%2Fmanufacturers_3_1.jsp&dataserno=202101080001&level2=Y&menudata=ChineseMenu&mserno=201001210001&serno=2010012002"
-        ],
-        "source_status": "已取得公司官方產品資料與園區資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "2103",
-      "name": "台橡",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d"
-      ],
-      "appearances": 4,
-      "effective_appearances": 3.7,
-      "continuity": 4,
-      "avg_rank": 15.8,
-      "avg_rank_percentile": 30.4,
-      "signal_score": 3.13,
-      "avg_gain_pct": 13.53,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "合成橡膠與高分子材料",
-        "theme_hypotheses": [
-          "合成橡膠",
-          "特用化學材料"
-        ],
-        "rationale": "產品可能性聚焦於合成橡膠與材料化工供應鏈。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.tsrc.com.tw/tw/products-services/",
-          "https://www.tsrc.com.tw/tw/products-services/product-finder/"
-        ],
-        "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "3605",
-      "name": "宏致",
-      "windows": [
-        "3d",
-        "4d",
-        "5d",
-        "10d",
-        "20d"
-      ],
-      "appearances": 5,
-      "effective_appearances": 3.7,
-      "continuity": 5,
-      "avg_rank": 17.0,
-      "avg_rank_percentile": 33.1,
-      "signal_score": 3.03,
-      "avg_gain_pct": 23.17,
-      "latest_window": "3d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "連接器與線纜組件",
-        "theme_hypotheses": [
-          "高速傳輸",
-          "連接器 / 線束"
-        ],
-        "rationale": "產品可能性聚焦於連接器與線材；是否屬高速傳輸題材須以產品規格與客戶應用確認。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.acesconn.com/tw/news_detail?id=62"
-        ],
-        "source_status": "已取得公司官方應用資料，待補第二項官方產品／投資人來源後人工確認",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "4722",
-      "name": "國精化",
-      "windows": [
-        "3d",
-        "4d",
-        "5d",
-        "10d"
-      ],
-      "appearances": 4,
-      "effective_appearances": 3.2,
-      "continuity": 4,
-      "avg_rank": 19.0,
-      "avg_rank_percentile": 37.1,
-      "signal_score": 2.49,
-      "avg_gain_pct": 22.16,
-      "latest_window": "3d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "特用化學與電子／工業材料",
-        "theme_hypotheses": [
-          "特用化學",
-          "材料升級"
-        ],
-        "rationale": "屬材料化工方向的初步假說，尚不應連結至特定終端題材。",
-        "confidence": "低",
-        "source_urls": [
-          "https://www.qualipoly.com/zh-tw/product.html",
-          "https://www.qualipoly.com/zh-tw/news-c2293/%E5%85%AC%E5%8F%B8%E7%9B%B8%E9%97%9C%E5%A0%B1%E5%B0%8E.html"
-        ],
-        "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "1762",
-      "name": "中化生",
-      "windows": [
-        "1d",
-        "2d",
-        "3d"
-      ],
-      "appearances": 3,
-      "effective_appearances": 2.85,
-      "continuity": 3,
-      "avg_rank": 18.7,
-      "avg_rank_percentile": 36.3,
-      "signal_score": 2.24,
-      "avg_gain_pct": 10.57,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "原料藥與醫藥中間體",
-        "theme_hypotheses": [
-          "原料藥 / 製藥",
-          "生技醫療"
-        ],
-        "rationale": "公司名稱與市場既有認知指向製藥供應鏈；仍須以官方產品線確認細分領域。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.ccsb.com.tw/upfiles/ADUpload/tw_ir2366714228.pdf",
-          "https://www.ccsb.com.tw/upfiles/ADUpload/tw_be_ir1mul2_3397525592.pdf"
-        ],
-        "source_status": "已取得公司官方投資人資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "3189",
-      "name": "景碩",
-      "windows": [
-        "4d",
-        "5d",
-        "10d"
-      ],
-      "appearances": 3,
-      "effective_appearances": 2.3,
-      "continuity": 3,
-      "avg_rank": 21.7,
-      "avg_rank_percentile": 42.5,
-      "signal_score": 1.67,
-      "avg_gain_pct": 21.09,
-      "latest_window": "4d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "IC 載板與高階封裝基板",
-        "theme_hypotheses": [
-          "IC 載板",
-          "先進封裝"
-        ],
-        "rationale": "產品可能性指向半導體封裝上游基板，與記憶體或高階運算需求可能相關。",
-        "confidence": "中",
-        "source_urls": [
-          "https://www.kinsus.com.tw/zh-TW/Product/product",
-          "https://www.kinsus.com.tw/zh-TW/Product/product/Detail/tw_sip"
-        ],
-        "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "A",
-      "review_priority": "P1／本輪必覆核",
-      "review_status": "LLM 假說／來源待人工確認"
-    },
-    {
-      "code": "2031",
-      "name": "新光鋼",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "10d",
-        "20d"
-      ],
-      "appearances": 6,
-      "effective_appearances": 4.85,
-      "continuity": 4,
-      "avg_rank": 23.0,
-      "avg_rank_percentile": 45.6,
-      "signal_score": 3.09,
-      "avg_gain_pct": 14.67,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": null,
-      "tier": "B",
-      "review_priority": "P2／依動能排程覆核",
-      "review_status": "等待 LLM 研究"
-    },
-    {
-      "code": "2426",
-      "name": "鼎元",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "5d"
-      ],
-      "appearances": 5,
-      "effective_appearances": 4.5,
-      "continuity": 5,
-      "avg_rank": 24.0,
-      "avg_rank_percentile": 47.6,
-      "signal_score": 3.03,
-      "avg_gain_pct": 16.7,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": null,
-      "tier": "B",
-      "review_priority": "P2／依動能排程覆核",
-      "review_status": "等待 LLM 研究"
-    },
-    {
-      "code": "6781",
-      "name": "AES-KY",
-      "windows": [
-        "1d",
-        "2d",
-        "3d",
-        "4d",
-        "5d",
-        "10d"
-      ],
-      "appearances": 6,
-      "effective_appearances": 5.15,
-      "continuity": 6,
-      "avg_rank": 29.3,
-      "avg_rank_percentile": 58.8,
-      "signal_score": 2.89,
-      "avg_gain_pct": 14.25,
-      "latest_window": "1d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "llm_review": {
-        "product_hypothesis": "鋰電池模組與儲能系統",
-        "theme_hypotheses": [
-          "儲能",
-          "電池模組"
-        ],
-        "rationale": "產品可能性聚焦於鋰電池與儲能應用；需以官方產品資料確認市場別。",
-        "confidence": "中",
-        "source_urls": [],
-        "source_status": "待以公司官方產品資料覆核",
-        "reviewed_at": "2026-08-09"
-      },
-      "tier": "B",
-      "review_priority": "P2／依動能排程覆核",
-      "review_status": "LLM 初步假說／待來源驗證"
-    },
     {
       "code": "3550",
       "name": "聯穎",
@@ -887,6 +1041,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -913,6 +1069,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -939,6 +1097,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -965,6 +1125,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -990,6 +1152,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1014,6 +1178,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1038,6 +1204,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1062,6 +1230,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1086,6 +1256,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1109,6 +1281,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1134,6 +1308,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1158,6 +1334,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1181,6 +1359,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1204,6 +1384,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1227,6 +1409,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1250,6 +1434,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1273,6 +1459,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1296,6 +1484,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1319,6 +1509,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1342,6 +1534,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1365,6 +1559,8 @@
       "theme_basis": "待產品推論",
       "theme_confidence": "未映射",
       "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
       "llm_review": null,
       "tier": "B",
       "review_priority": "P2／依動能排程覆核",
@@ -1372,8 +1568,8 @@
     }
   ],
   "review_summary": {
-    "required": 11,
-    "reviewed": 12,
-    "source_verified": 11
+    "required": 0,
+    "reviewed": 0,
+    "source_verified": 0
   }
 }

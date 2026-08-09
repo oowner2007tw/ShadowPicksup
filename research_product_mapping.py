@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-from analyze_twse_momentum import THEME_MAPPING
+from analyze_twse_momentum import THEME_CATALOG, THEME_MAPPING
 
 REPORT_FILE = Path("report.json")
 REVIEW_FILE = Path("data/product-inference-review.json")
@@ -55,8 +55,10 @@ def ask_model(code: str, name: str, seed_theme: str | None) -> dict:
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY is not configured")
     seed_context = f"Existing seed theme (unverified): {seed_theme}" if seed_theme else "No existing seed theme."
+    taxonomy = ", ".join(THEME_CATALOG)
     prompt = f"""Research Taiwan-listed company {code} {name}. {seed_context}
 Use web search. Prefer the company's official product pages, annual reports, investor presentations, or exchange company profile.
+When supported by evidence, prefer one of these canonical themes so synonyms and upstream/downstream companies cluster together: {taxonomy}.
 Do not infer from company name alone. Return exactly one JSON object, no markdown:
 {{
   "product_hypothesis": "concise Traditional Chinese product description",

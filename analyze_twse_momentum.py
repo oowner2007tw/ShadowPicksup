@@ -31,22 +31,65 @@ PRODUCT_MAPPING_FILE = Path("data/product-theme-mapping.json")
 INFERENCE_REVIEW_FILE = Path("data/product-inference-review.json")
 TELEGRAM_MESSAGE_LIMIT = 3900
 
-# Replace or expand this mock mapping with your preferred industry/concept taxonomy.
-THEME_MAPPING = {
-    "6213": "AI 基礎建設 / 高速傳輸", "2368": "AI 基礎建設 / 高速傳輸",
-    "3037": "AI 基礎建設 / 高速傳輸", "2313": "AI 基礎建設 / 高速傳輸",
-    "6531": "記憶體 / IC 設計", "3006": "記憶體 / IC 設計",
-    "2408": "記憶體 / IC 設計", "2344": "記憶體 / IC 設計",
-    "2049": "機器人 / 智慧製造", "2464": "機器人 / 智慧製造", "4540": "機器人 / 智慧製造",
-    "3167": "機器人 / 智慧製造", "1597": "機器人 / 智慧製造", "4576": "機器人 / 智慧製造",
-    "6213": "AI 基礎建設 / 高速傳輸", "6269": "AI 基礎建設 / 高速傳輸",
-    "6426": "AI 基礎建設 / 高速傳輸", "3450": "AI 基礎建設 / 高速傳輸",
-    "3653": "AI 基礎建設 / 高速傳輸", "8996": "AI 基礎建設 / 高速傳輸",
-    "7711": "AI 基礎建設 / 高速傳輸", "6805": "AI 基礎建設 / 高速傳輸",
-    "2455": "AI 基礎建設 / 高速傳輸", "8021": "AI 基礎建設 / 高速傳輸",
-    "2337": "記憶體 / IC 設計", "2451": "記憶體 / IC 設計",
-    "4967": "記憶體 / IC 設計", "4961": "記憶體 / IC 設計",
+# Canonical themes merge product synonyms and adjacent upstream/downstream
+# segments. Seed members are conservative anchors; LLM-reviewed candidates
+# can join the same clusters as explicitly labelled provisional members.
+THEME_CATALOG = {
+    "AI 基礎建設 / 高速傳輸": {
+        "aliases": ["AI 伺服器", "AI伺服器", "資料中心基礎設施", "伺服器機櫃零組件", "高速傳輸", "連接器 / 線束", "散熱 / 機構件"],
+        "seed_members": ["6213", "2368", "3037", "2313", "6269", "6426", "3450", "3653", "8996", "7711", "6805", "2455", "8021", "2382", "3231", "6669", "2356", "2376", "3017", "3324"],
+    },
+    "記憶體 / IC 設計": {
+        "aliases": ["記憶體", "DRAM", "NAND Flash", "NOR Flash", "記憶體控制 IC", "IC 設計"],
+        "seed_members": ["6531", "3006", "2408", "2344", "2337", "2451", "4967", "4961", "8299", "3260", "5351"],
+    },
+    "機器人 / 智慧製造": {
+        "aliases": ["機器人", "智慧製造", "自動化設備", "工業機器人", "機器視覺"],
+        "seed_members": ["2049", "2464", "4540", "3167", "1597", "4576", "4583", "8374"],
+    },
+    "PCB / 高階材料": {
+        "aliases": ["PCB 材料", "PCB材料", "軟板材料 / FCCL", "FCCL", "電子材料", "銅箔基板", "CCL", "高階 PCB"],
+        "seed_members": ["6274", "8046", "4958", "2383", "5349"],
+    },
+    "先進封裝 / IC 載板": {
+        "aliases": ["先進封裝", "IC 載板", "IC載板", "ABF 載板", "CoWoS", "封裝測試"],
+        "seed_members": ["3189", "3711", "2449", "6239"],
+    },
+    "特用化學 / 高階材料": {
+        "aliases": ["特用化學", "特用化學材料", "材料升級", "合成橡膠", "高階材料"],
+        "seed_members": ["2103", "4722", "1717", "4763"],
+    },
+    "生技醫療 / 製藥": {
+        "aliases": ["生技醫療", "原料藥 / 製藥", "原料藥", "製藥", "新藥"],
+        "seed_members": ["1762", "1795", "4743", "6472"],
+    },
+    "半導體 IP / RISC-V": {
+        "aliases": ["RISC-V", "半導體 IP / CPU", "半導體 IP", "CPU IP", "處理器 IP"],
+        "seed_members": ["6533", "3443", "3661"],
+    },
+    "儲能 / 電池": {
+        "aliases": ["儲能", "電池模組", "電池", "備援電源", "能源管理"],
+        "seed_members": ["6781", "3211", "4931"],
+    },
+    "金屬材料 / 資源循環": {
+        "aliases": ["金屬材料", "資源循環", "金屬回收", "鎢鈷材料", "循環經濟"],
+        "seed_members": ["7610", "2031", "9958"],
+    },
+    "電力控制 / 工業自動化": {
+        "aliases": ["繼電器 / 電控零組件", "繼電器", "工業自動化", "電控零組件", "重電"],
+        "seed_members": ["7788", "1504", "1513", "1514", "1536"],
+    },
+    "光電 / 電子零組件": {
+        "aliases": ["光電照明", "電子零組件", "LED", "光電元件", "照明應用"],
+        "seed_members": ["2491", "2426", "2393"],
+    },
 }
+THEME_MAPPING = {
+    code: theme
+    for theme, definition in THEME_CATALOG.items()
+    for code in definition["seed_members"]
+}
+PROVISIONAL_SCORE_FACTOR = {"high": 0.85, "medium": 0.70, "low": 0.55}
 
 # Product-level inference is deliberately separate from the curated mapping.
 # It lets strong but newly observed names enter the model without claiming that
@@ -130,17 +173,56 @@ def load_product_theme_inference() -> dict[str, dict]:
 
 
 def load_inference_reviews() -> dict[str, dict]:
-    """Load LLM hypotheses. These never affect official theme assignment."""
+    """Load LLM hypotheses for explicitly labelled provisional assignment."""
     if not INFERENCE_REVIEW_FILE.exists():
         return {}
     return json.loads(INFERENCE_REVIEW_FILE.read_text(encoding="utf-8")).get("entries", {})
 
 
-def resolve_theme(code: str, product_mappings: dict[str, dict]) -> dict | None:
-    """Return a curated theme or an explicitly labelled product inference."""
+def normalize_theme_name(name: str) -> str:
+    return re.sub(r"[\s/／・、_()（）-]+", "", name).lower()
+
+
+def canonicalize_theme(name: str) -> str:
+    """Collapse a product/theme synonym into one canonical supply-chain cluster."""
+    normalized = normalize_theme_name(name)
+    for canonical, definition in THEME_CATALOG.items():
+        for alias in [canonical, *definition["aliases"]]:
+            alias_normalized = normalize_theme_name(alias)
+            if normalized == alias_normalized or (len(alias_normalized) >= 4 and alias_normalized in normalized):
+                return canonical
+    return name.strip()
+
+
+def review_theme_mapping(review: dict | None) -> dict | None:
+    """Turn an LLM hypothesis into a visible, discounted provisional mapping."""
+    if not review or not review.get("theme_hypotheses"):
+        return None
+    theme = canonicalize_theme(review["theme_hypotheses"][0])
+    if not theme:
+        return None
+    confidence = review.get("confidence", "low")
+    return {
+        "theme": theme,
+        "product_label": f"疑似 {review.get('product_hypothesis', theme)}",
+        "basis": "LLM 題材假說",
+        "confidence": confidence,
+        "provisional": True,
+        "score_factor": PROVISIONAL_SCORE_FACTOR.get(confidence, 0.55),
+    }
+
+
+def resolve_theme(code: str, product_mappings: dict[str, dict], review: dict | None = None) -> dict | None:
+    """Return a curated, approved, or explicitly labelled provisional theme."""
     if code in THEME_MAPPING:
-        return {"theme": THEME_MAPPING[code], "product_label": None, "basis": "人工題材對照", "confidence": "已收錄"}
-    return product_mappings.get(code)
+        return {"theme": THEME_MAPPING[code], "product_label": None, "basis": "種子題材對照", "confidence": "已收錄", "provisional": False, "score_factor": 1.0}
+    if code in product_mappings:
+        mapping = dict(product_mappings[code])
+        mapping["theme"] = canonicalize_theme(mapping["theme"])
+        mapping.setdefault("provisional", False)
+        mapping.setdefault("score_factor", 1.0)
+        return mapping
+    return review_theme_mapping(review)
 
 
 def candidate_review_state(tier: str, review: dict | None) -> tuple[str, str]:
@@ -173,7 +255,8 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
     product_mappings = load_product_theme_inference()
     inference_reviews = load_inference_reviews()
     for code, observations in seen.items():
-        mapping = resolve_theme(code, product_mappings)
+        llm_review = inference_reviews.get(code)
+        mapping = resolve_theme(code, product_mappings, llm_review)
         theme = mapping["theme"] if mapping else None
         days = sorted(item["day"] for item in observations)
         avg_rank = sum(item["rank"] for item in observations) / len(observations)
@@ -183,8 +266,7 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
         continuity_ratio = continuity / len(days)
         gains = [item["gain_pct"] for item in observations if item["gain_pct"] is not None]
         signal_score = effective_appearances * (1.15 - avg_rank_percentile) * (0.75 + continuity_ratio * 0.25)
-        llm_review = inference_reviews.get(code)
-        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None, "llm_review": llm_review}
+        record = {"code": code, "name": observations[0]["name"], "windows": [f"{day}d" for day in days], "appearances": len(observations), "effective_appearances": round(effective_appearances, 2), "continuity": continuity, "avg_rank": round(avg_rank, 1), "avg_rank_percentile": round(avg_rank_percentile * 100, 1), "signal_score": round(signal_score, 2), "avg_gain_pct": round(sum(gains) / len(gains), 2) if gains else None, "latest_window": f"{min(days)}d", "theme_basis": mapping["basis"] if mapping else "待產品推論", "theme_confidence": mapping["confidence"] if mapping else "未映射", "product_label": mapping["product_label"] if mapping else None, "is_provisional": mapping.get("provisional", False) if mapping else False, "score_factor": mapping.get("score_factor", 1.0) if mapping else 0.0, "llm_review": llm_review}
         tier = repeated_tier(len(observations), effective_appearances, avg_rank_percentile, continuity)
         if tier:
             record["tier"] = tier
@@ -209,10 +291,10 @@ def build_report(rankings: dict[int, dict[str, dict]]) -> dict:
     themes = []
     for name, stocks in candidates.items():
         stocks.sort(key=lambda stock: (-stock["signal_score"], -WEIGHT[stock["tier"]], stock["avg_rank"], stock["code"]))
-        core_strength = sum(stock["signal_score"] for stock in stocks[:3])
+        core_strength = sum(stock["signal_score"] * stock["score_factor"] for stock in stocks[:3])
         breadth_bonus = min(len(stocks), 5) * 0.5
         early_cluster_bonus = 1 if sum(stock["tier"] == "C" for stock in stocks) >= EARLY_CLUSTER_MIN else 0
-        themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "mapping_basis": sorted({stock["theme_basis"] for stock in stocks}), "stocks": stocks})
+        themes.append({"name": name, "score": round(core_strength * 4 + breadth_bonus + early_cluster_bonus), "core_strength": round(core_strength, 2), "breadth": len(stocks), "provisional_count": sum(stock["is_provisional"] for stock in stocks), "early_cluster_count": sum(stock["tier"] == "C" for stock in stocks), "mapping_basis": sorted({stock["theme_basis"] for stock in stocks}), "stocks": stocks})
     themes.sort(key=lambda theme: (-theme["score"], theme["name"]))
     for tier, theme in enumerate(themes, 1): theme["tier"] = tier
     unmapped_candidates.sort(key=lambda stock: (REVIEW_ORDER[stock["tier"]], -stock["signal_score"], stock["avg_rank"], stock["code"]))
@@ -246,7 +328,7 @@ def telegram_messages(report: dict) -> list[str]:
     for theme in report["themes"]:
         lines = [f"\n🏆 題材 Tier {theme['tier']}：{theme['name']}（{theme['score']} 分）"]
         for stock in theme["stocks"]:
-            inference_label = "〔產品面推論〕" if stock["theme_basis"] == "產品面推論" else ""
+            inference_label = "〔疑似題材／LLM〕" if stock["is_provisional"] else ("〔產品面推論〕" if stock["theme_basis"] == "產品面推論" else "")
             lines.append(
                 f"• Tier {stock['tier']}｜{stock['code']} {stock['name']}｜"
                 f"{stock['appearances']}x｜連續 {stock['continuity']} 格｜"
