@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-08-09T11:08:01.214226+08:00",
+  "generated_at": "2026-08-09T14:08:56.590890+08:00",
+  "market_signature": "07f32eedc7b3565f9d68",
   "freshness": "fresh",
   "last_error": null,
   "source_urls": {
@@ -16,7 +17,7 @@
       "name": "AI 基礎建設 / 高速傳輸",
       "score": 55,
       "core_strength": 13.24,
-      "breadth": 11,
+      "breadth": 15,
       "provisional_count": 6,
       "early_cluster_count": 0,
       "mapping_basis": [
@@ -64,7 +65,16 @@
             "source_status": "已取得公司官方產品與投資人資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.55,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "6426",
@@ -114,7 +124,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6213",
@@ -163,7 +182,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "7711",
@@ -213,7 +241,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6269",
@@ -261,7 +298,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級"
         },
         {
           "code": "3605",
@@ -300,7 +346,16 @@
             "source_status": "已取得公司官方應用資料，待補第二項官方產品／投資人來源後人工確認",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.55,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "3550",
@@ -349,7 +404,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "4566",
@@ -395,7 +459,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "3653",
@@ -443,7 +516,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3518",
@@ -490,7 +572,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2425",
@@ -537,16 +628,129 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
+        },
+        {
+          "code": "6805",
+          "name": "富世達",
+          "windows": [
+            "4d",
+            "5d",
+            "10d",
+            "20d"
+          ],
+          "appearances": 4,
+          "avg_rank": 35.8,
+          "avg_gain_pct": 17.53,
+          "latest_window": "4d",
+          "tier": "B",
+          "signal_score": 1.3,
+          "score_factor": 0.4,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 0,
+          "previous_tier": "A",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "3450",
+          "name": "聯鈞",
+          "windows": [
+            "3d",
+            "4d",
+            "5d"
+          ],
+          "appearances": 3,
+          "avg_rank": 31.3,
+          "avg_gain_pct": 18.43,
+          "latest_window": "3d",
+          "tier": "B",
+          "signal_score": 1.18,
+          "score_factor": 0.4,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 0,
+          "previous_tier": "A",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "2455",
+          "name": "全新",
+          "windows": [
+            "4d",
+            "5d"
+          ],
+          "appearances": 2,
+          "avg_rank": 38.0,
+          "avg_gain_pct": 19.03,
+          "latest_window": "4d",
+          "tier": "C",
+          "signal_score": 0.58,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "3037",
+          "name": "欣興",
+          "windows": [
+            "5d",
+            "10d"
+          ],
+          "appearances": 2,
+          "avg_rank": 40.5,
+          "avg_gain_pct": 17.59,
+          "latest_window": "5d",
+          "tier": "C",
+          "signal_score": 0.51,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
         }
       ],
-      "tier": 1
+      "tier": 1,
+      "active_breadth": 11,
+      "cooling_count": 4,
+      "lifecycle": "擴散",
+      "previous_tier": 1,
+      "tier_change": "same"
     },
     {
       "name": "機器人 / 智慧製造",
       "score": 45,
       "core_strength": 10.57,
-      "breadth": 5,
+      "breadth": 7,
       "provisional_count": 1,
       "early_cluster_count": 0,
       "mapping_basis": [
@@ -602,7 +806,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2049",
@@ -653,7 +866,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "A",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級"
         },
         {
           "code": "3167",
@@ -702,7 +924,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2464",
@@ -750,7 +981,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3652",
@@ -796,16 +1036,78 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
+        },
+        {
+          "code": "1597",
+          "name": "直得",
+          "windows": [
+            "5d",
+            "10d"
+          ],
+          "appearances": 2,
+          "avg_rank": 40.5,
+          "avg_gain_pct": 17.79,
+          "latest_window": "5d",
+          "tier": "C",
+          "signal_score": 0.51,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "4576",
+          "name": "大銀微系統",
+          "windows": [
+            "5d",
+            "10d"
+          ],
+          "appearances": 2,
+          "avg_rank": 42.5,
+          "avg_gain_pct": 17.31,
+          "latest_window": "5d",
+          "tier": "C",
+          "signal_score": 0.45,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
         }
       ],
-      "tier": 2
+      "tier": 2,
+      "active_breadth": 5,
+      "cooling_count": 2,
+      "lifecycle": "擴散",
+      "previous_tier": 3,
+      "tier_change": "up"
     },
     {
       "name": "記憶體 / IC 設計",
       "score": 38,
       "core_strength": 9.05,
-      "breadth": 3,
+      "breadth": 7,
       "provisional_count": 0,
       "early_cluster_count": 0,
       "mapping_basis": [
@@ -860,7 +1162,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3006",
@@ -910,7 +1221,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "4967",
@@ -958,10 +1278,121 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級"
+        },
+        {
+          "code": "2408",
+          "name": "南亞科",
+          "windows": [
+            "4d",
+            "5d",
+            "10d"
+          ],
+          "appearances": 3,
+          "avg_rank": 31.7,
+          "avg_gain_pct": 18.67,
+          "latest_window": "4d",
+          "tier": "B",
+          "signal_score": 1.16,
+          "score_factor": 0.4,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 0,
+          "previous_tier": "A",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "2344",
+          "name": "華邦電",
+          "windows": [
+            "4d",
+            "5d"
+          ],
+          "appearances": 2,
+          "avg_rank": 33.5,
+          "avg_gain_pct": 20.05,
+          "latest_window": "4d",
+          "tier": "C",
+          "signal_score": 0.72,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "4961",
+          "name": "天鈺",
+          "windows": [
+            "2d",
+            "3d"
+          ],
+          "appearances": 2,
+          "avg_rank": 37.5,
+          "avg_gain_pct": 9.53,
+          "latest_window": "2d",
+          "tier": "C",
+          "signal_score": 0.6,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
+        },
+        {
+          "code": "2451",
+          "name": "創見",
+          "windows": [
+            "10d",
+            "20d"
+          ],
+          "appearances": 2,
+          "avg_rank": 39.5,
+          "avg_gain_pct": 14.83,
+          "latest_window": "10d",
+          "tier": "C",
+          "signal_score": 0.54,
+          "score_factor": 0.2,
+          "raw_tier": null,
+          "is_active": false,
+          "is_new": false,
+          "miss_streak": 1,
+          "c_stagnant_days": 1,
+          "previous_tier": "B",
+          "tier_change": "down",
+          "lifecycle_status": "自然降級",
+          "base_score_factor": 1.0
         }
       ],
-      "tier": 3
+      "tier": 3,
+      "active_breadth": 3,
+      "cooling_count": 4,
+      "lifecycle": "擴散",
+      "previous_tier": 2,
+      "tier_change": "down"
     },
     {
       "name": "金屬材料 / 資源循環",
@@ -1012,7 +1443,16 @@
             "source_status": "已取得公司官方產品資料與交易所公司介紹，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2031",
@@ -1062,10 +1502,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 4
+      "tier": 4,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "光電 / 電子零組件",
@@ -1115,7 +1569,16 @@
             "source_status": "已取得公司官方投資人與永續資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2426",
@@ -1164,10 +1627,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 5
+      "tier": 5,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "生技醫療 / 製藥",
@@ -1228,7 +1705,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "1762",
@@ -1266,7 +1752,16 @@
             "source_status": "已取得公司官方投資人資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "3716",
@@ -1313,10 +1808,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 6
+      "tier": 6,
+      "active_breadth": 3,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "電力控制 / 工業自動化",
@@ -1369,7 +1878,16 @@
             "source_status": "已取得公司官方產品與法說資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2397",
@@ -1416,10 +1934,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 7
+      "tier": 7,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "特用化學 / 高階材料",
@@ -1469,7 +2001,16 @@
             "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "4722",
@@ -1508,10 +2049,24 @@
             "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 8
+      "tier": 8,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "營建 / 不動產",
@@ -1570,7 +2125,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2536",
@@ -1615,7 +2179,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2527",
@@ -1660,10 +2233,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 9
+      "tier": 9,
+      "active_breadth": 3,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "電商 / 數位支付",
@@ -1723,7 +2310,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "7722",
@@ -1770,10 +2366,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 10
+      "tier": 10,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "半導體 IP / RISC-V",
@@ -1824,10 +2434,24 @@
             "source_status": "已取得公司官方產品資料與園區資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 11
+      "tier": 11,
+      "active_breadth": 1,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "儲能 / 電池",
@@ -1888,10 +2512,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 12
+      "tier": 12,
+      "active_breadth": 1,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "PCB / 高階材料",
@@ -1943,10 +2581,24 @@
             "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "S"
+          "tier": "S",
+          "raw_tier": "S",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.55,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 13
+      "tier": 13,
+      "active_breadth": 1,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "邊緣 AI / AIoT",
@@ -2004,7 +2656,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "6243",
@@ -2051,10 +2712,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 14
+      "tier": 14,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "電動車 / 綠色運輸",
@@ -2112,7 +2787,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "9921",
@@ -2158,10 +2842,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 15
+      "tier": 15,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "消費電子 / 顯示器",
@@ -2217,7 +2915,16 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         },
         {
           "code": "2354",
@@ -2262,10 +2969,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 16
+      "tier": 16,
+      "active_breadth": 2,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "先進封裝 / IC 載板",
@@ -2314,10 +3035,24 @@
             "source_status": "已取得公司官方產品資料，待人工確認是否升格 Mapping",
             "reviewed_at": "2026-08-09"
           },
-          "tier": "A"
+          "tier": "A",
+          "raw_tier": "A",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 1.0,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 17
+      "tier": 17,
+      "active_breadth": 1,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "網通 / 寬頻升級",
@@ -2376,10 +3111,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 18
+      "tier": 18,
+      "active_breadth": 1,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     },
     {
       "name": "石化 / 原物料",
@@ -2437,10 +3186,24 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "B"
+          "tier": "B",
+          "raw_tier": "B",
+          "is_active": true,
+          "miss_streak": 0,
+          "c_stagnant_days": 0,
+          "base_score_factor": 0.85,
+          "is_new": true,
+          "previous_tier": null,
+          "tier_change": "new",
+          "lifecycle_status": "新進"
         }
       ],
-      "tier": 19
+      "tier": 19,
+      "active_breadth": 1,
+      "cooling_count": 0,
+      "lifecycle": "啟動",
+      "previous_tier": null,
+      "tier_change": "new"
     }
   ],
   "unmapped_candidates": [],
@@ -2448,5 +3211,14 @@
     "required": 0,
     "reviewed": 0,
     "source_verified": 0
+  },
+  "new_trading_session": true,
+  "exited_stocks": [],
+  "lifecycle_summary": {
+    "launching": 16,
+    "expanding": 3,
+    "mature": 0,
+    "cooling": 0,
+    "exited": 0
   }
 }
