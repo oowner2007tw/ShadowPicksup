@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T14:11:36.461610+08:00",
+  "generated_at": "2026-08-10T09:49:38.137340+08:00",
   "market_signature": "07f32eedc7b3565f9d68",
   "freshness": "fresh",
   "last_error": null,
@@ -72,10 +72,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.55,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6426",
@@ -306,9 +306,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "S",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3605",
@@ -353,10 +353,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.55,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3550",
@@ -411,10 +411,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "4566",
@@ -466,10 +466,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3653",
@@ -579,10 +579,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2425",
@@ -635,10 +635,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6805",
@@ -664,7 +664,7 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 0,
-          "previous_tier": "A",
+          "previous_tier": "B",
           "tier_change": "down",
           "lifecycle_status": "自然降級",
           "base_score_factor": 1.0
@@ -692,7 +692,7 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 0,
-          "previous_tier": "A",
+          "previous_tier": "B",
           "tier_change": "down",
           "lifecycle_status": "自然降級",
           "base_score_factor": 1.0
@@ -719,9 +719,9 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         },
         {
@@ -746,16 +746,16 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         }
       ],
       "tier": 1,
       "active_breadth": 11,
       "cooling_count": 4,
-      "lifecycle": "擴散",
+      "lifecycle": "成熟",
       "previous_tier": 1,
       "tier_change": "same"
     },
@@ -880,14 +880,14 @@
             "reviewed_at": "2026-08-09",
             "model": "gpt-5.6-terra"
           },
-          "tier": "A",
+          "tier": "B",
           "raw_tier": "B",
           "is_active": true,
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "S",
+          "previous_tier": "A",
           "tier_change": "down",
           "lifecycle_status": "自然降級"
         },
@@ -1056,10 +1056,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "1597",
@@ -1083,9 +1083,9 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         },
         {
@@ -1110,18 +1110,18 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         }
       ],
       "tier": 2,
       "active_breadth": 5,
       "cooling_count": 2,
-      "lifecycle": "擴散",
-      "previous_tier": 3,
-      "tier_change": "up"
+      "lifecycle": "成熟",
+      "previous_tier": 2,
+      "tier_change": "same"
     },
     {
       "name": "記憶體 / IC 設計",
@@ -1306,9 +1306,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2408",
@@ -1333,7 +1333,7 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 0,
-          "previous_tier": "A",
+          "previous_tier": "B",
           "tier_change": "down",
           "lifecycle_status": "自然降級",
           "base_score_factor": 1.0
@@ -1360,9 +1360,9 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         },
         {
@@ -1387,9 +1387,9 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         },
         {
@@ -1414,18 +1414,18 @@
           "is_new": false,
           "miss_streak": 1,
           "c_stagnant_days": 1,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級",
+          "lifecycle_status": "C 觀察 1/5",
           "base_score_factor": 1.0
         }
       ],
       "tier": 3,
       "active_breadth": 3,
       "cooling_count": 4,
-      "lifecycle": "擴散",
-      "previous_tier": 2,
-      "tier_change": "down"
+      "lifecycle": "成熟",
+      "previous_tier": 3,
+      "tier_change": "same"
     },
     {
       "name": "金屬材料 / 資源循環",
@@ -1482,10 +1482,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2031",
@@ -1541,18 +1541,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 4,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 4,
+      "tier_change": "same"
     },
     {
       "name": "光電 / 電子零組件",
@@ -1608,10 +1608,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2426",
@@ -1666,18 +1666,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 5,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 5,
+      "tier_change": "same"
     },
     {
       "name": "生技醫療 / 製藥",
@@ -1744,10 +1744,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "1762",
@@ -1791,10 +1791,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3716",
@@ -1847,18 +1847,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 6,
       "active_breadth": 3,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 6,
+      "tier_change": "same"
     },
     {
       "name": "電力控制 / 工業自動化",
@@ -1917,10 +1917,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2397",
@@ -1973,18 +1973,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 7,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 7,
+      "tier_change": "same"
     },
     {
       "name": "特用化學 / 高階材料",
@@ -2040,10 +2040,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "4722",
@@ -2088,18 +2088,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 8,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 8,
+      "tier_change": "same"
     },
     {
       "name": "營建 / 不動產",
@@ -2164,10 +2164,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2536",
@@ -2218,10 +2218,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2527",
@@ -2272,18 +2272,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 9,
       "active_breadth": 3,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 9,
+      "tier_change": "same"
     },
     {
       "name": "電商 / 數位支付",
@@ -2349,10 +2349,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "7722",
@@ -2405,18 +2405,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 10,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 10,
+      "tier_change": "same"
     },
     {
       "name": "半導體 IP / RISC-V",
@@ -2473,18 +2473,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 11,
       "active_breadth": 1,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 11,
+      "tier_change": "same"
     },
     {
       "name": "儲能 / 電池",
@@ -2551,18 +2551,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 12,
       "active_breadth": 1,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 12,
+      "tier_change": "same"
     },
     {
       "name": "PCB / 高階材料",
@@ -2620,18 +2620,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.55,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 13,
       "active_breadth": 1,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 13,
+      "tier_change": "same"
     },
     {
       "name": "邊緣 AI / AIoT",
@@ -2695,10 +2695,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6243",
@@ -2751,18 +2751,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 14,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 14,
+      "tier_change": "same"
     },
     {
       "name": "電動車 / 綠色運輸",
@@ -2826,10 +2826,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "9921",
@@ -2881,18 +2881,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 15,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 15,
+      "tier_change": "same"
     },
     {
       "name": "消費電子 / 顯示器",
@@ -2954,10 +2954,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2354",
@@ -3008,18 +3008,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 16,
       "active_breadth": 2,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 16,
+      "tier_change": "same"
     },
     {
       "name": "先進封裝 / IC 載板",
@@ -3074,18 +3074,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 17,
       "active_breadth": 1,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 17,
+      "tier_change": "same"
     },
     {
       "name": "網通 / 寬頻升級",
@@ -3150,18 +3150,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 18,
       "active_breadth": 1,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 18,
+      "tier_change": "same"
     },
     {
       "name": "石化 / 原物料",
@@ -3225,18 +3225,18 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         }
       ],
       "tier": 19,
       "active_breadth": 1,
       "cooling_count": 0,
-      "lifecycle": "啟動",
-      "previous_tier": null,
-      "tier_change": "new"
+      "lifecycle": "成熟",
+      "previous_tier": 19,
+      "tier_change": "same"
     }
   ],
   "unmapped_candidates": [],
@@ -3245,12 +3245,12 @@
     "reviewed": 0,
     "source_verified": 0
   },
-  "new_trading_session": true,
+  "new_trading_session": false,
   "exited_stocks": [],
   "lifecycle_summary": {
-    "launching": 16,
-    "expanding": 3,
-    "mature": 0,
+    "launching": 0,
+    "expanding": 0,
+    "mature": 19,
     "cooling": 0,
     "exited": 0
   }
