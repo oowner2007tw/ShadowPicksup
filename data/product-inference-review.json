@@ -2197,6 +2197,370 @@
       "source_status": "LLM 假說／來源待人工確認",
       "reviewed_at": "2026-08-09",
       "model": "gpt-5.6-terra"
+    },
+    "7740": {
+      "product_hypothesis": "電網級與工商業儲能系統整合商，提供電池模組／機櫃、EMS能源管理、EPC建置及維運服務",
+      "supply_chain_tags": [
+        "儲能系統整合",
+        "電池模組與機櫃",
+        "EMS／BMS",
+        "儲能EPC與維運"
+      ],
+      "theme_hypotheses": [
+        "儲能 / 電池",
+        "電力控制 / 工業自動化"
+      ],
+      "rationale": "官方及證交所資料證實其提供儲能EPC、維運、電池模組設計製造與EMS；歸入儲能／電池為直接證據，電力控制為EMS應用延伸。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.seetel-energy.com/",
+        "https://www.seetel-energy.com/article.php?id=25&lang=tw&tb=2",
+        "https://www.twse.com.tw/market_insights/zh/detail/8a8216d69734b5c301975cb626e100e1"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "2033": {
+      "product_hypothesis": "鋼線、鍍鋅鋼線／鋼絞線、鋼索及預力混凝土用PC鋼線、鋼棒製造商",
+      "supply_chain_tags": [
+        "鋼線",
+        "鍍鋅鋼線與鋼絞線",
+        "預力混凝土PC鋼材",
+        "鋼索"
+      ],
+      "theme_hypotheses": [
+        "金屬材料 / 資源循環"
+      ],
+      "rationale": "官網列示鋼線、鍍鋅鋼線／絞線、鋼索及PC鋼材，應用於彈簧、預力混凝土、橋梁與營建；歸入金屬材料為產品屬性判斷。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ctworld.com.tw/profile_e.html"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "3022": {
+      "product_hypothesis": "工業電腦、嵌入式系統與AIoT邊緣運算解決方案供應商",
+      "supply_chain_tags": [
+        "工業電腦",
+        "嵌入式系統",
+        "邊緣AI Box PC",
+        "網路通訊設備"
+      ],
+      "theme_hypotheses": [
+        "邊緣 AI / AIoT",
+        "電力控制 / 工業自動化",
+        "網通 / 寬頻升級"
+      ],
+      "rationale": "官網列AIoT／邊緣運算、嵌入式系統、網通及醫療電腦；據此判定核心為工業邊緣運算，智慧製造與網通為產品應用延伸。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ieiworld.com/tw/",
+        "https://www.ieiworld.com/_attach_file/about/37_2023-ESG_report_0823_E5B7B2E5A393E7B8AE28E5AE98E7B6B2E794A829.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "3003": {
+      "product_hypothesis": "電氣端子、車用連接器、電動車充電連接器及電池模組連接器製造商",
+      "supply_chain_tags": [
+        "電氣端子",
+        "車用連接器",
+        "EV充電連接器",
+        "電池模組連接器"
+      ],
+      "theme_hypotheses": [
+        "電動車 / 綠色運輸",
+        "儲能 / 電池",
+        "電力控制 / 工業自動化"
+      ],
+      "rationale": "官方產品頁列示電氣端子、車用連接器、AC/DC電動車充電方案與BMC電池模組連接器；主題為依產品應用場景歸類。",
+      "confidence": "high",
+      "source_urls": [
+        "https://ksterminals.com/",
+        "https://ksterminals.com/ev-charging-connectors-inlets/",
+        "https://ksterminals.com/automotive-connectors/",
+        "https://ksterminals.com/single-pole-bmc/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "2465": {
+      "product_hypothesis": "GPU繪圖卡、AI工作站與伺服器、AI開發管理軟體及虛擬桌面終端解決方案",
+      "supply_chain_tags": [
+        "GPU運算",
+        "AI伺服器／工作站",
+        "AI軟體平台",
+        "VDI終端"
+      ],
+      "theme_hypotheses": [
+        "AI 基礎建設 / 高速傳輸",
+        "邊緣 AI / AIoT"
+      ],
+      "rationale": "官方年報與產品頁列示繪圖卡、工作站、AI軟體及伺服器；AIDMS用於AOI影像AI管理。歸類AI基建與邊緣AI屬產品應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.leadtek.com/cht/company/pdf/LR_2023_annual.pdf",
+        "https://www.leadtek.com.tw/cht/products/workstation_server%2830%29/WinFast_WS2050%2840978%29/detail",
+        "https://www.leadtek.com/cht/about/stock/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "3229": {
+      "product_hypothesis": "印刷電路板製造、PCB鑽孔代工及磷銅球供應",
+      "supply_chain_tags": [
+        "磷銅球",
+        "PCB製造",
+        "PCB鑽孔代工"
+      ],
+      "theme_hypotheses": [
+        "PCB / 高階材料"
+      ],
+      "rationale": "證交所資料列示PCB製造買賣、磷銅球製造買賣及鑽孔代工；歸入PCB／高階材料為供應鏈分類推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://wwwc.twse.com.tw/pdf/ch/3229_ch.pdf",
+        "https://www.cheer-time.com.tw/index.php?d=42&g=&sg=14&view=news",
+        "https://www.cheer-time.com.tw/uploads/files/111%E5%B9%B4%E5%B9%B4%E5%A0%B1-%E4%B8%AD%E6%96%87%E7%89%88%E4%B8%8A%E5%82%B3%E6%AA%94.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "1455": {
+      "product_hypothesis": "尼龍6/66粒、尼龍與聚酯原絲及加工絲、PA工程塑膠複合材料與中空纖維膜",
+      "supply_chain_tags": [
+        "尼龍粒",
+        "尼龍／聚酯加工絲",
+        "PA工程塑膠複材",
+        "再生纖維"
+      ],
+      "theme_hypotheses": [
+        "石化 / 原物料",
+        "特用化學 / 高階材料"
+      ],
+      "rationale": "官方年報揭露加工絲、尼龍粒與複材為主要商品；官網載明尼龍粒用於工程塑膠等。歸入石化原料，特用化材屬應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.zigsheng.com/",
+        "https://www.zigsheng.com/zig-sheng-products-zh/nylon-chips-zh/",
+        "https://www.zigsheng.com/zig-sheng-products-zh/nylon-compound-material-zh/",
+        "https://www.zigsheng.com/wp-content/uploads/axis-docs/114%E5%B9%B4%E5%BA%A6%E8%82%A1%E6%9D%B1%E6%9C%83%E5%B9%B4%E5%A0%B1.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "3026": {
+      "product_hypothesis": "積層陶瓷電容（MLCC）與陶瓷散熱基板金屬化加工，並代理半導體及電子零組件",
+      "supply_chain_tags": [
+        "MLCC",
+        "被動元件",
+        "陶瓷散熱基板",
+        "電子零組件通路"
+      ],
+      "theme_hypotheses": [
+        "光電 / 電子零組件",
+        "電動車 / 綠色運輸",
+        "電力控制 / 工業自動化"
+      ],
+      "rationale": "官方揭露自製MLCC、陶瓷散熱基板並代理半導體元件；車用、電源與太陽能逆變器為已列應用，後三者屬應用延伸推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.holystone.com.tw/page_list.php?lang=ch&mlevel1=6&mlevel2=32",
+        "https://www.holystone.com.tw/product_detail.php?DetailId=QD48PyomJTFAKCsjJV4r&lang=gb&lineId=QD48PyomJTE5QCgrIyVeKw%3D%3D&mlevel1=14",
+        "https://www.holystone.com.tw/product_applaction_2.php?DetailId=QD48PyomJTIxQCgrIyVeKw%3D%3D&lang=ch&mlevel1=15"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "2030": {
+      "product_hypothesis": "不鏽鋼管、方矩管、衛生管、熱交換器管及不鏽鋼板捲製造銷售",
+      "supply_chain_tags": [
+        "不鏽鋼管",
+        "不鏽鋼板捲",
+        "工業配管",
+        "熱交換器管"
+      ],
+      "theme_hypotheses": [
+        "金屬材料 / 資源循環"
+      ],
+      "rationale": "官方產品頁列工業配管、機械構造、鍋爐熱交換器、衛生鋼管及板捲；年報亦稱主業為不鏽鋼管與鋼捲。歸類金屬材料為產品屬性推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://froch.com/TCHI/Major_Products.html",
+        "https://www.froch.com.tw/File/Investor_Service/2024%20Annual%20Report.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "6225": {
+      "product_hypothesis": "汽機車安裝式雙鏡頭高畫質行車紀錄器及GPS導航產品",
+      "supply_chain_tags": [
+        "行車紀錄器",
+        "車載影像",
+        "影像處理",
+        "GPS導航"
+      ],
+      "theme_hypotheses": [
+        "消費電子 / 顯示器"
+      ],
+      "rationale": "年報明載主要業務集中行車紀錄器；官網列汽車、機車行車紀錄器及GPS導航。消費電子為依終端產品作的分類推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.aiptek.com.tw/home.jsp?lang=tw",
+        "https://www.aiptek.com.tw/uploads/information_year/tw/113%E5%B9%B4%E5%A0%B1.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "6206": {
+      "product_hypothesis": "零售餐飲POS終端、自助結帳／點餐KIOSK、Panel PC與嵌入式邊緣運算設備",
+      "supply_chain_tags": [
+        "POS終端",
+        "自助服務KIOSK",
+        "工業電腦",
+        "邊緣AI運算"
+      ],
+      "theme_hypotheses": [
+        "邊緣 AI / AIoT",
+        "電商 / 數位支付"
+      ],
+      "rationale": "官網列POS、自助服務KIOSK及Edge AI Box PC，並有AI視覺自助結帳與SoftPOS產品；主題歸類係依其零售支付及邊緣運算應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.flytech.com/product.php?cid=1",
+        "https://www.flytech.com/product.php?cid=2",
+        "https://flytech.com/product/23/k655n3",
+        "https://www.flytech.com/product/97/k879",
+        "https://www.flytech.com/about.php"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "1605": {
+      "product_hypothesis": "電力、通信及產業線纜與不鏽鋼、鎳資源材料製造商",
+      "supply_chain_tags": [
+        "電力電纜",
+        "通信光纜",
+        "不鏽鋼長材／無縫管",
+        "鎳資源與回收"
+      ],
+      "theme_hypotheses": [
+        "金屬材料 / 資源循環",
+        "電動車 / 綠色運輸",
+        "網通 / 寬頻升級"
+      ],
+      "rationale": "官方證實產品涵蓋電力、通信、海底及電動車線纜，以及不鏽鋼與鎳資源；循環材料、綠色運輸與寬頻為應用端推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.walsin.com/our-business/wire-cable/",
+        "https://www.walsin.com/our-business/stainless-steel/",
+        "https://www.walsin.com/about-us/who-we-are/",
+        "https://www.walsin.com/2025annual-report/en/"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "1409": {
+      "product_hypothesis": "聚酯纖維、PET樹脂／瓶材與光學級PET、TAC薄膜基材及光學膜材料",
+      "supply_chain_tags": [
+        "聚酯纖維",
+        "PET樹脂與瓶材",
+        "光學級PET薄膜",
+        "TAC光學膜基材"
+      ],
+      "theme_hypotheses": [
+        "石化 / 原物料",
+        "消費電子 / 顯示器"
+      ],
+      "rationale": "官方列化纖、塑膠與光電事業；光學膜供應FPD／LCD上游材料。歸入顯示器與石化原料係依產品應用推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.shinkong.com.tw/",
+        "https://www.shinkong.com.tw/product/showIndustry/7",
+        "https://www.shinkong.com.tw/en/front/about"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "2301": {
+      "product_hypothesis": "AI資料中心伺服器電源、機架式高壓直流供電、BBU備援與液冷整合方案",
+      "supply_chain_tags": [
+        "AI伺服器電源",
+        "資料中心電源機櫃",
+        "BBU備援電源",
+        "液冷散熱系統"
+      ],
+      "theme_hypotheses": [
+        "AI 基礎建設 / 高速傳輸",
+        "電力控制 / 工業自動化"
+      ],
+      "rationale": "官方產品頁列AI伺服器電源；官方展訊展示800VDC電源機櫃、Power Shelf、BBU與液冷。歸類為AI基礎設施及電力控制屬合理推論。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.liteon.com/zh-tw/product/energy-management/data-center-power-supply-system/server-power",
+        "https://www.liteon.com/zh-tw/news/press-center/content/liteon-computex-2026",
+        "https://www.liteon.com/zh-tw/news/press-center/content/liteon-ocp-nvidia-2025"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "6962": {
+      "product_hypothesis": "顯示器驅動IC、觸控控制IC與時序控制器（TCON）設計服務，應用於手機、筆電、工控及車載顯示器。",
+      "supply_chain_tags": [
+        "顯示驅動IC（DDIC）",
+        "觸控暨顯示整合IC（TDDI）",
+        "觸控控制IC（TPIC）",
+        "時序控制器（TCON）"
+      ],
+      "theme_hypotheses": [
+        "消費電子 / 顯示器"
+      ],
+      "rationale": "證交所資料明載其研發、銷售顯示與觸控驅動IC，並拓展工控觸控及車載TDDI；歸類為顯示器主題。",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.twse.com.tw/market_insights/zh/detail/8a8216d69236c2e301932efedc08049f",
+        "https://www.twse.com.tw/staticFiles/news/news/tsecnews/ff8080818d397607018e89f726000464.pdf"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
+    },
+    "6116": {
+      "product_hypothesis": "中小尺寸TFT-LCD顯示面板與觸控整合模組，供車載、工控、穿戴及消費終端",
+      "supply_chain_tags": [
+        "TFT-LCD面板",
+        "觸控顯示模組",
+        "車載顯示",
+        "工控顯示"
+      ],
+      "theme_hypotheses": [
+        "消費電子 / 顯示器",
+        "光電 / 電子零組件",
+        "電動車 / 綠色運輸"
+      ],
+      "rationale": "114年度年報載明TFT-LCD占營收99%，並布局車載、工控、穿戴與EVD低功耗顯示；車載為應用延伸。",
+      "confidence": "high",
+      "source_urls": [
+        "https://stock.walsin.com/downloads/893/%E5%B9%B4%E5%A0%B1"
+      ],
+      "source_status": "LLM 假說／來源待人工確認",
+      "reviewed_at": "2026-08-11",
+      "model": "gpt-5.6-terra"
     }
   }
 }
