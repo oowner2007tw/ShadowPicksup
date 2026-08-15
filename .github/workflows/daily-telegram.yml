@@ -1,4 +1,4 @@
-name: Daily Taiwan Stock Tier Telegram
+name: Daily Taiwan Stock Tier Update
 
 on:
   schedule:
@@ -18,8 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_RESEARCH_MODEL: gpt-5.6-terra
       PYTHONUNBUFFERED: "1"
@@ -42,9 +40,9 @@ jobs:
         # The final step still marks the run failed so the cause is visible.
         continue-on-error: true
 
-      - name: Refresh report and send Telegram
+      - name: Refresh report without Telegram
         if: always()
-        run: python analyze_twse_momentum.py
+        run: python analyze_twse_momentum.py --no-telegram
 
       - name: Save refreshed research data
         if: always()
