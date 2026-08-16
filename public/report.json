@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T09:15:06.422917+08:00",
+  "generated_at": "2026-08-16T09:19:26.509838+08:00",
   "market_signature": "e394c34be0307a92619a",
   "freshness": "fresh",
   "last_error": null,
@@ -130,9 +130,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "up",
-          "lifecycle_status": "升級"
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3017",
@@ -245,9 +245,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "S",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3653",
@@ -415,10 +415,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6669",
@@ -470,10 +470,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2465",
@@ -530,7 +530,7 @@
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "S",
+          "previous_tier": "A",
           "tier_change": "down",
           "lifecycle_status": "自然降級"
         },
@@ -690,9 +690,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 0.55,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         },
         {
           "code": "3518",
@@ -968,9 +968,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         },
         {
           "code": "6805",
@@ -1133,15 +1133,15 @@
           "c_stagnant_days": 1,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         }
       ],
       "tier": 1,
       "active_breadth": 8,
       "cooling_count": 12,
-      "lifecycle": "退潮",
+      "lifecycle": "成熟",
       "previous_tier": 1,
       "tier_change": "same"
     },
@@ -1204,9 +1204,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 0.55,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "up",
-          "lifecycle_status": "升級"
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2383",
@@ -1261,10 +1261,10 @@
           "miss_streak": 0,
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
-          "is_new": true,
-          "previous_tier": null,
-          "tier_change": "new",
-          "lifecycle_status": "新進"
+          "is_new": false,
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "8046",
@@ -1321,9 +1321,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "B",
-          "tier_change": "returning",
-          "lifecycle_status": "回溫"
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "3229",
@@ -1378,7 +1378,7 @@
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "A",
+          "previous_tier": "B",
           "tier_change": "down",
           "lifecycle_status": "自然降級"
         }
@@ -1386,7 +1386,7 @@
       "tier": 2,
       "active_breadth": 3,
       "cooling_count": 1,
-      "lifecycle": "擴散",
+      "lifecycle": "成熟",
       "previous_tier": 2,
       "tier_change": "same"
     },
@@ -1510,9 +1510,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         },
         {
           "code": "6962",
@@ -1747,9 +1747,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "S",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "A",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "6533",
@@ -1804,7 +1804,7 @@
       "tier": 4,
       "active_breadth": 1,
       "cooling_count": 1,
-      "lifecycle": "退潮",
+      "lifecycle": "成熟",
       "previous_tier": 4,
       "tier_change": "same"
     },
@@ -1871,9 +1871,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "up",
-          "lifecycle_status": "升級"
+          "previous_tier": "S",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2031",
@@ -2084,17 +2084,17 @@
           "c_stagnant_days": 1,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         }
       ],
       "tier": 5,
       "active_breadth": 1,
       "cooling_count": 4,
-      "lifecycle": "退潮",
-      "previous_tier": 7,
-      "tier_change": "up"
+      "lifecycle": "成熟",
+      "previous_tier": 5,
+      "tier_change": "same"
     },
     {
       "name": "光電 / 電子零組件",
@@ -2160,9 +2160,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2426",
@@ -2272,7 +2272,7 @@
       "tier": 6,
       "active_breadth": 1,
       "cooling_count": 2,
-      "lifecycle": "退潮",
+      "lifecycle": "成熟",
       "previous_tier": 6,
       "tier_change": "same"
     },
@@ -2332,9 +2332,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "2397",
@@ -2396,9 +2396,9 @@
       "tier": 7,
       "active_breadth": 1,
       "cooling_count": 1,
-      "lifecycle": "退潮",
-      "previous_tier": 5,
-      "tier_change": "down"
+      "lifecycle": "成熟",
+      "previous_tier": 7,
+      "tier_change": "same"
     },
     {
       "name": "機器人 / 智慧製造",
@@ -2710,8 +2710,8 @@
       "provisional_count": 1,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 10,
-      "tier_change": "up",
+      "previous_tier": 8,
+      "tier_change": "same",
       "tier": 8
     },
     {
@@ -2770,9 +2770,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         },
         {
           "code": "4722",
@@ -2864,9 +2864,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         }
       ],
       "mapping_basis": [
@@ -2880,8 +2880,8 @@
       "provisional_count": 0,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 8,
-      "tier_change": "down",
+      "previous_tier": 9,
+      "tier_change": "same",
       "tier": 9
     },
     {
@@ -3017,8 +3017,8 @@
       "provisional_count": 1,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 12,
-      "tier_change": "up",
+      "previous_tier": 10,
+      "tier_change": "same",
       "tier": 10
     },
     {
@@ -3198,8 +3198,8 @@
       "provisional_count": 2,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 13,
-      "tier_change": "up",
+      "previous_tier": 11,
+      "tier_change": "same",
       "tier": 11
     },
     {
@@ -3373,9 +3373,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         },
         {
           "code": "6243",
@@ -3445,8 +3445,8 @@
       "provisional_count": 4,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 9,
-      "tier_change": "down",
+      "previous_tier": 12,
+      "tier_change": "same",
       "tier": 12
     },
     {
@@ -3564,9 +3564,9 @@
           "c_stagnant_days": 1,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "B",
+          "previous_tier": "C",
           "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "lifecycle_status": "C 觀察 1/5"
         },
         {
           "code": "2010",
@@ -3636,8 +3636,8 @@
       "provisional_count": 3,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 11,
-      "tier_change": "down",
+      "previous_tier": 13,
+      "tier_change": "same",
       "tier": 13
     },
     {
@@ -3856,8 +3856,8 @@
       "provisional_count": 0,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 15,
-      "tier_change": "up",
+      "previous_tier": 14,
+      "tier_change": "same",
       "tier": 14
     },
     {
@@ -4040,8 +4040,8 @@
       "provisional_count": 3,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 16,
-      "tier_change": "up",
+      "previous_tier": 15,
+      "tier_change": "same",
       "tier": 15
     },
     {
@@ -4225,8 +4225,8 @@
       "provisional_count": 3,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 17,
-      "tier_change": "up",
+      "previous_tier": 16,
+      "tier_change": "same",
       "tier": 16
     },
     {
@@ -4358,8 +4358,8 @@
       "provisional_count": 2,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 18,
-      "tier_change": "up",
+      "previous_tier": 17,
+      "tier_change": "same",
       "tier": 17
     },
     {
@@ -4418,7 +4418,7 @@
           "c_stagnant_days": 0,
           "base_score_factor": 0.85,
           "is_new": false,
-          "previous_tier": "A",
+          "previous_tier": "B",
           "tier_change": "down",
           "lifecycle_status": "自然降級"
         }
@@ -4434,8 +4434,8 @@
       "provisional_count": 1,
       "early_cluster_count": 0,
       "lifecycle": "退潮",
-      "previous_tier": 14,
-      "tier_change": "down",
+      "previous_tier": 18,
+      "tier_change": "same",
       "tier": 18
     },
     {
@@ -4540,9 +4540,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
-      "tier_change": "up",
-      "lifecycle_status": "升級"
+      "previous_tier": "S",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6214",
@@ -4578,9 +4578,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
-      "tier_change": "up",
-      "lifecycle_status": "升級"
+      "previous_tier": "S",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6921",
@@ -4614,10 +4614,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "S",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2324",
@@ -4652,9 +4652,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "C",
-      "tier_change": "returning",
-      "lifecycle_status": "回溫"
+      "previous_tier": "A",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2634",
@@ -4688,10 +4688,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "A",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "7795",
@@ -4725,9 +4725,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "S",
-      "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "previous_tier": "A",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "3532",
@@ -4833,10 +4833,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "A",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "8033",
@@ -4868,45 +4868,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
-    },
-    {
-      "code": "2492",
-      "name": "華新科",
-      "windows": [
-        "4d",
-        "5d",
-        "10d"
-      ],
-      "appearances": 3,
-      "effective_appearances": 2.3,
-      "continuity": 3,
-      "avg_rank": 29.7,
-      "avg_rank_percentile": 59.9,
-      "signal_score": 1.27,
-      "avg_gain_pct": 23.29,
-      "latest_window": "4d",
-      "theme_basis": "待產品推論",
-      "theme_confidence": "未映射",
-      "product_label": null,
-      "is_provisional": false,
-      "score_factor": 0.0,
-      "llm_review": null,
-      "tier": "A",
-      "review_priority": "P2／依動能排程覆核",
-      "review_status": "等待 LLM 研究",
-      "raw_tier": "B",
-      "is_active": true,
-      "miss_streak": 0,
-      "c_stagnant_days": 0,
-      "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "S",
-      "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "previous_tier": "A",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6770",
@@ -4943,8 +4908,8 @@
       "base_score_factor": 0.0,
       "is_new": false,
       "previous_tier": "B",
-      "tier_change": "returning",
-      "lifecycle_status": "回溫"
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6108",
@@ -5016,10 +4981,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2915",
@@ -5053,10 +5018,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6477",
@@ -5089,10 +5054,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2429",
@@ -5125,10 +5090,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "3356",
@@ -5161,10 +5126,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "3044",
@@ -5199,9 +5164,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "A",
-      "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "9945",
@@ -5233,10 +5198,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2630",
@@ -5268,10 +5233,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6446",
@@ -5305,9 +5270,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "C",
-      "tier_change": "returning",
-      "lifecycle_status": "回溫"
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2645",
@@ -5338,10 +5303,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "1515",
@@ -5372,10 +5337,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2359",
@@ -5413,6 +5378,41 @@
       "lifecycle_status": "持穩"
     },
     {
+      "code": "2492",
+      "name": "華新科",
+      "windows": [
+        "4d",
+        "5d",
+        "10d"
+      ],
+      "appearances": 3,
+      "effective_appearances": 2.3,
+      "continuity": 3,
+      "avg_rank": 29.7,
+      "avg_rank_percentile": 59.9,
+      "signal_score": 1.27,
+      "avg_gain_pct": 23.29,
+      "latest_window": "4d",
+      "theme_basis": "待產品推論",
+      "theme_confidence": "未映射",
+      "product_label": null,
+      "is_provisional": false,
+      "score_factor": 0.0,
+      "llm_review": null,
+      "tier": "B",
+      "review_priority": "P2／依動能排程覆核",
+      "review_status": "等待 LLM 研究",
+      "raw_tier": "B",
+      "is_active": true,
+      "miss_streak": 0,
+      "c_stagnant_days": 0,
+      "base_score_factor": 0.0,
+      "is_new": false,
+      "previous_tier": "A",
+      "tier_change": "down",
+      "lifecycle_status": "自然降級"
+    },
+    {
       "code": "4564",
       "name": "元翎",
       "windows": [
@@ -5441,10 +5441,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2331",
@@ -5475,10 +5475,10 @@
       "miss_streak": 0,
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
-      "is_new": true,
-      "previous_tier": null,
-      "tier_change": "new",
-      "lifecycle_status": "新進"
+      "is_new": false,
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6672",
@@ -5511,8 +5511,8 @@
       "base_score_factor": 0.0,
       "is_new": false,
       "previous_tier": "B",
-      "tier_change": "returning",
-      "lifecycle_status": "回溫"
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "6442",
@@ -5545,8 +5545,8 @@
       "base_score_factor": 0.0,
       "is_new": false,
       "previous_tier": "B",
-      "tier_change": "returning",
-      "lifecycle_status": "回溫"
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "3090",
@@ -5615,7 +5615,7 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "A",
+      "previous_tier": "B",
       "tier_change": "down",
       "lifecycle_status": "自然降級"
     },
@@ -5650,7 +5650,7 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "A",
+      "previous_tier": "B",
       "tier_change": "down",
       "lifecycle_status": "自然降級"
     },
@@ -5688,9 +5688,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "5515",
@@ -5726,9 +5726,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "8150",
@@ -5838,9 +5838,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "6931",
@@ -5875,9 +5875,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "3712",
@@ -5950,9 +5950,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "2546",
@@ -5987,9 +5987,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "6715",
@@ -6022,9 +6022,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "8261",
@@ -6058,9 +6058,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "2305",
@@ -6094,9 +6094,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "6743",
@@ -6165,9 +6165,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "2438",
@@ -6235,9 +6235,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "2428",
@@ -6270,9 +6270,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "1718",
@@ -6515,9 +6515,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "4960",
@@ -6685,9 +6685,9 @@
       "c_stagnant_days": 1,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "B",
+      "previous_tier": "C",
       "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "lifecycle_status": "C 觀察 1/5"
     },
     {
       "code": "1904",
@@ -6763,70 +6763,13 @@
     "reviewed": 0,
     "source_verified": 0
   },
-  "new_trading_session": true,
-  "exited_stocks": [
-    {
-      "code": "1597",
-      "name": "直得",
-      "previous_tier": "C",
-      "theme": "機器人 / 智慧製造",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    },
-    {
-      "code": "2344",
-      "name": "華邦電",
-      "previous_tier": "C",
-      "theme": "記憶體 / IC 設計",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    },
-    {
-      "code": "2451",
-      "name": "創見",
-      "previous_tier": "C",
-      "theme": "記憶體 / IC 設計",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    },
-    {
-      "code": "2455",
-      "name": "全新",
-      "previous_tier": "C",
-      "theme": "AI 基礎建設 / 高速傳輸",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    },
-    {
-      "code": "3037",
-      "name": "欣興",
-      "previous_tier": "C",
-      "theme": "AI 基礎建設 / 高速傳輸",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    },
-    {
-      "code": "4576",
-      "name": "大銀微系統",
-      "previous_tier": "C",
-      "theme": "機器人 / 智慧製造",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    },
-    {
-      "code": "4961",
-      "name": "天鈺",
-      "previous_tier": "C",
-      "theme": "記憶體 / IC 設計",
-      "c_stagnant_days": 6,
-      "reason": "Tier C 已完整觀察 5 個交易日仍未轉強"
-    }
-  ],
+  "new_trading_session": false,
+  "exited_stocks": [],
   "lifecycle_summary": {
     "launching": 0,
-    "expanding": 1,
-    "mature": 1,
-    "cooling": 17,
-    "exited": 7
+    "expanding": 0,
+    "mature": 7,
+    "cooling": 12,
+    "exited": 0
   }
 }
