@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T13:56:41.433606+08:00",
+  "generated_at": "2026-08-30T12:01:15.536957+08:00",
   "market_signature": "240206c71028f0757cda",
   "freshness": "fresh",
   "last_error": null,
@@ -2841,9 +2841,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "A",
-      "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "3715",
