@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T11:34:10.673866+08:00",
+  "generated_at": "2026-09-14T11:43:54.424580+08:00",
   "market_signature": "9dc1dc21f25e3758c251",
   "freshness": "fresh",
   "last_error": null,
@@ -455,9 +455,9 @@
           "c_stagnant_days": 0,
           "base_score_factor": 1.0,
           "is_new": false,
-          "previous_tier": "A",
-          "tier_change": "down",
-          "lifecycle_status": "自然降級"
+          "previous_tier": "B",
+          "tier_change": "same",
+          "lifecycle_status": "持穩"
         },
         {
           "code": "8996",
