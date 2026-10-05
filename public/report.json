@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T12:40:10.149545+08:00",
+  "generated_at": "2026-10-05T12:27:18.640323+08:00",
   "market_signature": "e0d8338112c9d7f5b38a",
   "freshness": "fresh",
   "last_error": null,
@@ -2599,9 +2599,9 @@
       "c_stagnant_days": 0,
       "base_score_factor": 0.0,
       "is_new": false,
-      "previous_tier": "A",
-      "tier_change": "down",
-      "lifecycle_status": "自然降級"
+      "previous_tier": "B",
+      "tier_change": "same",
+      "lifecycle_status": "持穩"
     },
     {
       "code": "2327",
