@@ -2,8 +2,8 @@
 export const report = {
   "generated_at": "2026-10-28T12:23:20.600764+08:00",
   "market_signature": "94684a1c936e898e38a9",
-  "freshness": "fresh",
-  "last_error": null,
+  "freshness": "stale",
+  "last_error": "The read operation timed out",
   "source_urls": {
     "1d": "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_1.djhtm",
     "2d": "https://fubon-ebrokerdj.fbs.com.tw/z/zg/zg_A_0_2.djhtm",
